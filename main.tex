@@ -1,0 +1,215 @@
+\documentclass[conf]{new-aiaa}
+%\documentclass[journal]{new-aiaa} for journal papers
+\usepackage[utf8]{inputenc}
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage[version=4]{mhchem}
+\usepackage{siunitx}
+\usepackage{longtable,tabularx}
+\setlength\LTleft{0pt} 
+
+\title{Vector field  path following and obstacle avoidance singularity mitigation via look-ahead flight envelope}
+
+\author{First A. Author\footnote{Insert Job Title, Department Name, Address/Mail Stop, and AIAA Member Grade (if any) for first author.} and Second B. Author Jr.\footnote{Insert Job Title, Department Name, Address/Mail Stop, and AIAA Member Grade (if any) for second author.}}
+\affil{Business or Academic Affiliation 1, City, State, Zip Code}
+\author{Third C. Author\footnote{Insert Job Title, Department Name, Address/Mail Stop, and AIAA Member Grade (if any) for third author.}}
+
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+ABSTRACT
+\end{abstract}
+
+\textbf{Problem Statement} 
+
+Unmanned Aerial Vehicles (UAVs) conventially navigate a series of off-line generated and initially obstacle free waypoints that may have to be re-planned when encountering a previously unknown obstacle. Re-planning waypoints could be avoided by implementing a path following and obstacle avoidance vector field guidance. Guidance to converge and follow a pre-planned path is produced by an attractive vector field while obstacles are represented by a repulsive vector field. Summing together attractive goal and repulsive obstacle fields produce a guidance for tracking a pre-planned path while avoiding unplanned obstacles. Small regions of null guidance, called singularities, may be produced when summing attractive and repulsive fields together. 
+
+Method for path following, obstacle avoidance, and detection / mitigation of vector field singularities for UAVs etc
+
+
+
+ 
+
+
+
+
+
+\textbf{Motivation}
+\begin{itemize}
+	\item Conventional waypoint guidance relies on a pre-planned, flyable, and obstacle free path 
+	\item Obstacles unaccounted for during planning may require a re-plan which may require communication with a ground station
+\end{itemize}
+
+
+\textbf{Background}
+\begin{itemize}
+	\item Vector field guidance for path following has been shown to be both robust in the presence of external disturbances and produce low cross track error flight
+	\item Obstacles can be represented as repulsive fields and summed with attractive fields to produce an obstacle avoidance guidance
+	\item  Summing vector field guidance my produce singularities, resulting in no guidance
+	\item Repulsive fields currently provide no additional information on how to go around obstacle
+\end{itemize}
+
+
+\textbf{Contribution}
+\begin{itemize}
+	\item Method for compensating for singularities that may be experienced (Lookahead or fast detection)
+\end{itemize}
+
+
+
+
+\section{Nomenclature}
+
+{\renewcommand\arraystretch{1.0}
+\noindent\begin{longtable*}{@{}l @{\quad=\quad} l@{}}
+$VF$  & Vector Field \\
+\end{longtable*}}
+
+\section{Introduction}
+
+Unmanned Aerial Vehicles typically move through the environment by navigating a series of pre-planned and off-line generated waypoints. An on-board guidance system typically generates a desired heading based on the current active waypoint and the current position of the UAV. Once the UAV breaches the radius of the waypoint, guidance transitions to the proceeding waypoint. During waypoint navigation the UAV may encounter a previously unknown obstacle or change in the environment which may require a new obstacle free series of waypoints be generated. Dynamic environments may require frequent waypoint re-planning which may be difficult or impossible if communication with the ground station responsible for waypoint generation is lost. 
+
+(More information on path planning)
+
+
+Potential field models a robot's workspace as a gradient potential of attractive and repulsive artificial forces [k]. 
+
+
+
+	
+\begin{itemize}
+	\item UAS consists of vehicle, autopilot, ground station, radios
+	\item Missions typically pre-planned on ground station where flyable and obstacle free paths can be generated. (Figure of conventional waypoints)
+	\item Waypoints are sent to the autopilot over a radio and received and interpreted by the vehicles autopilot
+	\item Autopilot responsible for navigating waypoints while maintaining vehicle stability
+	\item Due to turn rate constraints or external disturbances, a vehicle may not follow the path perfectly where it may encounter an obstacle previously planned for
+	\item Demonstrate the above with dubins
+	\begin{itemize}
+		\item Introduce dubins as a way to approximate a UAVs dynamics, assume control working (cite)
+		\item Equations
+		\item Demonstrate Dubin's UAV not perfectly following path
+		\item Demonstrate Dubin's with wind not following path
+	\end{itemize}
+\end{itemize}
+
+
+
+\begin{itemize}
+	\item Reduced error for straight line and circular path following has been achieved by using vector field guidance (sujit)
+	\item Continuous vectors that asymptotically converge and follow straight and circular paths are both robust and produce guidance that results in low cross track error
+	\item Lyapunov VF primitives introduced (Nelson). Nelson stitched together primitives to produce complex paths similar to navigating waypoints
+	\item Curved path vector field was introduced in (griffiths)
+	\item Goncalves VF
+	\begin{itemize}
+		\item Path of any shape
+		\item Accounts for TV nature of paths
+		\item Field is produced by summing convergence and circulation terms that are easily accessable
+		\item Integral lines guaranteed to converge
+	\end{itemize}
+	\item Obstacles considered in standoff tracking scenario Wilhelm
+	\begin{itemize}
+		\item TV field loiter around moving ground target
+		\item obstacles represented by repulsive field 
+		\item Did not consider or identify singularities present in summed fields
+		\item Singularities are small regions or wells of no guidance where UAV may be trapped
+		\item No information on how to go around obstacle
+		\item Field used as a high level specification for avoidance
+		\item Hyperbolic activation function
+	\end{itemize} 
+
+	\item Activation functions of obstacle avoidance investigated in Zhu
+	\item Determining VF parameters that influence performance and singularity location 
+\end{itemize}
+
+
+
+
+
+\section{Methodology}
+\subsection{Singularity Detection}
+\begin{itemize}
+	\item Present VF equations for straight path following
+	\item Present VF equations for circular obstacle and obstacle definitions
+	\begin{itemize}
+		\item Repulsion, small 'path' radius
+		\item Decay function
+		\item No circulation versus circulation (side by side figure)
+	\end{itemize}
+
+	\item Sum fields together and show stages of normalization
+	\item Identify pre normalization singularity
+	\begin{itemize}
+		\item Surface plot (x,y,magnitude)
+		\item Identify undefined region and singularity (Evaluating entire space)
+		\item Find minimum of guidance function by evaluating several initial conditions
+		\item Method for finding all singularities as a reference to future look-ahead methods
+	\end{itemize}
+
+
+	\item Look-ahead and singularity detection
+	\item Location of all singularities not important if UAV is not going to encounter them
+	\item Introduce UAV flight envelope
+	\item Time, turn rate, constant velocity, produces possible locations of UAV
+	\item Evaluate ICs on flight envelope when near obstacle
+\end{itemize}
+
+\subsection{Modifying VF to avoid singularities}
+\begin{itemize}
+	\item Cause and location of singularities
+	\begin{itemize}
+			\item Adding circulation to the repulsive obstacle field reduces /removes singularity
+			\item Singularities will occur where both fields have equal strength
+			\item Prediction of singularity location based on decay function
+	\end{itemize}
+
+	\item Side by side repulsion and repulsion+circ singularity locations
+	\item Singularity detected, modify field to remove singularity from flight envelope
+	\item Objective function is:
+	\begin{itemize}
+		\item Avoid obstacle 
+		\item Avoid singularities
+		\item Minimize deviation from path
+	\end{itemize}
+
+\end{itemize}
+
+\section{Simulation}
+\begin{itemize}
+	\item Dubins UAV following a pre-planned straight path
+	\item Obstacle encountered
+	\item A guidance solution must be determined that:
+	\begin{itemize}
+		\item Determines location of singularities if present (inside flight envelope)
+		\item Solve VF parameters to remove / mitigate singularities
+		\item Solve VF parameters that result in guidance that  minimize error from path
+	\end{itemize}
+
+	\item Various UAV speeds
+	\item Worse case scenario presented (on path)
+	\item Multiple obstacles on path (sequential)
+	\item Compare non-modified guidance with modified guidance
+	\begin{itemize}
+		\item Deviation from path
+		\item Yes/no obstacle avoided
+		\item singularity avoided in flight envelope
+	\end{itemize}
+\end{itemize}
+
+
+\section{Conclusion}
+
+
+
+\section*{Appendix}
+
+
+
+\section*{Acknowledgments}
+
+
+
+\end{document}
