@@ -1,4 +1,4 @@
-\begin{thebibliography}{8}
+\begin{thebibliography}{23}
 \newcommand{\enquote}[1]{``#1''}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
@@ -8,39 +8,168 @@
   \providecommand{\doi}{doi:\discretionary{}{}{}\begingroup
   \urlstyle{rm}\Url}\fi
 
-\bibitem[{Vatistas et~al.(1986)Vatistas, Lin, and Kwok}]{vatistas1986reverse}
-Vatistas, G.~H., Lin, S., and Kwok, C.~K., \enquote{Reverse Flow Radius in
-  Vortex Chambers,} \emph{AIAA Journal}, Vol.~24, No.~11, 1986, pp. 1872, 1873.
-\newblock \doi{10.2514/3.13046}.
+\bibitem[{Ariyur and Fregene(2008)}]{ariyur_autonomous_2008}
+Ariyur, K.~B., and Fregene, K.~O., \enquote{Autonomous tracking of a ground
+  vehicle by a {UAV},} \emph{American {Control} {Conference}, 2008}, IEEE,
+  2008, pp. 669--671.
 
-\bibitem[{Dornheim(1996)}]{dornheim1996planetary}
-Dornheim, M.~A., \enquote{Planetary Flight Surge Faces Budget Realities,}
-  \emph{Aviation Week \& Space Technology}, Vol. 145, No.~24, 1996, pp. 44--46.
+\bibitem[{Teuliere et~al.(2011)Teuliere, Eck, and
+  Marchand}]{teuliere_chasing_2011}
+Teuliere, C., Eck, L., and Marchand, E., \enquote{Chasing a moving target from
+  a flying {UAV},} \emph{Intelligent {Robots} and {Systems} ({IROS}), 2011
+  {IEEE}/{RSJ} {International} {Conference} on}, IEEE, 2011, pp. 4929--4934.
 
-\bibitem[{Terster(1997)}]{terster1997nasa}
-Terster, W., \enquote{NASA Considers Switch to Delta 2,} \emph{Space News},
-  Vol.~8, No.~2, 1997, pp. 13--19.
+\bibitem[{Oh et~al.(2013)Oh, Kim, Shin, Tsourdos, and
+  White}]{oh_coordinated_2013}
+Oh, H., Kim, S., Shin, H.-S., Tsourdos, A., and White, B., \enquote{Coordinated
+  standoff tracking of groups of moving targets using multiple {UAVs},}
+  \emph{Control \& {Automation} ({MED}), 2013 21st {Mediterranean} {Conference}
+  on}, IEEE, 2013, pp. 969--977.
+\newblock
+  \urlprefix\url{http://ieeexplore.ieee.org/abstract/document/6608839/}.
 
-\bibitem[{Peyret and Taylor(1983)}]{peyret2012computational}
-Peyret, R., and Taylor, T.~D., \emph{Computational Methods for Fluid Flow},
-  2\textsuperscript{nd} ed., Springer-Verlag, New York, 1983, Chaps. 7, 14.
+\bibitem[{{Hyondong Oh} et~al.(2015){Hyondong Oh}, {Seungkeun Kim}, {Hyo-sang
+  Shin}, and Tsourdos}]{hyondong_oh_coordinated_2015}
+{Hyondong Oh}, {Seungkeun Kim}, {Hyo-sang Shin}, and Tsourdos, A.,
+  \enquote{Coordinated standoff tracking of moving target groups using multiple
+  {UAVs},} \emph{IEEE Transactions on Aerospace and Electronic Systems},
+  Vol.~51, No.~2, 2015, pp. 1501--1514.
+\newblock \doi{10.1109/TAES.2015.140044},
+  \urlprefix\url{http://ieeexplore.ieee.org/document/7126199/}.
 
-\bibitem[{Oates(1984)}]{oates1997aerothermodynamics}
-Oates, G.~C. (ed.), \emph{Aerothermodynamics of Gas Turbine and Rocket
-  Propulsion}, AIAA Education Series, AIAA, New York, 1984, pp. 19, 136.
+\bibitem[{Ulun and Unel(2013)}]{ulun_coordinated_2013}
+Ulun, S., and Unel, M., \enquote{Coordinated motion of {UGVs} and a {UAV},}
+  \emph{Industrial {Electronics} {Society}, {IECON} 2013-39th {Annual}
+  {Conference} of the {IEEE}}, IEEE, 2013, pp. 4079--4084.
+\newblock
+  \urlprefix\url{http://ieeexplore.ieee.org/abstract/document/6699789/}.
 
-\bibitem[{Volpe(1994)}]{volpe1994techniques}
-Volpe, R., \enquote{Techniques for Collision Prevention, Impact Stability, and
-  Force Control by Space Manipulators,} \emph{Teleoperation and Robotics in
-  Space}, edited by S.~B. Skaar and C.~F. Ruoff, Progress in Astronautics and
-  Aeronautics, AIAA, Washington, DC, 1994, pp. 175--212.
+\bibitem[{Rimon(1992)}]{rimon_exact_1992}
+Rimon, E., \enquote{Exact {Robot} {Navigation} {Using} {Artificial} {Potential}
+  {Functions}.pdf,} , 1992.
 
-\bibitem[{Thompson(1989)}]{thompsonspacecraft}
-Thompson, C.~M., \enquote{Spacecraft Thermal Control, Design, and Operation,}
-  \emph{AIAA Guidance, Navigation, and Control Conference}, CP849, Vol.~1,
-  AIAA, Washington, DC, 1989, pp. 103--115.
+\bibitem[{Khatib(1986)}]{khatib_real-time_1986}
+Khatib, O., \enquote{Real-time obstacle avoidance for manipulators and mobile
+  robots,} \emph{The international journal of robotics research}, Vol.~5,
+  No.~1, 1986, pp. 90--98.
+\newblock
+  \urlprefix\url{http://journals.sagepub.com/doi/abs/10.1177/027836498600500106}.
 
-\bibitem[{Chi(1993)}]{chi1993fluid}
-Chi, Y. (ed.), \emph{Fluid Mechanics Proceedings}, NASA SP-255, 1993.
+\bibitem[{Koren and Borenstein(1991)}]{koren_potential_1991}
+Koren, Y., and Borenstein, J., \enquote{Potential {Field} {Methods} and their
+  inherent limitions for morbile robot navigation.pdf,} , 1991.
+\newblock \urlprefix\url{http://ieeexplore.ieee.org/document/131810/}.
+
+\bibitem[{Liu and Zhao(2016)}]{liu_virtual-waypoint_2016}
+Liu, Y., and Zhao, Y., \enquote{A virtual-waypoint based artificial potential
+  field method for {UAV} path planning,} \emph{Guidance, {Navigation} and
+  {Control} {Conference} ({CGNCC}), 2016 {IEEE} {Chinese}}, IEEE, 2016, pp.
+  949--953.
+\newblock
+  \urlprefix\url{http://ieeexplore.ieee.org/abstract/document/7828913/}.
+
+\bibitem[{Kim(2009)}]{kim_escaping_2009}
+Kim, D.~H., \enquote{Escaping route method for a trap situation in local path
+  planning,} \emph{International Journal of Control, Automation and Systems},
+  Vol.~7, No.~3, 2009, pp. 495--500.
+\newblock \doi{10.1007/s12555-009-0320-7},
+  \urlprefix\url{http://link.springer.com/10.1007/s12555-009-0320-7}.
+
+\bibitem[{Goerzen et~al.(2010)Goerzen, Kong, and Mettler}]{goerzen_survey_2010}
+Goerzen, C., Kong, Z., and Mettler, B., \enquote{A {Survey} of {Motion}
+  {Planning} {Algorithms} from the {Perspective} of {Autonomous} {UAV}
+  {Guidance},} \emph{Journal of Intelligent and Robotic Systems}, Vol.~57, No.
+  1-4, 2010, pp. 65--100.
+\newblock \doi{10.1007/s10846-009-9383-1},
+  \urlprefix\url{http://link.springer.com/10.1007/s10846-009-9383-1}.
+
+\bibitem[{{Lei Tang} et~al.(2010){Lei Tang}, {Songyi Dian}, {Gangxu Gu}, {Kunli
+  Zhou}, {Suihe Wang}, and {Xinghuan Feng}}]{lei_tang_novel_2010}
+{Lei Tang}, {Songyi Dian}, {Gangxu Gu}, {Kunli Zhou}, {Suihe Wang}, and
+  {Xinghuan Feng}, \enquote{A novel potential field method for obstacle
+  avoidance and path planning of mobile robot,} IEEE, 2010, pp. 633--637.
+\newblock \doi{10.1109/ICCSIT.2010.5565069},
+  \urlprefix\url{http://ieeexplore.ieee.org/document/5565069/}.
+
+\bibitem[{Li et~al.(2012)Li, Yamashita, Asama, and Tamura}]{li_efficient_2012}
+Li, G., Yamashita, A., Asama, H., and Tamura, Y., \enquote{An efficient
+  improved artificial potential field based regression search method for robot
+  path planning,} IEEE, 2012, pp. 1227--1232.
+\newblock \doi{10.1109/ICMA.2012.6283526},
+  \urlprefix\url{http://ieeexplore.ieee.org/document/6283526/}.
+
+\bibitem[{Sujit et~al.(2014)Sujit, Saripalli, and Sousa}]{sujit_unmanned_2014}
+Sujit, P., Saripalli, S., and Sousa, J.~B., \enquote{Unmanned {Aerial}
+  {Vehicle} {Path} {Following}: {A} {Survey} and {Analysis} of {Algorithms} for
+  {Fixed}-{Wing} {Unmanned} {Aerial} {Vehicless},} \emph{IEEE Control Systems},
+  Vol.~34, No.~1, 2014, pp. 42--59.
+\newblock \doi{10.1109/MCS.2013.2287568},
+  \urlprefix\url{http://ieeexplore.ieee.org/document/6712082/}.
+
+\bibitem[{Frew(2007)}]{frew_cooperative_2007}
+Frew, E.~W., \enquote{Cooperative standoff tracking of uncertain moving targets
+  using active robot networks,} \emph{Robotics and {Automation}, 2007 {IEEE}
+  {International} {Conference} on}, IEEE, 2007, pp. 3277--3282.
+\newblock
+  \urlprefix\url{http://ieeexplore.ieee.org/abstract/document/4209596/}.
+
+\bibitem[{Nelson(2005)}]{nelson_cooperative_2005}
+Nelson, D.~R., \enquote{Cooperative control of miniature air vehicles,} 2005.
+\newblock \urlprefix\url{http://scholarsarchive.byu.edu/etd/1095/}.
+
+\bibitem[{Miao et~al.(2016)Miao, Thakur, Erwin, Pierre, Wang, and
+  Fierro}]{miao_orthogonal_2016}
+Miao, Z., Thakur, D., Erwin, R.~S., Pierre, J., Wang, Y., and Fierro, R.,
+  \enquote{Orthogonal vector field-based control for a multi-robot system
+  circumnavigating a moving target in 3D,} \emph{Decision and {Control}
+  ({CDC}), 2016 {IEEE} 55th {Conference} on}, IEEE, 2016, pp. 6004--6009.
+\newblock
+  \urlprefix\url{http://ieeexplore.ieee.org/abstract/document/7799191/}.
+
+\bibitem[{Griffiths(2006)}]{griffiths_vector_2006}
+Griffiths, S., \enquote{Vector {Field} {Approach} for {Curved} {Path}
+  {Following} for {Miniature} {Aerial} {Vehicles},} American Institute of
+  Aeronautics and Astronautics, 2006.
+\newblock \doi{10.2514/6.2006-6467},
+  \urlprefix\url{http://arc.aiaa.org/doi/10.2514/6.2006-6467}.
+
+\bibitem[{Goncalves et~al.(2009)Goncalves, Pimenta, Maia, and
+  Pereira}]{goncalves_artificial_2009}
+Goncalves, V.~M., Pimenta, L. C.~A., Maia, C.~A., and Pereira, G. A.~S.,
+  \enquote{Artificial vector fields for robot convergence and circulation of
+  time-varying curves in n-dimensional spaces,} IEEE, 2009, pp. 2012--2017.
+\newblock \doi{10.1109/ACC.2009.5160350},
+  \urlprefix\url{http://ieeexplore.ieee.org/document/5160350/}.
+
+\bibitem[{Gonçalves et~al.(2010{\natexlab{a}})Gonçalves, Pimenta, Maia,
+  Pereira, Dutra, Michael, Fink, and Kumar}]{goncalves_circulation_2010}
+Gonçalves, V.~M., Pimenta, L.~C., Maia, C.~A., Pereira, G.~A., Dutra, B.~C.,
+  Michael, N., Fink, J., and Kumar, V., \enquote{Circulation of curves using
+  vector fields: actual robot experiments in 2D and 3D workspaces,}
+  \emph{Robotics and {Automation} ({ICRA}), 2010 {IEEE} {International}
+  {Conference} on}, IEEE, 2010{\natexlab{a}}, pp. 1136--1141.
+
+\bibitem[{Gonçalves et~al.(2010{\natexlab{b}})Gonçalves, Pimenta, Maia,
+  Dutra, and Pereira}]{goncalves_vector_2010}
+Gonçalves, V.~M., Pimenta, L.~C., Maia, C.~A., Dutra, B.~C., and Pereira,
+  G.~A., \enquote{Vector fields for robot navigation along time-varying curves
+  in \$ n \$-dimensions,} \emph{IEEE Transactions on Robotics}, Vol.~26, No.~4,
+  2010{\natexlab{b}}, pp. 647--659.
+\newblock
+  \urlprefix\url{http://ieeexplore.ieee.org/abstract/document/5504176/}.
+
+\bibitem[{Gerlach(2014)}]{gerlach_autonomous_2014}
+Gerlach, A.~R., \emph{Autonomous {Path}-{Following} by {Approximate} {Inverse}
+  {Dynamics} and {Vector} {Field} {Prediction}}, University of Cincinnati,
+  2014.
+\newblock
+  \urlprefix\url{http://search.proquest.com/openview/432d738d856bf0a9b46acea1b1eee08f/1?pq-origsite=gscholar&cbl=18750&diss=y}.
+
+\bibitem[{Panagou(2014)}]{panagou_motion_2014}
+Panagou, D., \enquote{Motion planning and collision avoidance using navigation
+  vector fields,} \emph{Robotics and {Automation} ({ICRA}), 2014 {IEEE}
+  {International} {Conference} on}, IEEE, 2014, pp. 2513--2518.
+\newblock
+  \urlprefix\url{http://ieeexplore.ieee.org/abstract/document/6907210/}.
 
 \end{thebibliography}

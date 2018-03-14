@@ -1,6 +1,10 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: main.aux
 The style file: new-aiaa.bst
-Database file #1: sample.bib
-Warning--empty pages in peyret2012computational
-Warning--empty chapter and pages in oates1997aerothermodynamics
-(There were 2 warnings)
+Database file #1: bib.bib
+Warning--empty booktitle in lei_tang_novel_2010
+Warning--empty booktitle in li_efficient_2012
+Warning--empty journal in nelson_cooperative_2005
+Warning--empty booktitle in griffiths_vector_2006
+Warning--empty pages in griffiths_vector_2006
+Warning--empty booktitle in goncalves_artificial_2009
+(There were 6 warnings)
