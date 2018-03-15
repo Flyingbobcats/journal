@@ -8,6 +8,9 @@
 \usepackage{siunitx}
 \usepackage{longtable,tabularx}
 \usepackage{float}
+\usepackage{subfigmat}
+\usepackage{setspace}
+\doublespacing
 
 \setlength\LTleft{0pt} 
 
@@ -68,61 +71,153 @@ $VF$  & Vector Field \\
 \end{longtable*}}
 
 \section{Introduction}
-Unmanned Aerial Vehicles are pilotless aircraft used by military, police, and civilian communities for tasks such as reconnaissance, damage assessment, natural disaster surveying, and target tracking \cite{ariyur_autonomous_2008,teuliere_chasing_2011}. Tasks can be performed by a single UAV or with a team of other air, ground, or marine vehicles \cite{oh_coordinated_2013,hyondong_oh_coordinated_2015,ulun_coordinated_2013}. Missions are typically accomplished by following a series of pre-planned waypoints that are generated off-line at a ground station and relayed over radio. Obstacles such as buildings or terrain may be considered during planning to prevent collisions, as seen in Figure \ref{fig:simplewaypoints}. 
+Unmanned Aerial Vehicles are pilotless aircraft used by military, police, and civilian communities for tasks such as reconnaissance, damage assessment, natural disaster surveying, and target tracking \cite{ariyur_autonomous_2008,teuliere_chasing_2011}. Tasks can be performed by a single UAV or with a team of other air, ground, or marine vehicles \cite{oh_coordinated_2013,hyondong_oh_coordinated_2015,ulun_coordinated_2013}. Autonomous vehicle missions are typically accomplished by navigating a series of waypoints \cite{ariyur_autonomous_2008} or following a path \cite{oliveira_moving_2016}. Waypoints are conventionally generated off-line at a ground station and relayed over radio to the UAVs autopilot. The on-board guidance directs the UAV towards the current active waypoint. Once the UAV has reached a pre-defined distance from the waypoint, the UAV is directed to the next waypoint. An example of a UAV following waypoint guidance while avoiding an obstacle is shown in Figure \ref{fig:simplewaypointsWithUAVPath}
+
+
+
+
+
+
+%Unmanned Aerial Vehicles are pilotless aircraft used by military, police, and civilian communities for tasks such as reconnaissance, damage assessment, natural disaster surveying, and target tracking \cite{ariyur_autonomous_2008,teuliere_chasing_2011}. Tasks can be performed by a single UAV or with a team of other air, ground, or marine vehicles \cite{oh_coordinated_2013,hyondong_oh_coordinated_2015,ulun_coordinated_2013}. Missions are typically accomplished by following a series of pre-planned waypoints that are generated off-line at a ground station and relayed over radio. Obstacles such as buildings or terrain may be considered during planning to prevent collisions, as seen in Figure \ref{fig:simplewaypoints}. 
+%
+%\begin{figure}[H]
+%	\centering
+%	\includegraphics[width=0.7\linewidth]{Figures/simpleWaypoints}
+%	\caption{Series of waypoints avoiding static obstacle}
+%	\label{fig:simplewaypoints}
+%\end{figure}
+%
+%The on-board guidance system directs the UAV towards the current active waypoint until a pre-defined radius around the waypoint is reached. When a waypoint has been reached the proceeding waypoint becomes active. An example of how a UAV follows waypoints can be shown in Figure \ref{fig:simplewaypointsWithUAVPath}
+
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.7\linewidth]{Figures/simpleWaypoints}
-	\caption{Series of waypoints avoiding static obstacle}
-	\label{fig:simplewaypoints}
-\end{figure}
-
-The on-board guidance system directs the UAV towards the current active waypoint until a pre-defined radius around the waypoint is reached. When a waypoint has been reached the proceeding waypoint becomes active. An example of how a UAV follows waypoints can be shown in Figure \ref{fig:simplewaypointsWithUAVPath}
-
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.7\linewidth]{Figures/simpleWaypointsWithUAVPath}
+	\includegraphics[width=1\linewidth]{Figures/simpleWaypointsWithUAVPath}
 	\caption{UAV path from waypoint guidance}
 	\label{fig:simplewaypointsWithUAVPath}
 \end{figure}
 
 
-During waypoint navigation the UAV may encounter an obstacle unknown during planning or experience a change in the environment which may require a new obstacle free series of waypoints be generated. A highly uncertain or dynamic environment may require frequent waypoint re-planning which may be difficult or impossible if communication with the ground station is lost. \\
+During waypoint navigation the UAV may encounter obstacles or environmental changes that would require a new set of obstacle free waypoints to be generated. For highly uncertain or dynamic environments, there may have to be frequent updates which increases the communication overhead of the autopilot. Additionally, if communication is lost or the path is not updated rapidly enough the UAV may fail to avoid obstacles completely.  \\
+
+Obstacle free paths in static and dynamic environments have been generated with the potential field method, which models a robot's workspace as a gradient of artificial attractive and repulsive forces \cite{khatib_real-time_1986}. Potential field combines path planning, trajectory planning, and control \cite{rimon_exact_1992} into a single system making it an attractive solution for robotic systems. Paths can be generated by placing a point mass at an initially high potential and allowing it to descend the gradient until the point reaches the goal, located at a global minimum potential. Obstacles provide a limited repulsive force, pushing the mass away from the obstacle. Major drawbacks to potential field were identified in \cite{koren_potential_1991} consisting of local minimum and oscillations in corridors. The local minimum problem occurs when closely spaced obstacle's potential combine to produce a well on the descent gradient where a pre-mature stable point is found. Proposed solutions to local minimum include object clustering and virtual waypoint method \cite{liu_virtual-waypoint_2016}, virtual escaping route \cite{kim_escaping_2009}, and use of navigation functions \cite{goerzen_survey_2010}. Oscillations in potential field were studied in \cite{lei_tang_novel_2010}, and \cite{li_efficient_2012}.The potential field method converges to a singular point which is not possible for fixed wing aircraft. Similar to conventional waypoint guidance, the active goal point would change as a function of proximity, however for certain UAV applications such as following a curved ground track or surveying it may be beneficial to follow an explicit path. \\
+
+
+
+%A robot at an initially high potential transitions down the gradient to a lower potential. Obstacles are represented by a high potential that act as repulsive forces.
+%
+%which operates on the principle of attractive and repulsive forces \cite{khatib_real-time_1986}. A robot at an initially high potential is pulled towards a goal located at a globally minimum potential while being repelled by obstacles in close proximity by repulsive forces.
+
+ 
+
+
+%For highly uncertain or dynamic environments, there may have to be frequent updates which may not be possible if communication with the ground station is lost and may not
+%
+%
+%During waypoint navigation the UAV may encounter an obstacle unknown during planning or experience a change in the environment which may require a new obstacle free series of waypoints be generated. A highly uncertain or dynamic environment would require frequent waypoint re-planning which may be difficult or impossible if communication with the ground station is lost. \\
 
 
  
 %--- Potential Field Methods ----
-Potential field combines path planning, trajectory planning, and control into a single process \cite{rimon_exact_1992}  and is based on the principle of artificial attractive and repulsive forces \cite{khatib_real-time_1986}. A robot at an initially high potential is pulled towards a goal located at a globally minimum potential while being repelled by obstacles in close proximity by repulsive forces. Major drawbacks to potential field were pointed out in \cite{koren_potential_1991} consisting of local minimum and oscillations in corridors. The local minimum problem occurs when closely spaced obstacle's potential combine to produce a well on the descent gradient where a pre-mature stable point is found. Proposed solutions to local minimum include object clustering and virtual waypoint method \cite{liu_virtual-waypoint_2016}, virtual escaping route \cite{kim_escaping_2009}, and use of navigation functions \cite{goerzen_survey_2010}. Oscillations in potential field were studied in \cite{lei_tang_novel_2010}, and \cite{li_efficient_2012}. \\
+%Potential field combines path planning, trajectory planning, and control into a single process \cite{rimon_exact_1992}  and is based on the principle of artificial attractive and repulsive forces \cite{khatib_real-time_1986}. 
+%
+%A robot at an initially high potential is pulled towards a goal located at a globally minimum potential while being repelled by obstacles in close proximity by repulsive forces.
+%
+% Major drawbacks to potential field were pointed out in \cite{koren_potential_1991} consisting of local minimum and oscillations in corridors. The local minimum problem occurs when closely spaced obstacle's potential combine to produce a well on the descent gradient where a pre-mature stable point is found. Proposed solutions to local minimum include object clustering and virtual waypoint method \cite{liu_virtual-waypoint_2016}, virtual escaping route \cite{kim_escaping_2009}, and use of navigation functions \cite{goerzen_survey_2010}. Oscillations in potential field were studied in \cite{lei_tang_novel_2010}, and \cite{li_efficient_2012}. \\
 
-The potential field method converges to a singular point which is not possible for fixed wing aircraft. Similar to conventional waypoint guidance, the active goal point would change as a function of proximity, however for certain UAV applications such as following a curved ground track or surveying it may be beneficial to follow an explicit path. \\
+%The potential field method converges to a singular point which is not possible for fixed wing aircraft. Similar to conventional waypoint guidance, the active goal point would change as a function of proximity, however for certain UAV applications such as following a curved ground track or surveying it may be beneficial to follow an explicit path. \\
 	
-Such path following can be accomplished with vector fields which produce a heading guidance that asymptotically converges and circulates a path. A comparison between vector field and waypoint guidance techniques was presented in \cite{sujit_unmanned_2014} where each method was evaluated based on its complexity, robustness, and cross-track error. Vector field produced guidance that was both robust to external wind disturbances while maintaining a low cross track error. The two most prominent methods for generating vector fields in literature consist of the Lyapunov \cite{frew_cooperative_2007,nelson_cooperative_2005,miao_orthogonal_2016,griffiths_vector_2006} and Goncalves \cite{goncalves_artificial_2009,goncalves_circulation_2010,goncalves_vector_2010,gerlach_autonomous_2014} method. A circular Lyapunov vector field can be generated by the methodology described in \cite{frew_cooperative_2007}. Given the Lyapunov function:
+Such path following can be accomplished with vector fields which produce a heading guidance that asymptotically converges and circulates a path. A comparison between vector field and waypoint guidance techniques was presented in \cite{sujit_unmanned_2014} where each method was evaluated based on its complexity, robustness, and accuracy. Vector field produced guidance that was both robust to external wind disturbances while maintaining a low cross track error. \\
 
-\begin{equation}\label{eq:lyapunovfunction}
-V(x,y) = (r^2 - r_d^2)^2
-\end{equation}
-where $r$ is given by the equation
-\begin{equation}
-r = \sqrt{x^2+y^2}
-\end{equation}
-and the total time derivative of Equation \ref{eq:lyapunovfunction} is
-\begin{equation}\label{eq:totaltimederivative}
-\dot{V}(x,y) = \nabla{V} \cdotp [\dot{x},\dot{y}]^{T}
-\end{equation}
-Utilizing the following equation to select the desired relative velocity $\dot{x}$ and $\dot{y}$
-\begin{equation}
-\overrightarrow{V}_{Lyapunov}\!=\!\begin{bmatrix} \dot{x_d} \\ \dot{y_d} \end{bmatrix}\!= \alpha\!\left(\dfrac{-v}{r}\right)\!\begin{bmatrix} x \dfrac{r^2-r_d^2}{r^2+r_d^2} + y \dfrac{2 r r_d}{r^2+r_d^2} \\[12pt] y \dfrac{r^2-r_d^2}{r^2+r_d^2} - x \dfrac{2 r r_d}{r^2+r_d^2} \end{bmatrix}
-\end{equation}
-and assuming $\alpha$\,=\,1 and $r$\,=\,1, the final Lyapunov VF equation is generated:
-\begin{equation}\label{eq:lyapunovvf}
-\overrightarrow{V}_{Lyapunov} = \frac{v}{r^2+r_d^2} \begin{bmatrix} - x (r^2-r_d^2) - y (2 r r_d) \\[6pt] - y (r^2-r_d^2) + x (2 r r_d) \end{bmatrix}
+
+The two most prominent methods for generating vector fields in literature consist of the Lyapunov \cite{nelson_cooperative_2005,nelson_vector_2006,nelson_vector_2007,frew_cooperative_2007,miao_orthogonal_2016,griffiths_vector_2006} and Goncalves \cite{goncalves_artificial_2009,goncalves_circulation_2010,goncalves_vector_2010,gerlach_autonomous_2014} method. Lyapunov vector fields for converging and following straight and circular paths were described in \cite{nelson_cooperative_2005}. For converging and following a straight path, a guidance vector $\chi^{d}$ is determined in Equation \ref{eq:lyapunovStraight}, where $\chi^{\infty}$ is the course approach angle, $y$ is the lateral distance to the path, and $k$ is a positive constant that determines the rate of transition between convergence and following. An example of a Lyapunov vector field converging and following a straight line is shown in Figure \ref{fig:vfPrimitives}a.
+
+
+
+% and are defined in Equations \ref{eq:lyapunovStraight} and \ref{eq:lyapunovCirc} respectively.
+
+%------ Nelson VF equations -----
+\begin{equation}\label{eq:lyapunovStraight}
+\chi^d(y) = -\chi^{\infty}\frac{2}{\pi}\tan^{-1}(ky)
 \end{equation}
 
 
-The vector produced by \ref{eq:lyapunovvf} provides a guidance at position $(x,y)$ for following a circular path, where $v$ is the desired UAV velocity, $r$ is the range to the center of the circular path, and $r_d$ is the radius of the path. Additional vectors such as wind may also be added to the field for disturbance rejection. \\
 
-The Goncalves method produces a\textit{n}-dimensional vector field that converges and circulates a static or time-varying path defined by \textit{(n-1)} implicit surfaces ($\alpha_i:\mathbb{R}^n\rightarrow\mathbb{R} | i=1,...,n-1$). The surface functions must satisfy the two conditions that $1)$ they are positive definite and $2$ have bounded derivatives. Consider the space with dimensions in set q:
+For converging and following a circular path, a guidance vector $\chi^{d}$ is determined in Equation \ref{eq:lyapunovCirc}, where $\gamma$ is the UAVs angular position with respect to the circle, $r$ is the paths radius, $d$ is the distance from the circles center, and $k$ is a positive constant that determines the transition behavior. An example of a Lyapunov vector field for converging and following a circular \ref{fig:vfPrimitives}b.
+
+\begin{equation}\label{eq:lyapunovCirc}
+\chi^d(d) = \gamma-\frac{\pi}{2}-\tan^{-1} \bigg(k \frac{d-r}{r} \bigg)
+\end{equation}
+
+
+\begin{figure}[H]
+	\begin{subfigmatrix}{2}% number of columns
+		\centering	
+		\subfigure []{\includegraphics[width=8cm] {Figures/straightLyapunov}}
+		\subfigure []{\includegraphics[width=8cm] {Figures/circularLyapunov}}
+		\hspace*{0mm}
+	\end{subfigmatrix}
+	\caption{Vector field converging and following a) straight path b) circular path}
+	\label{fig:vfPrimitives}
+\end{figure}
+
+
+
+
+%A circular Lyapunov vector field can be generated by the methodology described in \cite{frew_cooperative_2007}. Given the Lyapunov function:
+%
+%
+%$y$ lateral distance from path \\
+%$\chi$ difference between direction of path and course of UAV \\
+%$k$ positive constant that influences the rate of transition \\
+%$\chi^{\infty}$  course approach angle at large distance \\
+%$\chi^{d}$ is commanded heading \\
+%
+%$d$ radial distance UAV from center of orbit \\
+%$\gamma$ angular position with respect to orbit center \\
+%$r$ orbit radius \\
+%
+%
+%
+%
+%\begin{figure}[H]
+%	\begin{subfigmatrix}{2}% number of columns
+%		\centering	
+%		\subfigure []{\includegraphics[width=7.5cm] {Figures/lineConvcirc}}
+%		\subfigure []{\includegraphics[width=7.5cm] {Figures/circConvCirc}}
+%		\hspace*{0mm}
+%	\end{subfigmatrix}
+%	\caption{Vector field converging and following a) straight path b) circular path}
+%	\label{fig:vfPrimitives}
+%\end{figure}
+%
+%
+%\begin{equation}\label{eq:lyapunovfunction}
+%V(x,y) = (r^2 - r_d^2)^2
+%\end{equation}
+%where $r$ is given by the equation
+%\begin{equation}
+%r = \sqrt{x^2+y^2}
+%\end{equation}
+%and the total time derivative of Equation \ref{eq:lyapunovfunction} is
+%\begin{equation}\label{eq:totaltimederivative}
+%\dot{V}(x,y) = \nabla{V} \cdotp [\dot{x},\dot{y}]^{T}
+%\end{equation}
+%Utilizing the following equation to select the desired relative velocity $\dot{x}$ and $\dot{y}$
+%\begin{equation}
+%\overrightarrow{V}_{Lyapunov}\!=\!\begin{bmatrix} \dot{x_d} \\ \dot{y_d} \end{bmatrix}\!= \alpha\!\left(\dfrac{-v}{r}\right)\!\begin{bmatrix} x \dfrac{r^2-r_d^2}{r^2+r_d^2} + y \dfrac{2 r r_d}{r^2+r_d^2} \\[12pt] y \dfrac{r^2-r_d^2}{r^2+r_d^2} - x \dfrac{2 r r_d}{r^2+r_d^2} \end{bmatrix}
+%\end{equation}
+%and assuming $\alpha$\,=\,1 and $r$\,=\,1, the final Lyapunov VF equation is generated:
+%\begin{equation}\label{eq:lyapunovvf}
+%\overrightarrow{V}_{Lyapunov} = \frac{v}{r^2+r_d^2} \begin{bmatrix} - x (r^2-r_d^2) - y (2 r r_d) \\[6pt] - y (r^2-r_d^2) + x (2 r r_d) \end{bmatrix}
+%\end{equation}
+
+Straight and circular path vector fields can be selectively activated throughout flight to form more complex paths, shown in \cite{nelson_cooperative_2005,nelson_vector_2006,nelson_vector_2007,jung_unmanned_2016}. Lyapunov vector field for curved path following was presented in \cite{griffiths_vector_2006} which may allow for more complex paths and eliminates the need to switch between vector fields. \\
+
+
+%The Goncalves Vector Field (GVF) method for producing vector fields has several advantages over the Lyapunov vector field generation methods.
+
+The Goncalves method produces an \textit{n}-dimensional vector field that converges and circulates a static or time-varying path defined by \textit{(n-1)} implicit surfaces ($\alpha_i:\mathbb{R}^n\rightarrow\mathbb{R} | i=1,...,n-1$). The surface functions can represent any shape as long as they satisfy the two conditions that $1)$ they are positive definite and $2)$ have bounded derivatives. Consider the space with dimensions in set \textbf{q}:
 
 \begin{equation}
 \mathbf{q} = \begin{bmatrix} x_1, x_2, ..., x_{n}\end{bmatrix}
@@ -180,23 +275,8 @@ a =\begin{bmatrix}
 \end{equation}
 
 
-Gradient vector field (GVF) is a method that produces an \textit{n}-dimensional vector field that converges and circulates a target path\cite{goncalves_artificial_2009}.
-
- Paths can be static or time-varying and consist of points that lie at the intersection of surfaces defined by implicit functions. 
- 
- The surface functions are used to calculate a total vector field that is a sum of a convergence, circulation, and time-varying term.
- 
-  Convergence effectively attracts a robot to the target curve while circulation guides the robot to traverse the target curve. 
-  
-  Time-varying is a feed-forward term that accounts for changes in the target path as a function of time \textit{t}. The total field $\vec{v}$ is summarized in Equation \ref{simpleGVF}.
 
 
-
-
-
-
-
-A method for producing and stitching together straight and circular path vector fields was presented in \cite{nelson_cooperative_2005}. Vector fields that converge and circulate an arbitrary path was investigated in \cite{griffiths_vector_2006}. Vector fields have been studied for standoff tracking  and circumnavigation in \cite{frew_cooperative_2007},\cite{miao_orthogonal_2016}, [Wilhelm]. \\
 
 The standoff tracking scenario presented in [Wilhelm] tasked a fixed wing UAV with loitering around a moving ground target while adding obstacle avoidance constraints. A circular attractive vector field was attached to a moving ground target. Repulsive vector fields centered at the obstacles and weighted by hyperbolic tangent decay functions were summed with the attractive circular field to produce a target loitering and obstacle avoidance guidance. The performance of Lyapunov \cite{frew_cooperative_2007} and gradient vector field \cite{goncalves_artificial_2009,goncalves_circulation_2010,goncalves_vector_2010} were compared for their cross track error with respect to the loiter circle. Gradient vector field had favorable performance due to compensation for a time-varying vector field. The gradient vector field technique also has the benefit of decoupled weighting parameters for convergence, circulation, and time-varying terms, allowing for easy modification of field behavior. \\
 

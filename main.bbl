@@ -1,4 +1,4 @@
-\begin{thebibliography}{23}
+\begin{thebibliography}{27}
 \newcommand{\enquote}[1]{``#1''}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
@@ -44,9 +44,14 @@ Ulun, S., and Unel, M., \enquote{Coordinated motion of {UGVs} and a {UAV},}
 \newblock
   \urlprefix\url{http://ieeexplore.ieee.org/abstract/document/6699789/}.
 
-\bibitem[{Rimon(1992)}]{rimon_exact_1992}
-Rimon, E., \enquote{Exact {Robot} {Navigation} {Using} {Artificial} {Potential}
-  {Functions}.pdf,} , 1992.
+\bibitem[{Oliveira et~al.(2016)Oliveira, Aguiar, and
+  Encarnacao}]{oliveira_moving_2016}
+Oliveira, T., Aguiar, A.~P., and Encarnacao, P., \enquote{Moving {Path}
+  {Following} for {Unmanned} {Aerial} {Vehicles} {With} {Applications} to
+  {Single} and {Multiple} {Target} {Tracking} {Problems},} \emph{IEEE
+  Transactions on Robotics}, Vol.~32, No.~5, 2016, pp. 1062--1078.
+\newblock \doi{10.1109/TRO.2016.2593044},
+  \urlprefix\url{http://ieeexplore.ieee.org/document/7553466/}.
 
 \bibitem[{Khatib(1986)}]{khatib_real-time_1986}
 Khatib, O., \enquote{Real-time obstacle avoidance for manipulators and mobile
@@ -54,6 +59,10 @@ Khatib, O., \enquote{Real-time obstacle avoidance for manipulators and mobile
   No.~1, 1986, pp. 90--98.
 \newblock
   \urlprefix\url{http://journals.sagepub.com/doi/abs/10.1177/027836498600500106}.
+
+\bibitem[{Rimon(1992)}]{rimon_exact_1992}
+Rimon, E., \enquote{Exact {Robot} {Navigation} {Using} {Artificial} {Potential}
+  {Functions}.pdf,} , 1992.
 
 \bibitem[{Koren and Borenstein(1991)}]{koren_potential_1991}
 Koren, Y., and Borenstein, J., \enquote{Potential {Field} {Methods} and their
@@ -106,16 +115,32 @@ Sujit, P., Saripalli, S., and Sousa, J.~B., \enquote{Unmanned {Aerial}
 \newblock \doi{10.1109/MCS.2013.2287568},
   \urlprefix\url{http://ieeexplore.ieee.org/document/6712082/}.
 
+\bibitem[{Nelson(2005)}]{nelson_cooperative_2005}
+Nelson, D.~R., \enquote{Cooperative control of miniature air vehicles,} 2005.
+\newblock \urlprefix\url{http://scholarsarchive.byu.edu/etd/1095/}.
+
+\bibitem[{Nelson et~al.(2006)Nelson, Barber, McLain, and
+  Beard}]{nelson_vector_2006}
+Nelson, D.~R., Barber, D.~B., McLain, T.~W., and Beard, R.~W., \enquote{Vector
+  field path following for small unmanned air vehicles,} \emph{American
+  {Control} {Conference}, 2006}, IEEE, 2006, pp. 7--pp.
+\newblock
+  \urlprefix\url{http://ieeexplore.ieee.org/abstract/document/1657648/}.
+
+\bibitem[{Nelson et~al.(2007)Nelson, Barber, McLain, and
+  Beard}]{nelson_vector_2007}
+Nelson, D., Barber, D., McLain, T., and Beard, R., \enquote{Vector {Field}
+  {Path} {Following} for {Miniature} {Air} {Vehicles},} \emph{IEEE Transactions
+  on Robotics}, Vol.~23, No.~3, 2007, pp. 519--529.
+\newblock \doi{10.1109/TRO.2007.898976},
+  \urlprefix\url{http://ieeexplore.ieee.org/document/4252175/}.
+
 \bibitem[{Frew(2007)}]{frew_cooperative_2007}
 Frew, E.~W., \enquote{Cooperative standoff tracking of uncertain moving targets
   using active robot networks,} \emph{Robotics and {Automation}, 2007 {IEEE}
   {International} {Conference} on}, IEEE, 2007, pp. 3277--3282.
 \newblock
   \urlprefix\url{http://ieeexplore.ieee.org/abstract/document/4209596/}.
-
-\bibitem[{Nelson(2005)}]{nelson_cooperative_2005}
-Nelson, D.~R., \enquote{Cooperative control of miniature air vehicles,} 2005.
-\newblock \urlprefix\url{http://scholarsarchive.byu.edu/etd/1095/}.
 
 \bibitem[{Miao et~al.(2016)Miao, Thakur, Erwin, Pierre, Wang, and
   Fierro}]{miao_orthogonal_2016}
@@ -164,6 +189,13 @@ Gerlach, A.~R., \emph{Autonomous {Path}-{Following} by {Approximate} {Inverse}
   2014.
 \newblock
   \urlprefix\url{http://search.proquest.com/openview/432d738d856bf0a9b46acea1b1eee08f/1?pq-origsite=gscholar&cbl=18750&diss=y}.
+
+\bibitem[{Jung et~al.(2016)Jung, Lim, Lee, and Bang}]{jung_unmanned_2016}
+Jung, W., Lim, S., Lee, D., and Bang, H., \enquote{Unmanned {Aircraft} {Vector}
+  {Field} {Path} {Following} with {Arrival} {Angle} {Control},} \emph{Journal
+  of Intelligent \& Robotic Systems}, Vol.~84, No. 1-4, 2016, pp. 311--325.
+\newblock \doi{10.1007/s10846-016-0332-5},
+  \urlprefix\url{http://link.springer.com/10.1007/s10846-016-0332-5}.
 
 \bibitem[{Panagou(2014)}]{panagou_motion_2014}
 Panagou, D., \enquote{Motion planning and collision avoidance using navigation
