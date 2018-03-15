@@ -214,49 +214,67 @@ For converging and following a circular path, a guidance vector $\chi^{d}$ is de
 
 Straight and circular path vector fields can be selectively activated throughout flight to form more complex paths, shown in \cite{nelson_cooperative_2005,nelson_vector_2006,nelson_vector_2007,jung_unmanned_2016}. Lyapunov vector field for curved path following was presented in \cite{griffiths_vector_2006} which may allow for more complex paths and eliminates the need to switch between vector fields. \\
 
+The Gonvalves Vector Field (GVF) method produces a similar field, however has several advantages over LVFs. GVF produces an \textit{n}-dimensional vector field that converges and circulates to both static and time varying paths. Additionally, convergence, circulation, and time-varying terms that make up the GVF are decoupled from each other allowing for easy weighting of the total field. GVFs converge and circulate at the intersection, or level set, of $n-1$ dimensional implicit surfaces ($\alpha_i:\mathbb{R}^n\rightarrow\mathbb{R} | i=1,...,n-1$). The integral lines of the field are guaranteed to converge and circulate the level set when two conditions are met: $1)$ they are positive definite and $2)$ have bounded derivatives. Consider the space with dimensions in set \textbf{q}:
 
 %The Goncalves Vector Field (GVF) method for producing vector fields has several advantages over the Lyapunov vector field generation methods.
 
-The Goncalves method produces an \textit{n}-dimensional vector field that converges and circulates a static or time-varying path defined by \textit{(n-1)} implicit surfaces ($\alpha_i:\mathbb{R}^n\rightarrow\mathbb{R} | i=1,...,n-1$). The surface functions can represent any shape as long as they satisfy the two conditions that $1)$ they are positive definite and $2)$ have bounded derivatives. Consider the space with dimensions in set \textbf{q}:
 
 \begin{equation}
 \mathbf{q} = \begin{bmatrix} x_1, x_2, ..., x_{n}\end{bmatrix}
 \end{equation}
 
-The vector field can be calculated by the sum of three terms consisting of a convergence $\vec{v}_{conv}$, circulation $\vec{v}_{circ}$, and time-varying $\vec{v}_{tv}$ term.
+The total vector field $\overrightarrow{V}$ is calculated by:
+\begin{equation}\label{eq:GVF}
+\overrightarrow{V} = G \nabla V + H \wedge_{i=1}^{n-1}\nabla_q\alpha_i  - LM(\alpha)^{-1} a(\alpha)
+\end{equation}
 
+or in component form:
 
 \begin{equation}\label{simpleGVF}
-\vec{v} = \vec{v}_{conv} + \vec{v}_{circ} + \vec{v}_{tv} 
+\vec{V} = \vec{V}_{conv} + \vec{V}_{circ} + \vec{V}_{tv} 
 \end{equation}	
+
+where $\vec{V}_{conv}$ produces vectors perpendicular to the path, $\vec{V}_{circ}$ produces vectors parallel to the path, and $\vec{V}_{tv}$ is a feed-forward term that produces vectors accounting for a time varying path. 
 
 Convergence is calculated by:
 
 \begin{equation}
 % Total field with Conv, Circ, and Time
-\vec{v}_{conv} = \sum_{i=1}^{n-1}\alpha_i\nabla_q\alpha_i  
+\vec{V}_{conv} = G \nabla V  
 \label{convOnly}
 \end{equation}
 
-Circulation:
+where scalar $G$ is multiplied by the gradient of the definite potential function $V$:
+
+\begin{equation}
+V = -\sqrt{{\alpha_1}^2 + {\alpha_2}^2}
+\end{equation}
+
+
+
+Circulation is calculated by taking the wedge product of the gradient:
 
 \begin{equation}
 % Total field with Conv, Circ, and Time
-\vec{v}_{circ} =  \wedge_{i=1}^{n-1}\nabla_q\alpha_i 
+\vec{V}_{circ} =  \wedge_{i=1}^{n-1}\nabla_q\alpha_i 
 \label{circOnly}
 \end{equation}
 
+In the case of $(n=3)$ the wedge product simplifies as the cross product:
+
 \begin{equation}
 % Total field with Conv, Circ, and Time
-\vec{v}_{circ} =  \nabla_q\alpha_1 \times \nabla_q\alpha_2 
+\vec{V}_{circ} =  \nabla_q\alpha_1 \times \nabla_q\alpha_2 
 \label{circOnlySimp}
 \end{equation}
 
-The time-varying component is calculated by:
+The feed-forward time-varying component is calculated by:
 \begin{equation}
 \label{tv}
-\vec{v}_{tv} = M^{-1}a
+\vec{V}_{tv} = M^{-1}a
 \end{equation}
+
+where,
 
 \begin{equation}
 \label{mMatrix}
@@ -274,7 +292,32 @@ a =\begin{bmatrix}
 \end{bmatrix}^T
 \end{equation}
 
+Intersecting two flat planes $(\alpha_1 = z,\alpha_2 = x)$ produces a GVF that converges and circulates a straight path, shown in Figure (). A circular path can be produced by intersecting a plane and a cylinder $(\alpha_1 = z,\alpha_2 = x^2+y^2-r^2)$.
 
+\begin{figure}[H]
+	\begin{subfigmatrix}{2}% number of columns
+		\centering	
+		\subfigure []{\includegraphics[width=8cm] {Figures/planeIntersection}}
+		\subfigure []{\includegraphics[width=8cm] {Figures/lineConvCirc}}
+		\hspace*{0mm}
+	\end{subfigmatrix}
+	\caption{GVF converging and circulating straight path}
+	\label{fig:GVFLine}
+\end{figure}
+
+
+\begin{figure}[H]
+	\begin{subfigmatrix}{2}% number of columns
+		\centering	
+		\subfigure []{\includegraphics[width=8cm] {Figures/cylinderIntersection}}
+		\subfigure []{\includegraphics[width=8cm] {Figures/circConvCirc}}
+		\hspace*{0mm}
+	\end{subfigmatrix}
+	\caption{GVF converging and circulating circular path}
+	\label{fig:GVFLine}
+\end{figure}
+
+%The Goncalves method produces an \textit{n}-dimensional vector field that converges and circulates a static or time-varying path defined by \textit{(n-1)} implicit surfaces ($\alpha_i:\mathbb{R}^n\rightarrow\mathbb{R} | i=1,...,n-1$). The surface functions can represent any shape as long as they satisfy the two conditions that $1)$ they are positive definite and $2)$ have bounded derivatives. Consider the space with dimensions in set \textbf{q}:
 
 
 
@@ -324,162 +367,162 @@ Decay functions for avoidance fields were investigated in [Zhu] for obstacles pr
 
 
 
---- Transition to Vector Field ----
-- Such path following can be accomplished with vector fields which are a continuous source of guidance for converge to and following paths.
-
---- Start of VF ---
-
-- Sujit compared vector field guidance to other guidance laws in [] and found that
-	- robust against wind disturbances
-	- Low cross track error
-	
-- VF produced for straight line and circular arc primitives in [Nelson]
-- Method expanded in [Griffiths] for VF following curved paths
-- Circular fields modified for standoff tracking in 
-	- frew
-	- another
-	- Wilehlm
-
-
-- Standoff tracking of a moving ground target while avoiding obstacles was presented in [Wilhelm]
-	- Fixed wing UAV tasked with tracking a moving ground target
-    - Circular attractive vector field guided UAV to track ground target while compensating for ground target velocity
-    - Repulsive vector field centered at obstacles and weighted by a hyperbolic tangent decay function
-    - Fields summed together to produce a combined guidance
-    - Two methods compared, Lyapunov and Goncalves
-    - Goncalves lower tracking error due to accounting for time varying nature of target
-    
-
-- Activation / decay functions for obstacles were investigated in [Zhu]
-
-- Singularities produced when summing together attractive and repulsive fields
-	- mentioned in [nelson] "deadzones, sinks, singularities"
-	- Observed in Panagou
-	- Expected at any VF location where an attractive field and obstacle field are of equal strength
-
-- VF use existing path planning methods to generate a guidance that minimizes distance to a path while also avoiding obstacles and singularities in obstacle fields
----- Final Contribution ----
-
-
-
-	
-\begin{itemize}
-	\item UAS consists of vehicle, autopilot, ground station, radios
-	\item Missions typically pre-planned on ground station where flyable and obstacle free paths can be generated. (Figure of conventional waypoints)
-	\item Waypoints are sent to the autopilot over a radio and received and interpreted by the vehicles autopilot
-	\item Autopilot responsible for navigating waypoints while maintaining vehicle stability
-	\item Due to turn rate constraints or external disturbances, a vehicle may not follow the path perfectly where it may encounter an obstacle previously planned for
-	\item Demonstrate the above with dubins
-	\begin{itemize}
-		\item Introduce dubins as a way to approximate a UAVs dynamics, assume control working (cite)
-		\item Equations
-		\item Demonstrate Dubin's UAV not perfectly following path
-		\item Demonstrate Dubin's with wind not following path
-	\end{itemize}
-\end{itemize}
-
-
-
-\begin{itemize}
-	\item Reduced error for straight line and circular path following has been achieved by using vector field guidance (sujit)
-	\item Continuous vectors that asymptotically converge and follow straight and circular paths are both robust and produce guidance that results in low cross track error
-	\item Lyapunov VF primitives introduced (Nelson). Nelson stitched together primitives to produce complex paths similar to navigating waypoints
-	\item Curved path vector field was introduced in (griffiths)
-	\item Goncalves VF
-	\begin{itemize}
-		\item Path of any shape
-		\item Accounts for TV nature of paths
-		\item Field is produced by summing convergence and circulation terms that are easily accessable
-		\item Integral lines guaranteed to converge
-	\end{itemize}
-	\item Obstacles considered in standoff tracking scenario Wilhelm
-	\begin{itemize}
-		\item TV field loiter around moving ground target
-		\item obstacles represented by repulsive field 
-		\item Did not consider or identify singularities present in summed fields
-		\item Singularities are small regions or wells of no guidance where UAV may be trapped
-		\item No information on how to go around obstacle
-		\item Field used as a high level specification for avoidance
-		\item Hyperbolic activation function
-	\end{itemize} 
-
-	\item Activation functions of obstacle avoidance investigated in Zhu
-	\item Determining VF parameters that influence performance and singularity location 
-\end{itemize}
-
-
-
-
-
-\section{Methodology}
-\subsection{Singularity Detection}
-\begin{itemize}
-	\item Present VF equations for straight path following
-	\item Present VF equations for circular obstacle and obstacle definitions
-	\begin{itemize}
-		\item Repulsion, small 'path' radius
-		\item Decay function
-		\item No circulation versus circulation (side by side figure)
-	\end{itemize}
-
-	\item Sum fields together and show stages of normalization
-	\item Identify pre normalization singularity
-	\begin{itemize}
-		\item Surface plot (x,y,magnitude)
-		\item Identify undefined region and singularity (Evaluating entire space)
-		\item Find minimum of guidance function by evaluating several initial conditions
-		\item Method for finding all singularities as a reference to future look-ahead methods
-	\end{itemize}
-
-
-	\item Look-ahead and singularity detection
-	\item Location of all singularities not important if UAV is not going to encounter them
-	\item Introduce UAV flight envelope
-	\item Time, turn rate, constant velocity, produces possible locations of UAV
-	\item Evaluate ICs on flight envelope when near obstacle
-\end{itemize}
-
-\subsection{Modifying VF to avoid singularities}
-\begin{itemize}
-	\item Cause and location of singularities
-	\begin{itemize}
-			\item Adding circulation to the repulsive obstacle field reduces /removes singularity
-			\item Singularities will occur where both fields have equal strength
-			\item Prediction of singularity location based on decay function
-	\end{itemize}
-
-	\item Side by side repulsion and repulsion+circ singularity locations
-	\item Singularity detected, modify field to remove singularity from flight envelope
-	\item Objective function is:
-	\begin{itemize}
-		\item Avoid obstacle 
-		\item Avoid singularities
-		\item Minimize deviation from path
-	\end{itemize}
-
-\end{itemize}
-
-\section{Simulation}
-\begin{itemize}
-	\item Dubins UAV following a pre-planned straight path
-	\item Obstacle encountered
-	\item A guidance solution must be determined that:
-	\begin{itemize}
-		\item Determines location of singularities if present (inside flight envelope)
-		\item Solve VF parameters to remove / mitigate singularities
-		\item Solve VF parameters that result in guidance that  minimize error from path
-	\end{itemize}
-
-	\item Various UAV speeds
-	\item Worse case scenario presented (on path)
-	\item Multiple obstacles on path (sequential)
-	\item Compare non-modified guidance with modified guidance
-	\begin{itemize}
-		\item Deviation from path
-		\item Yes/no obstacle avoided
-		\item singularity avoided in flight envelope
-	\end{itemize}
-\end{itemize}
+%--- Transition to Vector Field ----
+%- Such path following can be accomplished with vector fields which are a continuous source of guidance for converge to and following paths.
+%
+%--- Start of VF ---
+%
+%- Sujit compared vector field guidance to other guidance laws in [] and found that
+%	- robust against wind disturbances
+%	- Low cross track error
+%	
+%- VF produced for straight line and circular arc primitives in [Nelson]
+%- Method expanded in [Griffiths] for VF following curved paths
+%- Circular fields modified for standoff tracking in 
+%	- frew
+%	- another
+%	- Wilehlm
+%
+%
+%- Standoff tracking of a moving ground target while avoiding obstacles was presented in [Wilhelm]
+%	- Fixed wing UAV tasked with tracking a moving ground target
+%    - Circular attractive vector field guided UAV to track ground target while compensating for ground target velocity
+%    - Repulsive vector field centered at obstacles and weighted by a hyperbolic tangent decay function
+%    - Fields summed together to produce a combined guidance
+%    - Two methods compared, Lyapunov and Goncalves
+%    - Goncalves lower tracking error due to accounting for time varying nature of target
+%    
+%
+%- Activation / decay functions for obstacles were investigated in [Zhu]
+%
+%- Singularities produced when summing together attractive and repulsive fields
+%	- mentioned in [nelson] "deadzones, sinks, singularities"
+%	- Observed in Panagou
+%	- Expected at any VF location where an attractive field and obstacle field are of equal strength
+%
+%- VF use existing path planning methods to generate a guidance that minimizes distance to a path while also avoiding obstacles and singularities in obstacle fields
+%---- Final Contribution ----
+%
+%
+%
+%	
+%\begin{itemize}
+%	\item UAS consists of vehicle, autopilot, ground station, radios
+%	\item Missions typically pre-planned on ground station where flyable and obstacle free paths can be generated. (Figure of conventional waypoints)
+%	\item Waypoints are sent to the autopilot over a radio and received and interpreted by the vehicles autopilot
+%	\item Autopilot responsible for navigating waypoints while maintaining vehicle stability
+%	\item Due to turn rate constraints or external disturbances, a vehicle may not follow the path perfectly where it may encounter an obstacle previously planned for
+%	\item Demonstrate the above with dubins
+%	\begin{itemize}
+%		\item Introduce dubins as a way to approximate a UAVs dynamics, assume control working (cite)
+%		\item Equations
+%		\item Demonstrate Dubin's UAV not perfectly following path
+%		\item Demonstrate Dubin's with wind not following path
+%	\end{itemize}
+%\end{itemize}
+%
+%
+%
+%\begin{itemize}
+%	\item Reduced error for straight line and circular path following has been achieved by using vector field guidance (sujit)
+%	\item Continuous vectors that asymptotically converge and follow straight and circular paths are both robust and produce guidance that results in low cross track error
+%	\item Lyapunov VF primitives introduced (Nelson). Nelson stitched together primitives to produce complex paths similar to navigating waypoints
+%	\item Curved path vector field was introduced in (griffiths)
+%	\item Goncalves VF
+%	\begin{itemize}
+%		\item Path of any shape
+%		\item Accounts for TV nature of paths
+%		\item Field is produced by summing convergence and circulation terms that are easily accessable
+%		\item Integral lines guaranteed to converge
+%	\end{itemize}
+%	\item Obstacles considered in standoff tracking scenario Wilhelm
+%	\begin{itemize}
+%		\item TV field loiter around moving ground target
+%		\item obstacles represented by repulsive field 
+%		\item Did not consider or identify singularities present in summed fields
+%		\item Singularities are small regions or wells of no guidance where UAV may be trapped
+%		\item No information on how to go around obstacle
+%		\item Field used as a high level specification for avoidance
+%		\item Hyperbolic activation function
+%	\end{itemize} 
+%
+%	\item Activation functions of obstacle avoidance investigated in Zhu
+%	\item Determining VF parameters that influence performance and singularity location 
+%\end{itemize}
+%
+%
+%
+%
+%
+%\section{Methodology}
+%\subsection{Singularity Detection}
+%\begin{itemize}
+%	\item Present VF equations for straight path following
+%	\item Present VF equations for circular obstacle and obstacle definitions
+%	\begin{itemize}
+%		\item Repulsion, small 'path' radius
+%		\item Decay function
+%		\item No circulation versus circulation (side by side figure)
+%	\end{itemize}
+%
+%	\item Sum fields together and show stages of normalization
+%	\item Identify pre normalization singularity
+%	\begin{itemize}
+%		\item Surface plot (x,y,magnitude)
+%		\item Identify undefined region and singularity (Evaluating entire space)
+%		\item Find minimum of guidance function by evaluating several initial conditions
+%		\item Method for finding all singularities as a reference to future look-ahead methods
+%	\end{itemize}
+%
+%
+%	\item Look-ahead and singularity detection
+%	\item Location of all singularities not important if UAV is not going to encounter them
+%	\item Introduce UAV flight envelope
+%	\item Time, turn rate, constant velocity, produces possible locations of UAV
+%	\item Evaluate ICs on flight envelope when near obstacle
+%\end{itemize}
+%
+%\subsection{Modifying VF to avoid singularities}
+%\begin{itemize}
+%	\item Cause and location of singularities
+%	\begin{itemize}
+%			\item Adding circulation to the repulsive obstacle field reduces /removes singularity
+%			\item Singularities will occur where both fields have equal strength
+%			\item Prediction of singularity location based on decay function
+%	\end{itemize}
+%
+%	\item Side by side repulsion and repulsion+circ singularity locations
+%	\item Singularity detected, modify field to remove singularity from flight envelope
+%	\item Objective function is:
+%	\begin{itemize}
+%		\item Avoid obstacle 
+%		\item Avoid singularities
+%		\item Minimize deviation from path
+%	\end{itemize}
+%
+%\end{itemize}
+%
+%\section{Simulation}
+%\begin{itemize}
+%	\item Dubins UAV following a pre-planned straight path
+%	\item Obstacle encountered
+%	\item A guidance solution must be determined that:
+%	\begin{itemize}
+%		\item Determines location of singularities if present (inside flight envelope)
+%		\item Solve VF parameters to remove / mitigate singularities
+%		\item Solve VF parameters that result in guidance that  minimize error from path
+%	\end{itemize}
+%
+%	\item Various UAV speeds
+%	\item Worse case scenario presented (on path)
+%	\item Multiple obstacles on path (sequential)
+%	\item Compare non-modified guidance with modified guidance
+%	\begin{itemize}
+%		\item Deviation from path
+%		\item Yes/no obstacle avoided
+%		\item singularity avoided in flight envelope
+%	\end{itemize}
+%\end{itemize}
 
 
 \section{Conclusion}
