@@ -1,4 +1,4 @@
-\begin{thebibliography}{27}
+\begin{thebibliography}{29}
 \newcommand{\enquote}[1]{``#1''}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
@@ -63,6 +63,19 @@ Khatib, O., \enquote{Real-time obstacle avoidance for manipulators and mobile
 \bibitem[{Rimon(1992)}]{rimon_exact_1992}
 Rimon, E., \enquote{Exact {Robot} {Navigation} {Using} {Artificial} {Potential}
   {Functions}.pdf,} , 1992.
+
+\bibitem[{Borenstein and Koren(1990)}]{borenstein_real-time_1990}
+Borenstein, J., and Koren, Y., \enquote{Real-time obstacle avoidance for fast
+  mobile robots in cluttered environments,} \emph{Robotics and {Automation},
+  1990. {Proceedings}., 1990 {IEEE} {International} {Conference} on}, IEEE,
+  1990, pp. 572--577.
+\newblock \urlprefix\url{http://ieeexplore.ieee.org/abstract/document/126042/}.
+
+\bibitem[{Borenstein and Koren(1991)}]{borenstein_vector_1991}
+Borenstein, J., and Koren, Y., \enquote{The vector field histogram-fast
+  obstacle avoidance for mobile robots,} \emph{IEEE transactions on robotics
+  and automation}, Vol.~7, No.~3, 1991, pp. 278--288.
+\newblock \urlprefix\url{http://ieeexplore.ieee.org/abstract/document/88137/}.
 
 \bibitem[{Koren and Borenstein(1991)}]{koren_potential_1991}
 Koren, Y., and Borenstein, J., \enquote{Potential {Field} {Methods} and their

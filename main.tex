@@ -26,39 +26,36 @@
 \maketitle
 
 \begin{abstract}
-ABSTRACT
+Unmanned Aerial Vehicles (UAVs) conventionally navigate by following a series of pre-planned waypoints generated off-line, which are initially obstacle free, may be to be re-planned when encountering previously unknown obstacles. Re-planning waypoints could be avoided by implementing a path following and obstacle avoidance vector field guidance. Convergent vector fields attract a UAV to follow a path while repulsive vector fields push the UAV away from no-fly zones. Combining attractive and repulsive fields may cause small regions of null guidance, called singularities, which may be avoided by tuning vector field parameters. 
 \end{abstract}
+%Unmanned Aerial Vehicles (UAVs) conventionally navigate a series of off-line generated and initially obstacle free waypoints that may have to be re-planned when encountering a previously unknown obstacle. Re-planning waypoints could be avoided by implementing a path following and obstacle avoidance vector field guidance. Guidance to converge and follow a pre-planned path is produced by an attractive vector field while obstacles are represented by a repulsive vector field. Summing together attractive goal and repulsive obstacle fields produce a guidance for tracking a pre-planned path while avoiding unplanned obstacles. Small regions of null guidance, called singularities, may be produced when summing attractive and repulsive fields together. 
 
-\textbf{Problem Statement} 
 
-Unmanned Aerial Vehicles (UAVs) conventially navigate a series of off-line generated and initially obstacle free waypoints that may have to be re-planned when encountering a previously unknown obstacle. Re-planning waypoints could be avoided by implementing a path following and obstacle avoidance vector field guidance. Guidance to converge and follow a pre-planned path is produced by an attractive vector field while obstacles are represented by a repulsive vector field. Summing together attractive goal and repulsive obstacle fields produce a guidance for tracking a pre-planned path while avoiding unplanned obstacles. Small regions of null guidance, called singularities, may be produced when summing attractive and repulsive fields together. 
-
-Method for path following, obstacle avoidance, and detection / mitigation of vector field singularities for UAVs etc
 
 
 
  
 
-\textbf{Motivation}
-\begin{itemize}
-	\item Conventional waypoint guidance relies on a pre-planned, flyable, and obstacle free path 
-	\item Obstacles unaccounted for during planning may require a re-plan which may require communication with a ground station
-\end{itemize}
-
-
-\textbf{Background}
-\begin{itemize}
-	\item Vector field guidance for path following has been shown to be both robust in the presence of external disturbances and produce low cross track error flight
-	\item Obstacles can be represented as repulsive fields and summed with attractive fields to produce an obstacle avoidance guidance
-	\item  Summing vector field guidance my produce singularities, resulting in no guidance
-	\item Repulsive fields currently provide no additional information on how to go around obstacle
-\end{itemize}
-
-
-\textbf{Contribution}
-\begin{itemize}
-	\item Method for compensating for singularities that may be experienced (Lookahead or fast detection)
-\end{itemize}
+%\textbf{Motivation}
+%\begin{itemize}
+%	\item Conventional waypoint guidance relies on a pre-planned, flyable, and obstacle free path 
+%	\item Obstacles unaccounted for during planning may require a re-plan which may require communication with a ground station
+%\end{itemize}
+%
+%
+%\textbf{Background}
+%\begin{itemize}
+%	\item Vector field guidance for path following has been shown to be both robust in the presence of external disturbances and produce low cross track error flight
+%	\item Obstacles can be represented as repulsive fields and summed with attractive fields to produce an obstacle avoidance guidance
+%	\item  Summing vector field guidance my produce singularities, resulting in no guidance
+%	\item Repulsive fields currently provide no additional information on how to go around obstacle
+%\end{itemize}
+%
+%
+%\textbf{Contribution}
+%\begin{itemize}
+%	\item Method for compensating for singularities that may be experienced (Lookahead or fast detection)
+%\end{itemize}
 
 
 
@@ -67,7 +64,11 @@ Method for path following, obstacle avoidance, and detection / mitigation of vec
 
 {\renewcommand\arraystretch{1.0}
 \noindent\begin{longtable*}{@{}l @{\quad=\quad} l@{}}
-$VF$  & Vector Field \\
+$UAV$  & Unmanned Aerial Vehicle \\
+$VF$   & Vector Field \\
+$VFF$  & Virtual Force Field \\
+$LVF$  & Lyapunov Vector Field \\
+$GVF$  & Goncalves Vector Field \\
 \end{longtable*}}
 
 \section{Introduction}
@@ -85,25 +86,37 @@ Unmanned Aerial Vehicles are pilotless aircraft used by military, police, and ci
 During waypoint navigation the UAV may encounter obstacles or environmental changes that would require a new set of obstacle free waypoints to be generated. For highly uncertain or dynamic environments, there may have to be frequent updates which increases the communication overhead of the autopilot. Additionally, if communication is delayed or lost, waypoints may not be updated rapidly enough and the UAv may fail to avoid the obstacles.
 
 
-Obstacle free paths in static and dynamic environments have been generated with the potential field method, which models a robot's workspace as a gradient of artificial attractive and repulsive forces \cite{khatib_real-time_1986}. Potential field combines path planning, trajectory planning, and control into a single system \cite{rimon_exact_1992} making it an attractive solution path planning. Paths can be generated by placing a point mass at an initially high potential and allowing it to descend a gradient until the point reaches the goal, located at a global minimum potential. Obstacles provide a limited repulsive force, pushing the mass away from the obstacle.
-
-\begin{equation}\label{eq:vffGoal}
-\overrightarrow{F_t} = F_{ct} \bigg( \frac{x_t-x_0}{d_{i,j}}\hat{x} + \frac{y_t-y_0}{d_{i,j}}\hat{y}\bigg)
-\end{equation}
+Obstacle free paths in static and dynamic environments have been generated with the potential field method, which models a robot's workspace as a gradient of artificial attractive and repulsive forces \cite{khatib_real-time_1986}. Potential field combines path planning, trajectory planning, and control into a single system \cite{rimon_exact_1992} making it an attractive solution path planning. Paths can be generated by placing a point mass at an initially high potential and allowing it to descend a gradient until the point reaches the goal, located at a global minimum potential. Obstacles provide a limited repulsive force, pushing the mass away from the obstacle. 
 
 
+A histogram based potential field method can be found in \cite{borenstein_real-time_1990,borenstein_vector_1991,koren_potential_1991} which allowed for real time goal seeking with obstacle avoidance. Sensors on-board a ground robot located at $(x_0,y_0)$ detect obstacles within a pre-defined window containing a fixed number of cells. Cells containing an obstacle provide a repulsive force $\overrightarrow{F_{i,j}}$ opposite in direction to the line-of-sight from vehicle to cell location $(x_i,y_j)$, where $(i,j$) represents the cell index, $F_{cr}$ is a constant repulsive force, $W$ the vehicles width, $C_{i,j}$ a cells certainty, and $d_{i,j}$ the distance to the center of the cell with respect to robots center.
 
 \begin{equation}\label{eq:vffRepulse}
 \overrightarrow{F_{i,j}} = \frac{F_{cr}W^nC_{i,j}}{d^n_{i,j}} \bigg( \frac{x_i-x_0}{d_{i,j}}\hat{x} + \frac{y_i-y_0}{d_{i,j}}\hat{y}\bigg)
 \end{equation}
 
-\begin{equation}\label{eq:vffRepulse}
+The total repulsive force exerted on the robot is determined by summing the active cells, shown in Equation \ref{eq:vffRepulseSum}
+
+
+\begin{equation}\label{eq:vffRepulseSum}
 \overrightarrow{F_r} = \sum_{i,j}\overrightarrow{F_{i,j}}
 \end{equation}
 
-\begin{equation}\label{eq:vffRepulse}
-\overrightarrow{R} = overrightarrow{F_r} + \overrightarrow{F_t}
+The robot is attracted to the goal by force $\overrightarrow{F_t}$ with constant magnitude $F_{ct}$ and along the LOS from robot center to goal, located at $(x_t,y_t)$ and a distance $d_t$, shown in Equation \ref{eq:vffGoal}
+
+\begin{equation}\label{eq:vffGoal}
+\overrightarrow{F_t} = F_{ct} \bigg( \frac{x_t-x_0}{d_{t}}\hat{x} + \frac{y_t-y_0}{d_{t}}\hat{y}\bigg)
 \end{equation}
+
+Summing together attractive and repulsive forces produces a vector that can be used for heading guidance, shown in Equation \ref{eq:vffHeading}
+
+\begin{equation}\label{eq:vffHeading}
+\overrightarrow{R} = \overrightarrow{F_r} + \overrightarrow{F_t}
+\end{equation}
+
+ Major drawbacks to potential field were identified in \cite{koren_potential_1991} consisting of local minimum and oscillations in corridors. The local minimum problem occurs when closely spaced obstacle's potential combine to produce a well on the descent gradient where a pre-mature stable point is found. Proposed solutions to local minimum include object clustering and virtual waypoint method \cite{liu_virtual-waypoint_2016}, virtual escaping route \cite{kim_escaping_2009}, and use of navigation functions \cite{goerzen_survey_2010}. Oscillations in potential field were studied in \cite{lei_tang_novel_2010}, and \cite{li_efficient_2012}.
+
+In addition to local minimum and oscillations, potential field converges to a singular point which is not possible for fix wing aircraft. Similar to conventional waypoint guidance, the active goal point would change as a function of proximity. Simulating a UAV using VFF as guidance for a Dubins vehicle was performed and is shown in Figure \ref{fig:vffsimulated}, where a single obstacle cell located at the origin. The UAV initially travels directly toward the goal located at $(20,0)$ until the obstacle is encountered, at which point a repulsive force is applied. The UAV avoids the obstacle, however significantly deviates and fails to get back on the path between waypoints. For certain applications, such as following a curved ground track, surveying, or target following, it may be beneficial to follow an explicit path. 
 
 
 \begin{figure}[H]
@@ -111,10 +124,11 @@ Obstacle free paths in static and dynamic environments have been generated with 
 	\includegraphics[width=0.7\linewidth]{Figures/vffSimulated}
 	\caption{}
 	\label{fig:vffsimulated}
-\end{figure}
+\end{figure} 
 
 
- Major drawbacks to potential field were identified in \cite{koren_potential_1991} consisting of local minimum and oscillations in corridors. The local minimum problem occurs when closely spaced obstacle's potential combine to produce a well on the descent gradient where a pre-mature stable point is found. Proposed solutions to local minimum include object clustering and virtual waypoint method \cite{liu_virtual-waypoint_2016}, virtual escaping route \cite{kim_escaping_2009}, and use of navigation functions \cite{goerzen_survey_2010}. Oscillations in potential field were studied in \cite{lei_tang_novel_2010}, and \cite{li_efficient_2012}.The potential field method converges to a singular point which is not possible for fixed wing aircraft. Similar to conventional waypoint guidance, the active goal point would change as a function of proximity, however for certain UAV applications such as following a curved ground track or surveying it may be beneficial to follow an explicit path. \\
+
+% The potential field method converges to a singular point which is not possible for fixed wing aircraft. Similar to conventional waypoint guidance, the active goal point would change as a function of proximity, however for certain UAV applications such as following a curved ground track or surveying it may be beneficial to follow an explicit path. \\
 
 
 

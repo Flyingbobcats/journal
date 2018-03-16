@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6300 64-bit) (preloaded format=pdflatex 2017.9.26)  16 MAR 2018 13:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6300 64-bit) (preloaded format=pdflatex 2017.9.26)  16 MAR 2018 15:01
 entering extended mode
 **./main.tex
 (main.tex
@@ -1525,12 +1525,6 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 (Font)              scaled to size 10.0pt on input line 24.
  (main.aux
 
-LaTeX Warning: Label `eq:vffRepulse' multiply defined.
-
-
-LaTeX Warning: Label `eq:vffRepulse' multiply defined.
-
-
 LaTeX Warning: Label `fig:GVFLine' multiply defined.
 
 )
@@ -1814,51 +1808,45 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/bx/n' in size <10> not available
 (Font)              Font shape `T1/ntxtlf/b/n' tried instead on input line 28.
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
 (Font)              scaled to size 10.0pt on input line 28.
-LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 10.0pt on input line 44.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 12.0pt on input line 66.
+(Font)              scaled to size 12.0pt on input line 63.
 LaTeX Font Info:    Font shape `T1/ntxtlf/bx/n' in size <12> not available
-(Font)              Font shape `T1/ntxtlf/b/n' tried instead on input line 66.
+(Font)              Font shape `T1/ntxtlf/b/n' tried instead on input line 63.
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 12.0pt on input line 66.
- [1
+(Font)              scaled to size 12.0pt on input line 63.
 
-{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
-<Figures/simpleWaypointsWithUAVPath.png, id=31, 672.26157pt x 207.77625pt>
+<Figures/simpleWaypointsWithUAVPath.png, id=22, 672.26157pt x 207.77625pt>
 File: Figures/simpleWaypointsWithUAVPath.png Graphic file (type png)
 
 <use Figures/simpleWaypointsWithUAVPath.png>
 Package pdftex.def Info: Figures/simpleWaypointsWithUAVPath.png used on input l
-ine 79.
+ine 80.
 (pdftex.def)             Requested size: 469.75502pt x 145.18874pt.
+ [1
 
-Underfull \hbox (badness 10000) in paragraph at lines 88--89
-
- []
-
-[2 <./Figures/simpleWaypointsWithUAVPath.png>]
+{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}] [2 <./Figures/simpleWaypo
+intsWithUAVPath.png>]
 Package epstopdf Info: Source file: <Figures/vffSimulated.eps>
-(epstopdf)                    date: 2018-03-16 12:44:51
-(epstopdf)                    size: 31541 bytes
+(epstopdf)                    date: 2018-03-16 14:44:18
+(epstopdf)                    size: 38088 bytes
 (epstopdf)             Output file: <Figures/vffSimulated-eps-converted-to.pdf>
 
-(epstopdf)                    date: 2018-03-16 12:45:25
-(epstopdf)                    size: 8584 bytes
+(epstopdf)                    date: 2018-03-16 14:44:24
+(epstopdf)                    size: 10830 bytes
 (epstopdf)             Command: <epstopdf --outfile=Figures/vffSimulated-eps-co
 nverted-to.pdf Figures/vffSimulated.eps>
-(epstopdf)             \includegraphics on input line 111.
+(epstopdf)             \includegraphics on input line 124.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/vffSimulated-eps-converted-to.pdf, id=56, 637.38126pt x 516.93124pt>
+<Figures/vffSimulated-eps-converted-to.pdf, id=74, 772.8875pt x 428.60126pt>
 File: Figures/vffSimulated-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/vffSimulated-eps-converted-to.pdf>
 Package pdftex.def Info: Figures/vffSimulated-eps-converted-to.pdf used on inpu
-t line 111.
-(pdftex.def)             Requested size: 328.82707pt x 266.68399pt.
+t line 124.
+(pdftex.def)             Requested size: 328.82707pt x 182.34604pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 142--143
+Underfull \hbox (badness 10000) in paragraph at lines 159--160
 
  []
 
@@ -1872,14 +1860,14 @@ pdf>
 (epstopdf)                    size: 12418 bytes
 (epstopdf)             Command: <epstopdf --outfile=Figures/straightLyapunov-ep
 s-converted-to.pdf Figures/straightLyapunov.eps>
-(epstopdf)             \includegraphics on input line 168.
+(epstopdf)             \includegraphics on input line 185.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/straightLyapunov-eps-converted-to.pdf, id=91, 421.575pt x 316.18124pt>
+<Figures/straightLyapunov-eps-converted-to.pdf, id=99, 421.575pt x 316.18124pt>
 File: Figures/straightLyapunov-eps-converted-to.pdf Graphic file (type pdf)
 <use Figures/straightLyapunov-eps-converted-to.pdf>
 Package pdftex.def Info: Figures/straightLyapunov-eps-converted-to.pdf used on 
-input line 168.
+input line 185.
 (pdftex.def)             Requested size: 227.62204pt x 170.72084pt.
 Package epstopdf Info: Source file: <Figures/circularLyapunov.eps>
 (epstopdf)                    date: 2018-03-15 14:31:56
@@ -1890,64 +1878,65 @@ pdf>
 (epstopdf)                    size: 17387 bytes
 (epstopdf)             Command: <epstopdf --outfile=Figures/circularLyapunov-ep
 s-converted-to.pdf Figures/circularLyapunov.eps>
-(epstopdf)             \includegraphics on input line 169.
+(epstopdf)             \includegraphics on input line 186.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/circularLyapunov-eps-converted-to.pdf, id=92, 421.575pt x 316.18124pt>
+<Figures/circularLyapunov-eps-converted-to.pdf, id=100, 421.575pt x 316.18124pt
+>
 File: Figures/circularLyapunov-eps-converted-to.pdf Graphic file (type pdf)
-<use Figures/circularLyapunov-eps-converted-to.pdf>
+ <use Figures/circularLyapunov-eps-converted-to.pdf>
 Package pdftex.def Info: Figures/circularLyapunov-eps-converted-to.pdf used on 
-input line 169.
+input line 186.
 (pdftex.def)             Requested size: 227.62204pt x 170.72084pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 227--228
+Underfull \hbox (badness 10000) in paragraph at lines 244--245
 
  []
 
 [4 <./Figures/straightLyapunov-eps-converted-to.pdf> <./Figures/circularLyapuno
 v-eps-converted-to.pdf>]
 LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
-(Font)              scaled to size 10.0pt on input line 235.
+(Font)              scaled to size 10.0pt on input line 252.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
-(Font)              scaled to size 7.3pt on input line 235.
+(Font)              scaled to size 7.3pt on input line 252.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
-(Font)              scaled to size 5.5pt on input line 235.
+(Font)              scaled to size 5.5pt on input line 252.
  [5]
-<Figures/planeIntersection.png, id=133, 361.35pt x 361.35pt>
+<Figures/planeIntersection.png, id=140, 361.35pt x 361.35pt>
 File: Figures/planeIntersection.png Graphic file (type png)
 
 <use Figures/planeIntersection.png>
-Package pdftex.def Info: Figures/planeIntersection.png used on input line 312.
+Package pdftex.def Info: Figures/planeIntersection.png used on input line 329.
 (pdftex.def)             Requested size: 227.62204pt x 227.62413pt.
 
-<Figures/lineConvCirc.pdf, id=134, 361.35pt x 361.35pt>
+<Figures/lineConvCirc.pdf, id=141, 361.35pt x 361.35pt>
 File: Figures/lineConvCirc.pdf Graphic file (type pdf)
 
 <use Figures/lineConvCirc.pdf>
-Package pdftex.def Info: Figures/lineConvCirc.pdf used on input line 313.
+Package pdftex.def Info: Figures/lineConvCirc.pdf used on input line 330.
 (pdftex.def)             Requested size: 227.62204pt x 227.62413pt.
 
-<Figures/cylinderIntersection.png, id=135, 361.35pt x 361.35pt>
+<Figures/cylinderIntersection.png, id=142, 361.35pt x 361.35pt>
 File: Figures/cylinderIntersection.png Graphic file (type png)
 
 <use Figures/cylinderIntersection.png>
-Package pdftex.def Info: Figures/cylinderIntersection.png used on input line 32
-4.
+Package pdftex.def Info: Figures/cylinderIntersection.png used on input line 34
+1.
 (pdftex.def)             Requested size: 227.62204pt x 227.62413pt.
 
-<Figures/circConvCirc.pdf, id=136, 361.35pt x 361.35pt>
+<Figures/circConvCirc.pdf, id=143, 361.35pt x 361.35pt>
 File: Figures/circConvCirc.pdf Graphic file (type pdf)
 
 <use Figures/circConvCirc.pdf>
-Package pdftex.def Info: Figures/circConvCirc.pdf used on input line 325.
+Package pdftex.def Info: Figures/circConvCirc.pdf used on input line 342.
 (pdftex.def)             Requested size: 227.62204pt x 227.62413pt.
  [6 <./Figures/planeIntersection.png (PNG copy)> <./Figures/lineConvCirc.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 336--337
+Underfull \hbox (badness 10000) in paragraph at lines 353--354
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 338--339
+Underfull \hbox (badness 10000) in paragraph at lines 355--356
 
  []
 
@@ -1967,12 +1956,12 @@ LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
 LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
 (Font)              scaled to size 8.09995pt on input line 29.
  [8] [9])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 552.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 569.
  [10]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 552.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 569.
  (main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 552.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 552.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 569.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 569.
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 59CC35E8AC560730D3E1CDB2919FF9EC;142.
 
@@ -1981,13 +1970,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 24769 strings out of 493320
- 455606 string characters out of 3138948
- 542798 words of memory out of 3000000
- 27723 multiletter control sequences out of 15000+200000
- 629413 words of font info for 206 fonts, out of 3000000 for 9000
+ 24780 strings out of 493320
+ 455938 string characters out of 3138948
+ 542961 words of memory out of 3000000
+ 27724 multiletter control sequences out of 15000+200000
+ 629445 words of font info for 209 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,14n,94p,10368b,927s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 60i,14n,94p,10368b,925s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc}{C:/Progra
 m Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}{C:/Program Files/MiKTeX 2.9/fon
 ts/enc/dvips/newtx/ntx-ec-tlf.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/
@@ -2002,9 +1991,9 @@ ram Files/MiKTeX 2.9/fonts/type1/public/txfonts/t1xtt.pfb><C:/Program Files/MiK
 TeX 2.9/fonts/type1/public/newtx/txexs.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
 ype1/public/txfonts/txsyb.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/n
 ewtx/txsys.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (10 pages, 889362 bytes).
+Output written on main.pdf (10 pages, 893769 bytes).
 PDF statistics:
- 282 PDF objects out of 1000 (max. 8388607)
- 68 named destinations out of 1000 (max. 500000)
- 37441 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 294 PDF objects out of 1000 (max. 8388607)
+ 70 named destinations out of 1000 (max. 500000)
+ 36929 words of extra memory for PDF output out of 42996 (max. 10000000)
 
