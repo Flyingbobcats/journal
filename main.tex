@@ -364,7 +364,6 @@ Decay functions for avoidance fields using GVF were investigated in [Zhu] for ob
 
 Dubin's vehicle's position $\overrightarrow{X}$ at time $t$ is calculated from the integral of the velocity vector $\overrightarrow{U}$. The vehicle has a constant velocity magnitude $u_{uav}$ at a heading $\theta$. The rate at which $\theta$ changes with respect to time is based on limitations of the craft itself. 
 
-
 \begin{equation}
 \label{uavVelocity}
 \overrightarrow{U}(t) = u_{uav} \begin{bmatrix}
@@ -388,208 +387,277 @@ sin(\theta(t))
 
 
 
+\section{methods}
+\subsection{Path Following}
+
+
+\begin{equation}
+\label{pathFunction}
+\alpha_1 = cos(\theta)x + sin(\theta)y
+\end{equation}
+
+\begin{equation}
+\label{pathFunctionZ}
+\alpha_2 = z
+\end{equation}
+
+
+
+
+\begin{equation}
+\label{potentialFunction}
+V = \sqrt{\alpha_1^2+\alpha_2^2}
+\end{equation}
+
+
+
+\begin{equation}
+\nabla V = AB
+\label{gradPotential}
+\end{equation}
+
+\begin{equation}
+A = -\frac{1}{2(\sqrt{\cos^2\theta x^2+2\cos\theta\sin\theta xy +\sin^2 \theta y^2})}
+\label{gradPotentialA}
+\end{equation}
+
+\begin{equation}
+B = \begin{bmatrix}
+2x\cos^2\theta + 2\cos\theta\sin\theta y \\
+2y\sin^2\theta + 2\cos\theta\sin\theta x \\
+2z
+\end{bmatrix}
+\label{gradPotentialB}
+\end{equation}
+
+
+
+
+
+\begin{equation}
+\label{zPlane}
+\overrightarrow{V}_{conv} = cos(\theta)x + sin(\theta)y\begin{bmatrix}
+cos(\theta) \\
+sin(\theta) \\
+0
+\end{bmatrix}
+\end{equation}
+
+
+\begin{equation}
+\label{zPlane}
+\overrightarrow{V}_{circ} = \begin{bmatrix}
+cos(\theta) \\
+sin(\theta) \\
+0
+\end{bmatrix} 
+\times
+\begin{bmatrix}
+0 \\
+0 \\
+1
+\end{bmatrix}
+\end{equation}
 
 
 
 
 
 
-%--- Path planning and waypoint navigation ----
-%
-%- Path that meets mission requirements
-%- Conventionally build from straight lines connecting waypoints
-%- Guidance algorithm direct the UAV towards the waypoint and switches once within a pre-determined range to the next waypoint
-%
-%- The UAV is not guaranteed to follow the path connecting waypoints perfectly, therefore more detailed paths require a more dense clustering of waypoints
-%
-%[ Figure] 
-% - Sketch of waypoints, UAV following waypoints, Obstacle with waypoints placed closely together to form path around obstacle 
-% 
-% - Transition into potential field methods
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{Figures/methods/straightPath}
+	\caption{}
+	\label{fig:straightpath}
+\end{figure}
+
+\subsection{Avoidance}
+
+\begin{equation}\label{eq:alpha1}
+\alpha_1 = (x-x_c)^2 + (y-y_c)^2-r^2
+\end{equation}
+
+
+\begin{equation}\label{eq:alpha2}
+\alpha_2 = z
+\end{equation}
+
+\begin{equation}
+\overrightarrow{V}_{conv} = A\overrightarrow{B}
+\end{equation}
+
+\begin{equation}
+\bar{x} = x - x_c
+\end{equation}
+\begin{equation}
+\bar{y} = y - y_c
+\end{equation}
+
+
+\begin{equation}
+A = \dfrac{-1}{\sqrt{\bar{x}^4+\bar{y}^4+2\bar{x}^2\bar{y}^2-2r^2\bar{x}^2-2r^2\bar{y}^2+r^2+z^2}}
+\end{equation}
+
+\begin{equation}
+\overrightarrow{B} = \begin{bmatrix} 2\bar{x}^3+2\bar{x}\bar{y}^2-2r^2\bar{x} \\ 2\bar{y}^3+2\bar{x}^2\bar{y}-2r^2\bar{y} \\z \end{bmatrix}
+\end{equation}
+
+
+
+\begin{equation}\label{eq:vcirc_circle}
+\overrightarrow{V}_{circ} =  \begin{bmatrix}  2(y-y_c) \\[6pt] -2(x-x_c) \\[6pt] 0\end{bmatrix}
+\end{equation}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{Figures/methods/largeRepulsive}
+	\caption{}
+	\label{fig:largerepulsive}
+\end{figure}
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{Figures/methods/normalizedRepulsive}
+	\caption{}
+	\label{fig:normalizedrepulsive}
+\end{figure}
+
+
+
+
+%\chi^d(d) = \gamma-\frac{\pi}{2}-\tan^{-1} \bigg(k \frac{d-r}{r} \bigg)
+
+\begin{equation}
+d = \sqrt{ \bar{x}^2+\bar{y}^2}
+\end{equation}
+
+\begin{equation}
+P = -\tanh \bigg( \frac{2\pi d}{R}-\pi\bigg)+1
+\end{equation}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{Figures/methods/tanH}
+	\caption{}
+	\label{fig:tanh}
+\end{figure}
 
 
 
 
 
-% - Potential field is a method based on a gradient descent
-%- Start at a high potential
-%- End in a stable low potential
-%- Obstacle represented by high potentials
-%
-%- Potential field combines path planning, trajectory planning, and control into a single process
-%- pointed out in []
-%
-%- And has been used as the means for path planning in 
-%- List potential field papers
-%
-%- Major drawbacks to potential field is the likely encounter of local minima, oscilations, etc [KandB].
-%- Solutions to local minima
-%
-%- Object clustering (thesis document)
-%- Navigation functions (thesis document)
-%
-%and oscillations
-%- Tang (Novel potential field method)
-%- Li (An Efficient Improved APF based regression search method for robot path planning)
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{Figures/methods/decayApplied}
+	\caption{}
+	\label{fig:decayapplied}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{Figures/methods/decayAppliedCirculation}
+	\caption{}
+	\label{fig:decayappliedcirculation}
+\end{figure}
 
 
 
-%--- Transition to Vector Field ----
-%- Such path following can be accomplished with vector fields which are a continuous source of guidance for converge to and following paths.
-%
-%--- Start of VF ---
-%
-%- Sujit compared vector field guidance to other guidance laws in [] and found that
-%	- robust against wind disturbances
-%	- Low cross track error
-%	
-%- VF produced for straight line and circular arc primitives in [Nelson]
-%- Method expanded in [Griffiths] for VF following curved paths
-%- Circular fields modified for standoff tracking in 
-%	- frew
-%	- another
-%	- Wilehlm
-%
-%
-%- Standoff tracking of a moving ground target while avoiding obstacles was presented in [Wilhelm]
-%	- Fixed wing UAV tasked with tracking a moving ground target
-%    - Circular attractive vector field guided UAV to track ground target while compensating for ground target velocity
-%    - Repulsive vector field centered at obstacles and weighted by a hyperbolic tangent decay function
-%    - Fields summed together to produce a combined guidance
-%    - Two methods compared, Lyapunov and Goncalves
-%    - Goncalves lower tracking error due to accounting for time varying nature of target
-%    
-%
-%- Activation / decay functions for obstacles were investigated in [Zhu]
-%
-%- Singularities produced when summing together attractive and repulsive fields
-%	- mentioned in [nelson] "deadzones, sinks, singularities"
-%	- Observed in Panagou
-%	- Expected at any VF location where an attractive field and obstacle field are of equal strength
-%
-%- VF use existing path planning methods to generate a guidance that minimizes distance to a path while also avoiding obstacles and singularities in obstacle fields
-%---- Final Contribution ----
-%
-%
-%
-%	
-%\begin{itemize}
-%	\item UAS consists of vehicle, autopilot, ground station, radios
-%	\item Missions typically pre-planned on ground station where flyable and obstacle free paths can be generated. (Figure of conventional waypoints)
-%	\item Waypoints are sent to the autopilot over a radio and received and interpreted by the vehicles autopilot
-%	\item Autopilot responsible for navigating waypoints while maintaining vehicle stability
-%	\item Due to turn rate constraints or external disturbances, a vehicle may not follow the path perfectly where it may encounter an obstacle previously planned for
-%	\item Demonstrate the above with dubins
-%	\begin{itemize}
-%		\item Introduce dubins as a way to approximate a UAVs dynamics, assume control working (cite)
-%		\item Equations
-%		\item Demonstrate Dubin's UAV not perfectly following path
-%		\item Demonstrate Dubin's with wind not following path
-%	\end{itemize}
-%\end{itemize}
-%
-%
-%
-%\begin{itemize}
-%	\item Reduced error for straight line and circular path following has been achieved by using vector field guidance (sujit)
-%	\item Continuous vectors that asymptotically converge and follow straight and circular paths are both robust and produce guidance that results in low cross track error
-%	\item Lyapunov VF primitives introduced (Nelson). Nelson stitched together primitives to produce complex paths similar to navigating waypoints
-%	\item Curved path vector field was introduced in (griffiths)
-%	\item Goncalves VF
-%	\begin{itemize}
-%		\item Path of any shape
-%		\item Accounts for TV nature of paths
-%		\item Field is produced by summing convergence and circulation terms that are easily accessable
-%		\item Integral lines guaranteed to converge
-%	\end{itemize}
-%	\item Obstacles considered in standoff tracking scenario Wilhelm
-%	\begin{itemize}
-%		\item TV field loiter around moving ground target
-%		\item obstacles represented by repulsive field 
-%		\item Did not consider or identify singularities present in summed fields
-%		\item Singularities are small regions or wells of no guidance where UAV may be trapped
-%		\item No information on how to go around obstacle
-%		\item Field used as a high level specification for avoidance
-%		\item Hyperbolic activation function
-%	\end{itemize} 
-%
-%	\item Activation functions of obstacle avoidance investigated in Zhu
-%	\item Determining VF parameters that influence performance and singularity location 
-%\end{itemize}
-%
-%
-%
-%
-%
-%\section{Methodology}
-%\subsection{Singularity Detection}
-%\begin{itemize}
-%	\item Present VF equations for straight path following
-%	\item Present VF equations for circular obstacle and obstacle definitions
-%	\begin{itemize}
-%		\item Repulsion, small 'path' radius
-%		\item Decay function
-%		\item No circulation versus circulation (side by side figure)
-%	\end{itemize}
-%
-%	\item Sum fields together and show stages of normalization
-%	\item Identify pre normalization singularity
-%	\begin{itemize}
-%		\item Surface plot (x,y,magnitude)
-%		\item Identify undefined region and singularity (Evaluating entire space)
-%		\item Find minimum of guidance function by evaluating several initial conditions
-%		\item Method for finding all singularities as a reference to future look-ahead methods
-%	\end{itemize}
-%
-%
-%	\item Look-ahead and singularity detection
-%	\item Location of all singularities not important if UAV is not going to encounter them
-%	\item Introduce UAV flight envelope
-%	\item Time, turn rate, constant velocity, produces possible locations of UAV
-%	\item Evaluate ICs on flight envelope when near obstacle
-%\end{itemize}
-%
-%\subsection{Modifying VF to avoid singularities}
-%\begin{itemize}
-%	\item Cause and location of singularities
-%	\begin{itemize}
-%			\item Adding circulation to the repulsive obstacle field reduces /removes singularity
-%			\item Singularities will occur where both fields have equal strength
-%			\item Prediction of singularity location based on decay function
-%	\end{itemize}
-%
-%	\item Side by side repulsion and repulsion+circ singularity locations
-%	\item Singularity detected, modify field to remove singularity from flight envelope
-%	\item Objective function is:
-%	\begin{itemize}
-%		\item Avoid obstacle 
-%		\item Avoid singularities
-%		\item Minimize deviation from path
-%	\end{itemize}
-%
-%\end{itemize}
-%
-%\section{Simulation}
-%\begin{itemize}
-%	\item Dubins UAV following a pre-planned straight path
-%	\item Obstacle encountered
-%	\item A guidance solution must be determined that:
-%	\begin{itemize}
-%		\item Determines location of singularities if present (inside flight envelope)
-%		\item Solve VF parameters to remove / mitigate singularities
-%		\item Solve VF parameters that result in guidance that  minimize error from path
-%	\end{itemize}
-%
-%	\item Various UAV speeds
-%	\item Worse case scenario presented (on path)
-%	\item Multiple obstacles on path (sequential)
-%	\item Compare non-modified guidance with modified guidance
-%	\begin{itemize}
-%		\item Deviation from path
-%		\item Yes/no obstacle avoided
-%		\item singularity avoided in flight envelope
-%	\end{itemize}
-%\end{itemize}
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{Figures/methods/summedQuiver}
+	\caption{}
+	\label{fig:summedquiver}
+\end{figure}
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{Figures/methods/summedMagnitudeSurf}
+	\caption{}
+	\label{fig:summedmagnitudesurf}
+\end{figure}
+
+
+
+\begin{equation}
+\label{eq:singularityCondition}
+\overrightarrow{V}_g = \overrightarrow{V}_{path} + P\overrightarrow{V}_{obst}
+\end{equation}
+
+\begin{equation}
+\label{eq:singularityCondition}
+||\overrightarrow{V}_g || = 0
+\end{equation}
+
+\subsection{Flight Envelope}
+
+\begin{equation}
+\label{eq:pos}
+\overrightarrow{X} = \begin{bmatrix}
+x & y & 0
+\end{bmatrix}^T
+\end{equation}
+
+
+\begin{equation}
+\label{eq:pos}
+\overrightarrow{X_b} = \frac{u}{\dot{\theta}}\begin{bmatrix}
+\sin(t_h \dot{\theta}) \\
+(1-\cos(t_h \dot{\theta}) \\
+0
+\end{bmatrix}
+\end{equation}
+
+\begin{equation}
+\label{eq:pos}
+q = ||\overrightarrow{X_b}||
+\end{equation}
+
+\begin{equation}
+\label{eq:pos}
+\phi = \tan^{-1} \bigg( \frac{y_b}{x_b} \bigg)
+\end{equation}
+
+\begin{equation}
+\label{eq:pos}
+\overrightarrow{q_b} = \begin{bmatrix}
+	q\cos\phi \\
+	q\sin\phi \\
+	0
+\end{bmatrix}
+\end{equation}
+
+\begin{equation}
+\label{eq:pos}
+   R^0_b=\begin{bmatrix}
+	\cos(\theta) & -\sin(\theta) & 0 \\
+	\sin\theta & \cos\theta & 0 \\
+	0 & 0 & 1 \\
+\end{bmatrix}
+\end{equation}
+
+
+\begin{equation}
+\label{eq:pos}
+\overrightarrow{Q}_0 = \overrightarrow{P} + R^0_b  \overrightarrow{q_b}
+\end{equation}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 \section{Conclusion}
