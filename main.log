@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6300 64-bit) (preloaded format=pdflatex 2017.10.13)  28 MAR 2018 21:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6300 64-bit) (preloaded format=pdflatex 2017.9.26)  29 MAR 2018 19:42
 entering extended mode
 **./main.tex
 (main.tex
@@ -1515,14 +1515,15 @@ Package: subfigure 2002/07/30 v2.1.4 subfigure package
 \sfmcolsep=\skip97
 \c@sfm@count=\count318
 )
-LaTeX Font Info:    Try loading font information for T1+ntxtlf on input line 24
+\@float@every@figure=\toks34
+LaTeX Font Info:    Try loading font information for T1+ntxtlf on input line 27
 .
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\newtx\t1ntxtlf.fd"
 File: t1ntxtlf.fd 2015/01/17 v1.0 font definition file for T1/ntx/tlf
 )
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 10.0pt on input line 24.
+(Font)              scaled to size 10.0pt on input line 27.
  (main.aux
 
 LaTeX Warning: Label `fig:GVFLine' multiply defined.
@@ -1533,73 +1534,58 @@ LaTeX Warning: Label `eq:singularityCondition' multiply defined.
 
 LaTeX Warning: Label `eq:pos' multiply defined.
 
-
-LaTeX Warning: Label `eq:pos' multiply defined.
-
-
-LaTeX Warning: Label `eq:pos' multiply defined.
-
-
-LaTeX Warning: Label `eq:pos' multiply defined.
-
-
-LaTeX Warning: Label `eq:pos' multiply defined.
-
-
-LaTeX Warning: Label `eq:pos' multiply defined.
-
 )
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/ntxmi/m/it on input line 24.
-LaTeX Font Info:    Try loading font information for OML+ntxmi on input line 24
+LaTeX Font Info:    Checking defaults for OML/ntxmi/m/it on input line 27.
+LaTeX Font Info:    Try loading font information for OML+ntxmi on input line 27
 .
  ("C:\Program Files\MiKTeX 2.9\tex\latex\newtx\omlntxmi.fd"
 File: omlntxmi.fd 2015/08/25 Fontinst v1.933 font definitions for OML/ntxmi.
 )
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for U/ntxexa/m/n on input line 24.
-LaTeX Font Info:    Try loading font information for U+ntxexa on input line 24.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for U/ntxexa/m/n on input line 27.
+LaTeX Font Info:    Try loading font information for U+ntxexa on input line 27.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\newtx\untxexa.fd"
 File: untxexa.fd 2012/04/16 Fontinst v1.933 font definitions for U/ntxexa.
 )
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 24.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 24.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 27.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 27.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ts1cmr.fd"
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for LMS/ntxsy/m/n on input line 24.
-LaTeX Font Info:    Try loading font information for LMS+ntxsy on input line 24
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for LMS/ntxsy/m/n on input line 27.
+LaTeX Font Info:    Try loading font information for LMS+ntxsy on input line 27
 .
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\newtx\lmsntxsy.fd"
 File: lmsntxsy.fd 2016/07/02 Fontinst v1.933 font definitions for LMS/ntxsy.
 )
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for LMX/ntxexx/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for LMX/ntxexx/m/n on input line 27.
 LaTeX Font Info:    Try loading font information for LMX+ntxexx on input line 2
-4.
+7.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\newtx\lmxntxexx.fd"
 File: lmxntxexx.fd 2016/07/03 Fontinst v1.933 font definitions for LMX/ntxexx.
 )
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Info: Redefining \microtypecontext on input line 24.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Info: Redefining \microtypecontext on input line 27.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -1660,7 +1646,7 @@ Package: ltcaption 2013/06/09 v1.4-94 longtable captions (AR)
 Package caption Info: subfigure package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \AtBeginShipoutBox=\box61
-Package hyperref Info: Link coloring OFF on input line 24.
+Package hyperref Info: Link coloring OFF on input line 27.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -1670,9 +1656,9 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count321
 )
-LaTeX Info: Redefining \ref on input line 24.
-LaTeX Info: Redefining \pageref on input line 24.
-LaTeX Info: Redefining \nameref on input line 24.
+LaTeX Info: Redefining \ref on input line 27.
+LaTeX Info: Redefining \pageref on input line 27.
+LaTeX Info: Redefining \nameref on input line 27.
 
 (main.out) (main.out)
 \@outlinefile=\write3
@@ -1686,12 +1672,12 @@ LaTeX Info: Redefining \nameref on input line 24.
 \scratchbox=\box62
 \nofMPsegments=\count323
 \nofMParguments=\count324
-\everyMPshowfont=\toks34
+\everyMPshowfont=\toks35
 \MPscratchCnt=\count325
 \MPscratchDim=\dimen274
 \MPnumerator=\count326
 \makeMPintoPDFobject=\count327
-\everyMPtoPDFconversion=\toks35
+\everyMPtoPDFconversion=\toks36
 ) ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty"
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
@@ -1708,7 +1694,7 @@ G,.JBIG2,.JB2,.eps]
 .................................................
 . chemgreek info: "mapping-activated"
 . 
-. Activating mapping `newtx' on line 24.
+. Activating mapping `newtx' on line 27.
 .................................................
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\beamer\translator\dicts\translator-basi
@@ -1720,415 +1706,428 @@ File: siunitx-abbreviations.cfg 2017/03/23 v2.7f siunitx: Abbreviated units
 )
 \c__siunitx_mathsf_int=\count328
 LaTeX Font Info:    Try loading font information for OT1+ntxtlf on input line 2
-4.
+7.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\newtx\ot1ntxtlf.fd"
 File: ot1ntxtlf.fd 2015/01/17 v1.0 font definition file for OT1/ntx/tlf
 )
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 10.0pt on input line 24.
+(Font)              scaled to size 10.0pt on input line 27.
 Package microtype Info: Loading generic settings for font family
 (microtype)             `ntxtlf' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 7.3pt on input line 24.
+(Font)              scaled to size 7.3pt on input line 27.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 5.5pt on input line 24.
-LaTeX Font Info:    Try loading font information for U+ntxmia on input line 24.
+(Font)              scaled to size 5.5pt on input line 27.
+LaTeX Font Info:    Try loading font information for U+ntxmia on input line 27.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\newtx\untxmia.fd"
 File: untxmia.fd 2016/01/31 Fontinst v1.933 font definitions for U/ntxmia.
 )
-LaTeX Font Info:    Try loading font information for U+ntxsym on input line 24.
+LaTeX Font Info:    Try loading font information for U+ntxsym on input line 27.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\newtx\untxsym.fd"
 File: untxsym.fd 2015/03/20 Fontinst v1.933 font definitions for U/ntxsym.
 )
-LaTeX Font Info:    Try loading font information for U+ntxsyc on input line 24.
+LaTeX Font Info:    Try loading font information for U+ntxsyc on input line 27.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\newtx\untxsyc.fd"
 File: untxsyc.fd 2012/04/12 Fontinst v1.933 font definitions for U/ntxsyc.
 )
-LaTeX Font Info:    Try loading font information for T1+qhv on input line 24.
+LaTeX Font Info:    Try loading font information for T1+qhv on input line 27.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\tex-gyre\t1qhv.fd"
 File: t1qhv.fd 2009/09/25 v1.2 font definition file for T1/qhv
 )
 LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
-(Font)              scaled to size 8.99994pt on input line 24.
+(Font)              scaled to size 8.99994pt on input line 27.
 Package microtype Info: Loading generic settings for font family
 (microtype)             `qhv' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
-(Font)              scaled to size 6.56995pt on input line 24.
+(Font)              scaled to size 6.56995pt on input line 27.
 LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
-(Font)              scaled to size 4.94997pt on input line 24.
+(Font)              scaled to size 4.94997pt on input line 27.
 \c__siunitx_mathtt_int=\count329
-LaTeX Font Info:    Try loading font information for T1+ntxtt on input line 24.
+LaTeX Font Info:    Try loading font information for T1+ntxtt on input line 27.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\newtx\t1ntxtt.fd"
 File: t1ntxtt.fd 2012/04/20 v3.1
 )
 LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
-(Font)              scaled to size 10.0pt on input line 24.
+(Font)              scaled to size 10.0pt on input line 27.
 Package microtype Info: Loading generic settings for font family
 (microtype)             `ntxtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
-(Font)              scaled to size 7.3pt on input line 24.
-LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
-(Font)              scaled to size 5.5pt on input line 24.
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 17.28pt on input line 27.
-LaTeX Font Info:    Font shape `T1/ntxtlf/bx/n' in size <17.28> not available
-(Font)              Font shape `T1/ntxtlf/b/n' tried instead on input line 27.
-LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 17.28pt on input line 27.
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 (Font)              scaled to size 7.3pt on input line 27.
-LaTeX Font Info:    Try loading font information for TS1+ntxtlf on input line 2
-7.
+LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
+(Font)              scaled to size 5.5pt on input line 27.
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 17.28pt on input line 30.
+LaTeX Font Info:    Font shape `T1/ntxtlf/bx/n' in size <17.28> not available
+(Font)              Font shape `T1/ntxtlf/b/n' tried instead on input line 30.
+LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
+(Font)              scaled to size 17.28pt on input line 30.
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 7.3pt on input line 30.
+LaTeX Font Info:    Try loading font information for TS1+ntxtlf on input line 3
+0.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\newtx\ts1ntxtlf.fd"
 File: ts1ntxtlf.fd 2015/01/18 v1.0 fd file for TS1/ntxtlf
 )
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 7.3pt on input line 27.
+(Font)              scaled to size 7.3pt on input line 30.
 Package microtype Info: Loading generic settings for font family
 (microtype)             `ntxtlf' (encoding: TS1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 8.0pt on input line 27.
+(Font)              scaled to size 8.0pt on input line 30.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 8.0pt on input line 27.
+(Font)              scaled to size 8.0pt on input line 30.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 6.2pt on input line 27.
+(Font)              scaled to size 6.2pt on input line 30.
 LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
-(Font)              scaled to size 7.19995pt on input line 27.
+(Font)              scaled to size 7.19995pt on input line 30.
 LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
-(Font)              scaled to size 5.57996pt on input line 27.
+(Font)              scaled to size 5.57996pt on input line 30.
 LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
-(Font)              scaled to size 8.0pt on input line 27.
+(Font)              scaled to size 8.0pt on input line 30.
 LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
-(Font)              scaled to size 6.2pt on input line 27.
+(Font)              scaled to size 6.2pt on input line 30.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 6.2pt on input line 27.
+(Font)              scaled to size 6.2pt on input line 30.
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 6.2pt on input line 27.
+(Font)              scaled to size 6.2pt on input line 30.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
-(Font)              scaled to size 10.0pt on input line 27.
+(Font)              scaled to size 10.0pt on input line 30.
 LaTeX Font Info:    Font shape `T1/ntxtlf/bx/n' in size <10> not available
-(Font)              Font shape `T1/ntxtlf/b/n' tried instead on input line 28.
+(Font)              Font shape `T1/ntxtlf/b/n' tried instead on input line 31.
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 10.0pt on input line 28.
+(Font)              scaled to size 10.0pt on input line 31.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 12.0pt on input line 70.
+(Font)              scaled to size 12.0pt on input line 73.
 LaTeX Font Info:    Font shape `T1/ntxtlf/bx/n' in size <12> not available
-(Font)              Font shape `T1/ntxtlf/b/n' tried instead on input line 70.
+(Font)              Font shape `T1/ntxtlf/b/n' tried instead on input line 73.
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 12.0pt on input line 70.
+(Font)              scaled to size 12.0pt on input line 73.
  [1
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
-<Figures/simpleWaypointsWithUAVPath.png, id=53, 672.26157pt x 207.77625pt>
+<Figures/simpleWaypointsWithUAVPath.png, id=69, 672.26157pt x 207.77625pt>
 File: Figures/simpleWaypointsWithUAVPath.png Graphic file (type png)
 
 <use Figures/simpleWaypointsWithUAVPath.png>
 Package pdftex.def Info: Figures/simpleWaypointsWithUAVPath.png used on input l
-ine 87.
+ine 90.
 (pdftex.def)             Requested size: 469.75502pt x 145.18874pt.
  [2 <./Figures/simpleWaypointsWithUAVPath.png>]
 Package epstopdf Info: Source file: <Figures/vffSimulated.eps>
-(epstopdf)                    date: 2018-03-28 18:59:32
+(epstopdf)                    date: 2018-03-29 10:28:07
 (epstopdf)                    size: 39132 bytes
 (epstopdf)             Output file: <Figures/vffSimulated-eps-converted-to.pdf>
 
-(epstopdf)                    date: 2018-03-28 18:59:32
+(epstopdf)                    date: 2018-03-29 10:28:07
 (epstopdf)                    size: 10797 bytes
 (epstopdf)             Command: <epstopdf --outfile=Figures/vffSimulated-eps-co
 nverted-to.pdf Figures/vffSimulated.eps>
-(epstopdf)             \includegraphics on input line 131.
+(epstopdf)             \includegraphics on input line 135.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/vffSimulated-eps-converted-to.pdf, id=89, 710.655pt x 411.5375pt>
+<Figures/vffSimulated-eps-converted-to.pdf, id=104, 710.655pt x 411.5375pt>
 File: Figures/vffSimulated-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/vffSimulated-eps-converted-to.pdf>
 Package pdftex.def Info: Figures/vffSimulated-eps-converted-to.pdf used on inpu
-t line 131.
+t line 135.
 (pdftex.def)             Requested size: 328.82707pt x 190.4273pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 166--167
-
- []
-
-[3 <./Figures/vffSimulated-eps-converted-to.pdf>]
-Package epstopdf Info: Source file: <Figures/straightLyapunov.eps>
-(epstopdf)                    date: 2018-03-28 18:59:32
-(epstopdf)                    size: 119055 bytes
-(epstopdf)             Output file: <Figures/straightLyapunov-eps-converted-to.
-pdf>
-(epstopdf)                    date: 2018-03-28 18:59:32
-(epstopdf)                    size: 12418 bytes
-(epstopdf)             Command: <epstopdf --outfile=Figures/straightLyapunov-ep
-s-converted-to.pdf Figures/straightLyapunov.eps>
-(epstopdf)             \includegraphics on input line 191.
-Package epstopdf Info: Output file is already uptodate.
-
-<Figures/straightLyapunov-eps-converted-to.pdf, id=115, 421.575pt x 316.18124pt
->
-File: Figures/straightLyapunov-eps-converted-to.pdf Graphic file (type pdf)
- <use Figures/straightLyapunov-eps-converted-to.pdf>
-Package pdftex.def Info: Figures/straightLyapunov-eps-converted-to.pdf used on 
-input line 191.
-(pdftex.def)             Requested size: 227.62204pt x 170.72084pt.
-Package epstopdf Info: Source file: <Figures/circularLyapunov.eps>
-(epstopdf)                    date: 2018-03-28 18:59:32
-(epstopdf)                    size: 120096 bytes
-(epstopdf)             Output file: <Figures/circularLyapunov-eps-converted-to.
-pdf>
-(epstopdf)                    date: 2018-03-28 18:59:32
-(epstopdf)                    size: 17387 bytes
-(epstopdf)             Command: <epstopdf --outfile=Figures/circularLyapunov-ep
-s-converted-to.pdf Figures/circularLyapunov.eps>
-(epstopdf)             \includegraphics on input line 192.
-Package epstopdf Info: Output file is already uptodate.
-
-<Figures/circularLyapunov-eps-converted-to.pdf, id=116, 421.575pt x 316.18124pt
->
-File: Figures/circularLyapunov-eps-converted-to.pdf Graphic file (type pdf)
- <use Figures/circularLyapunov-eps-converted-to.pdf>
-Package pdftex.def Info: Figures/circularLyapunov-eps-converted-to.pdf used on 
-input line 192.
-(pdftex.def)             Requested size: 227.62204pt x 170.72084pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 250--251
+ [3]
+Underfull \hbox (badness 10000) in paragraph at lines 171--172
 
  []
 
-[4 <./Figures/straightLyapunov-eps-converted-to.pdf> <./Figures/circularLyapuno
-v-eps-converted-to.pdf>]
-LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
-(Font)              scaled to size 10.0pt on input line 258.
-LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
-(Font)              scaled to size 7.3pt on input line 258.
-LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
-(Font)              scaled to size 5.5pt on input line 258.
- [5]
+
+Underfull \hbox (badness 10000) in paragraph at lines 258--259
+
+ []
+
+[4 <./Figures/vffSimulated-eps-converted-to.pdf>] [5]
 <Figures/planeIntersection.png, id=156, 361.35pt x 361.35pt>
 File: Figures/planeIntersection.png Graphic file (type png)
 
 <use Figures/planeIntersection.png>
-Package pdftex.def Info: Figures/planeIntersection.png used on input line 335.
-(pdftex.def)             Requested size: 227.62204pt x 227.62413pt.
+Package pdftex.def Info: Figures/planeIntersection.png used on input line 344.
+(pdftex.def)             Requested size: 199.16928pt x 199.16766pt.
 
 <Figures/lineConvCirc.pdf, id=157, 361.35pt x 361.35pt>
 File: Figures/lineConvCirc.pdf Graphic file (type pdf)
 
 <use Figures/lineConvCirc.pdf>
-Package pdftex.def Info: Figures/lineConvCirc.pdf used on input line 336.
-(pdftex.def)             Requested size: 227.62204pt x 227.62413pt.
+Package pdftex.def Info: Figures/lineConvCirc.pdf used on input line 345.
+(pdftex.def)             Requested size: 199.16928pt x 199.16766pt.
 
 <Figures/cylinderIntersection.png, id=158, 361.35pt x 361.35pt>
 File: Figures/cylinderIntersection.png Graphic file (type png)
 
 <use Figures/cylinderIntersection.png>
-Package pdftex.def Info: Figures/cylinderIntersection.png used on input line 34
-7.
-(pdftex.def)             Requested size: 227.62204pt x 227.62413pt.
+Package pdftex.def Info: Figures/cylinderIntersection.png used on input line 35
+8.
+(pdftex.def)             Requested size: 199.16928pt x 199.16766pt.
 
 <Figures/circConvCirc.pdf, id=159, 361.35pt x 361.35pt>
 File: Figures/circConvCirc.pdf Graphic file (type pdf)
 
 <use Figures/circConvCirc.pdf>
-Package pdftex.def Info: Figures/circConvCirc.pdf used on input line 348.
-(pdftex.def)             Requested size: 227.62204pt x 227.62413pt.
- [6 <./Figures/planeIntersection.png (PNG copy)> <./Figures/lineConvCirc.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 359--360
+Package pdftex.def Info: Figures/circConvCirc.pdf used on input line 359.
+(pdftex.def)             Requested size: 199.16928pt x 199.16766pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 369--370
+
+ []
+
+[6 <./Figures/planeIntersection.png (PNG copy)> <./Figures/lineConvCirc.pdf> <.
+/Figures/cylinderIntersection.png (PNG copy)> <./Figures/circConvCirc.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 371--372
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 361--362
+Underfull \hbox (badness 10000) in paragraph at lines 401--407
 
  []
 
-[7 <./Figures/cylinderIntersection.png (PNG copy)> <./Figures/circConvCirc.pdf>
-]
-Underfull \hbox (badness 10000) in paragraph at lines 391--397
-
- []
-
-[8]
+[7] [8]
 Package epstopdf Info: Source file: <Figures/methods/straightPath.eps>
-(epstopdf)                    date: 2018-03-28 18:59:32
+(epstopdf)                    date: 2018-03-29 10:28:07
 (epstopdf)                    size: 111537 bytes
 (epstopdf)             Output file: <Figures/methods/straightPath-eps-converted
 -to.pdf>
-(epstopdf)                    date: 2018-03-28 18:59:32
+(epstopdf)                    date: 2018-03-29 10:28:07
 (epstopdf)                    size: 11980 bytes
 (epstopdf)             Command: <epstopdf --outfile=Figures/methods/straightPat
 h-eps-converted-to.pdf Figures/methods/straightPath.eps>
-(epstopdf)             \includegraphics on input line 467.
+(epstopdf)             \includegraphics on input line 477.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/methods/straightPath-eps-converted-to.pdf, id=210, 421.575pt x 316.181
+<Figures/methods/straightPath-eps-converted-to.pdf, id=208, 421.575pt x 316.181
 24pt>
 File: Figures/methods/straightPath-eps-converted-to.pdf Graphic file (type pdf)
 
  <use Figures/methods/straightPath-eps-converted-to.pdf>
 Package pdftex.def Info: Figures/methods/straightPath-eps-converted-to.pdf used
- on input line 467.
+ on input line 477.
 (pdftex.def)             Requested size: 328.82707pt x 246.6252pt.
- [9] [10 <./Figures/methods/straightPath-eps-converted-to.pdf>]
+ [9 <./Figures/methods/straightPath-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <Figures/methods/largeRepulsive.eps>
-(epstopdf)                    date: 2018-03-28 18:59:32
+(epstopdf)                    date: 2018-03-29 10:28:07
 (epstopdf)                    size: 119883 bytes
 (epstopdf)             Output file: <Figures/methods/largeRepulsive-eps-convert
 ed-to.pdf>
-(epstopdf)                    date: 2018-03-28 18:59:32
+(epstopdf)                    date: 2018-03-29 10:28:07
 (epstopdf)                    size: 18166 bytes
 (epstopdf)             Command: <epstopdf --outfile=Figures/methods/largeRepuls
 ive-eps-converted-to.pdf Figures/methods/largeRepulsive.eps>
-(epstopdf)             \includegraphics on input line 525.
+(epstopdf)             \includegraphics on input line 535.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/methods/largeRepulsive-eps-converted-to.pdf, id=234, 421.575pt x 316.1
+<Figures/methods/largeRepulsive-eps-converted-to.pdf, id=223, 421.575pt x 316.1
 8124pt>
 File: Figures/methods/largeRepulsive-eps-converted-to.pdf Graphic file (type pd
 f)
  <use Figures/methods/largeRepulsive-eps-converted-to.pdf>
 Package pdftex.def Info: Figures/methods/largeRepulsive-eps-converted-to.pdf us
-ed on input line 525.
+ed on input line 535.
 (pdftex.def)             Requested size: 328.82707pt x 246.6252pt.
- [11 <./Figures/methods/largeRepulsive-eps-converted-to.pdf>]
+ [10]
 Package epstopdf Info: Source file: <Figures/methods/normalizedRepulsive.eps>
-(epstopdf)                    date: 2018-03-28 18:59:32
+(epstopdf)                    date: 2018-03-29 10:28:07
 (epstopdf)                    size: 120435 bytes
 (epstopdf)             Output file: <Figures/methods/normalizedRepulsive-eps-co
 nverted-to.pdf>
-(epstopdf)                    date: 2018-03-28 18:59:32
+(epstopdf)                    date: 2018-03-29 10:28:07
 (epstopdf)                    size: 15943 bytes
 (epstopdf)             Command: <epstopdf --outfile=Figures/methods/normalizedR
 epulsive-eps-converted-to.pdf Figures/methods/normalizedRepulsive.eps>
-(epstopdf)             \includegraphics on input line 535.
+(epstopdf)             \includegraphics on input line 545.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/methods/normalizedRepulsive-eps-converted-to.pdf, id=248, 421.575pt x 
+<Figures/methods/normalizedRepulsive-eps-converted-to.pdf, id=238, 421.575pt x 
 316.18124pt>
 File: Figures/methods/normalizedRepulsive-eps-converted-to.pdf Graphic file (ty
 pe pdf)
  <use Figures/methods/normalizedRepulsive-eps-converted-to.pdf>
 Package pdftex.def Info: Figures/methods/normalizedRepulsive-eps-converted-to.p
-df used on input line 535.
+df used on input line 545.
 (pdftex.def)             Requested size: 328.82707pt x 246.6252pt.
+
+[11 <./Figures/methods/largeRepulsive-eps-converted-to.pdf> <./Figures/methods/
+normalizedRepulsive-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <Figures/methods/decayApplied.eps>
-(epstopdf)                    date: 2018-03-28 18:59:32
+(epstopdf)                    date: 2018-03-29 10:28:07
 (epstopdf)                    size: 125547 bytes
 (epstopdf)             Output file: <Figures/methods/decayApplied-eps-converted
 -to.pdf>
-(epstopdf)                    date: 2018-03-28 18:59:32
+(epstopdf)                    date: 2018-03-29 10:28:07
 (epstopdf)                    size: 12948 bytes
 (epstopdf)             Command: <epstopdf --outfile=Figures/methods/decayApplie
 d-eps-converted-to.pdf Figures/methods/decayApplied.eps>
-(epstopdf)             \includegraphics on input line 567.
+(epstopdf)             \includegraphics on input line 577.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/methods/decayApplied-eps-converted-to.pdf, id=253, 421.575pt x 316.181
+<Figures/methods/decayApplied-eps-converted-to.pdf, id=254, 421.575pt x 316.181
 24pt>
 File: Figures/methods/decayApplied-eps-converted-to.pdf Graphic file (type pdf)
 
  <use Figures/methods/decayApplied-eps-converted-to.pdf>
 Package pdftex.def Info: Figures/methods/decayApplied-eps-converted-to.pdf used
- on input line 567.
+ on input line 577.
 (pdftex.def)             Requested size: 328.82707pt x 246.6252pt.
- [12 <./Figures/methods/normalizedRepulsive-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <Figures/methods/summedQuiver.eps>
-(epstopdf)                    date: 2018-03-28 18:59:32
+(epstopdf)                    date: 2018-03-29 10:28:07
 (epstopdf)                    size: 113442 bytes
 (epstopdf)             Output file: <Figures/methods/summedQuiver-eps-converted
 -to.pdf>
-(epstopdf)                    date: 2018-03-28 18:59:32
+(epstopdf)                    date: 2018-03-29 10:28:07
 (epstopdf)                    size: 14851 bytes
 (epstopdf)             Command: <epstopdf --outfile=Figures/methods/summedQuive
 r-eps-converted-to.pdf Figures/methods/summedQuiver.eps>
-(epstopdf)             \includegraphics on input line 585.
+(epstopdf)             \includegraphics on input line 601.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/methods/summedQuiver-eps-converted-to.pdf, id=266, 421.575pt x 316.181
+<Figures/methods/summedQuiver-eps-converted-to.pdf, id=256, 421.575pt x 316.181
 24pt>
 File: Figures/methods/summedQuiver-eps-converted-to.pdf Graphic file (type pdf)
 
  <use Figures/methods/summedQuiver-eps-converted-to.pdf>
 Package pdftex.def Info: Figures/methods/summedQuiver-eps-converted-to.pdf used
- on input line 585.
+ on input line 601.
 (pdftex.def)             Requested size: 328.82707pt x 246.6252pt.
+ [12 <./Figures/methods/decayApplied-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <Figures/methods/summedMagnitudeSurf.eps>
-(epstopdf)                    date: 2018-03-28 18:59:32
+(epstopdf)                    date: 2018-03-29 10:28:07
 (epstopdf)                    size: 475387 bytes
 (epstopdf)             Output file: <Figures/methods/summedMagnitudeSurf-eps-co
 nverted-to.pdf>
-(epstopdf)                    date: 2018-03-28 18:59:32
+(epstopdf)                    date: 2018-03-29 10:28:07
 (epstopdf)                    size: 39495 bytes
 (epstopdf)             Command: <epstopdf --outfile=Figures/methods/summedMagni
 tudeSurf-eps-converted-to.pdf Figures/methods/summedMagnitudeSurf.eps>
-(epstopdf)             \includegraphics on input line 595.
+(epstopdf)             \includegraphics on input line 629.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/methods/summedMagnitudeSurf-eps-converted-to.pdf, id=267, 421.575pt x 
+<Figures/methods/summedMagnitudeSurf-eps-converted-to.pdf, id=270, 421.575pt x 
 316.18124pt>
 File: Figures/methods/summedMagnitudeSurf-eps-converted-to.pdf Graphic file (ty
 pe pdf)
  <use Figures/methods/summedMagnitudeSurf-eps-converted-to.pdf>
 Package pdftex.def Info: Figures/methods/summedMagnitudeSurf-eps-converted-to.p
-df used on input line 595.
+df used on input line 629.
 (pdftex.def)             Requested size: 328.82707pt x 246.6252pt.
 
-[13 <./Figures/methods/decayApplied-eps-converted-to.pdf> <./Figures/methods/su
-mmedQuiver-eps-converted-to.pdf>] [14 <./Figures/methods/summedMagnitudeSurf-ep
-s-converted-to.pdf>] (main.bbl
+[13 <./Figures/methods/summedQuiver-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <Figures/methods/noCircSingularityR10.eps>
+(epstopdf)                    date: 2018-03-29 12:47:53
+(epstopdf)                    size: 134509 bytes
+(epstopdf)             Output file: <Figures/methods/noCircSingularityR10-eps-c
+onverted-to.pdf>
+(epstopdf)                    date: 2018-03-29 12:49:44
+(epstopdf)                    size: 16690 bytes
+(epstopdf)             Command: <epstopdf --outfile=Figures/methods/noCircSingu
+larityR10-eps-converted-to.pdf Figures/methods/noCircSingularityR10.eps>
+(epstopdf)             \includegraphics on input line 640.
+Package epstopdf Info: Output file is already uptodate.
+
+<Figures/methods/noCircSingularityR10-eps-converted-to.pdf, id=282, 489.83pt x 
+357.335pt>
+File: Figures/methods/noCircSingularityR10-eps-converted-to.pdf Graphic file (t
+ype pdf)
+ <use Figures/methods/noCircSingularityR10-eps-converted-to.pdf>
+Package pdftex.def Info: Figures/methods/noCircSingularityR10-eps-converted-to.
+pdf used on input line 640.
+(pdftex.def)             Requested size: 227.62204pt x 232.85931pt.
+Package epstopdf Info: Source file: <Figures/methods/noCircSingularityR30.eps>
+(epstopdf)                    date: 2018-03-29 12:47:34
+(epstopdf)                    size: 130507 bytes
+(epstopdf)             Output file: <Figures/methods/noCircSingularityR30-eps-c
+onverted-to.pdf>
+(epstopdf)                    date: 2018-03-29 12:49:47
+(epstopdf)                    size: 16721 bytes
+(epstopdf)             Command: <epstopdf --outfile=Figures/methods/noCircSingu
+larityR30-eps-converted-to.pdf Figures/methods/noCircSingularityR30.eps>
+(epstopdf)             \includegraphics on input line 641.
+Package epstopdf Info: Output file is already uptodate.
+
+<Figures/methods/noCircSingularityR30-eps-converted-to.pdf, id=284, 487.8225pt 
+x 355.3275pt>
+File: Figures/methods/noCircSingularityR30-eps-converted-to.pdf Graphic file (t
+ype pdf)
+ <use Figures/methods/noCircSingularityR30-eps-converted-to.pdf>
+Package pdftex.def Info: Figures/methods/noCircSingularityR30-eps-converted-to.
+pdf used on input line 641.
+(pdftex.def)             Requested size: 227.62204pt x 232.8903pt.
+
+[14 <./Figures/methods/summedMagnitudeSurf-eps-converted-to.pdf>]
+<Figures/methods/flightEnvelope2.png, id=294, 647.41875pt x 443.40656pt>
+File: Figures/methods/flightEnvelope2.png Graphic file (type png)
+
+<use Figures/methods/flightEnvelope2.png>
+Package pdftex.def Info: Figures/methods/flightEnvelope2.png used on input line
+ 662.
+(pdftex.def)             Requested size: 328.82707pt x 225.20743pt.
+ [15 <./Figures/methods/noCircSingularityR10-eps-converted-to.pdf> <./Figures/m
+ethods/noCircSingularityR30-eps-converted-to.pdf>] [16 <./Figures/methods/fligh
+tEnvelope2.png>]
+<Figures/methods/flightEnvelope.png, id=328, 688.07062pt x 402.00188pt>
+File: Figures/methods/flightEnvelope.png Graphic file (type png)
+
+<use Figures/methods/flightEnvelope.png>
+Package pdftex.def Info: Figures/methods/flightEnvelope.png used on input line 
+710.
+(pdftex.def)             Requested size: 328.82707pt x 192.1122pt.
+ (main.bbl
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 (Font)              scaled to size 9.0pt on input line 1.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
 (Font)              scaled to size 9.0pt on input line 13.
+ [17 <./Figures/methods/flightEnvelope.png>]
 LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
 (Font)              scaled to size 9.0pt on input line 29.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
 (Font)              scaled to size 9.0pt on input line 29.
-LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
-(Font)              scaled to size 9.0pt on input line 29.
 LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
 (Font)              scaled to size 8.09995pt on input line 29.
- [15] [16])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 692.
- [17]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 692.
+ [18] [19])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 757.
+ [20]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 757.
  (main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 692.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 692.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 757.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 757.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: A8902589B0ED941C780A6091EFFE57E5;373.
+(rerunfilecheck)             Checksum: ECA1269ED6B55545C6F6FF1E7DBA4F12;637.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 24892 strings out of 493320
- 458600 string characters out of 3138956
- 543967 words of memory out of 3000000
- 27782 multiletter control sequences out of 15000+200000
- 629445 words of font info for 209 fonts, out of 3000000 for 9000
+ 24920 strings out of 493320
+ 459187 string characters out of 3138948
+ 544161 words of memory out of 3000000
+ 27796 multiletter control sequences out of 15000+200000
+ 626797 words of font info for 208 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,14n,94p,10368b,919s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 60i,14n,94p,10368b,925s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc}{C:/Progra
 m Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}{C:/Program Files/MiKTeX 2.9/fon
 ts/enc/dvips/newtx/ntx-ec-tlf.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/
@@ -2143,9 +2142,9 @@ ram Files/MiKTeX 2.9/fonts/type1/public/txfonts/t1xtt.pfb><C:/Program Files/MiK
 TeX 2.9/fonts/type1/public/newtx/txexs.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
 ype1/public/txfonts/txsyb.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/n
 ewtx/txsys.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (17 pages, 1026137 bytes).
+Output written on main.pdf (20 pages, 1078109 bytes).
 PDF statistics:
- 426 PDF objects out of 1000 (max. 8388607)
- 117 named destinations out of 1000 (max. 500000)
- 36991 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 468 PDF objects out of 1000 (max. 8388607)
+ 124 named destinations out of 1000 (max. 500000)
+ 34997 words of extra memory for PDF output out of 35830 (max. 10000000)
 
