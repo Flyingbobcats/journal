@@ -388,81 +388,79 @@ sin(\theta(t))
 
 
 \section{methods}
+Overview of methods \\
+Construction of guidance for desired path \\
+Construction of avoidance guidance \\
+Path following and obstacle avoidance guidance \\
+Singularity detection \\
+Selection of vf parameters for optimized obstacle avoidance \\
+
 \subsection{Path Following}
+Path following guidance for a planar UAV at position $(x,y)$ for a time invariant line is achieved by summing together convergence $\overrightarrow{V}_{conv}$ and circulation $\overrightarrow{V}_{circ}$ terms shown in Equation \ref{eq:convAndCircOnly}.
+
+\begin{equation}
+\label{eq:convAndCircOnly}
+\overrightarrow{V} = \overrightarrow{V}_{conv} + \overrightarrow{V}_{circ} 
+\end{equation}
+
+where
+
+\begin{equation}
+\label{eq:timeInvariantPath}
+ \overrightarrow{V}_{conv} = G \nabla V
+\end{equation}
+
+and the potential function V is
+
+\begin{equation}
+\label{potentialFunction}
+V = -\sqrt{\alpha_1^2+\alpha_2^2}
+\end{equation}
+
+
+where the plane defined by implicit surface function $\alpha_1$ is at angle $\theta$ and plane $\alpha_2$ is at constant height of $Z = 1$ shown in Equations \ref{eq:pathFunction} and \ref{eq:pathFunctionZ} respectively.
 
 
 \begin{equation}
-\label{pathFunction}
+\label{eq:pathFunction}
 \alpha_1 = cos(\theta)x + sin(\theta)y
 \end{equation}
 
 \begin{equation}
-\label{pathFunctionZ}
+\label{eq:pathFunctionZ}
 \alpha_2 = z
 \end{equation}
 
-
-
-
-\begin{equation}
-\label{potentialFunction}
-V = \sqrt{\alpha_1^2+\alpha_2^2}
-\end{equation}
-
-
+The gradient $\nabla$ of implicit function $V$ is shown in Equation \ref{eq:potentialFunctionGrad}.
 
 \begin{equation}
-\nabla V = AB
-\label{gradPotential}
-\end{equation}
-
-\begin{equation}
-A = -\frac{1}{2(\sqrt{\cos^2\theta x^2+2\cos\theta\sin\theta xy +\sin^2 \theta y^2})}
-\label{gradPotentialA}
-\end{equation}
-
-\begin{equation}
-B = \begin{bmatrix}
+\label{eq:potentialFunctionGrad}
+\nabla V = -\frac{1}{2(\sqrt{\cos^2\theta x^2+2\cos\theta\sin\theta xy +\sin^2 \theta y^2})} \begin{bmatrix}
 2x\cos^2\theta + 2\cos\theta\sin\theta y \\
 2y\sin^2\theta + 2\cos\theta\sin\theta x \\
 2z
 \end{bmatrix}
-\label{gradPotentialB}
 \end{equation}
 
-
-
+Circulation is calculated by the cross product of the functions $\alpha_1$ and $\alpha_2$, shown in Equation \ref{eq:circStraightPath} and \ref{eq:circStraightPat2}.
 
 
 \begin{equation}
-\label{zPlane}
-\overrightarrow{V}_{conv} = cos(\theta)x + sin(\theta)y\begin{bmatrix}
-cos(\theta) \\
-sin(\theta) \\
-0
-\end{bmatrix}
+\overrightarrow{V}_{circ} =  \nabla \alpha_1 \times \nabla \alpha_2 
+\label{eq:circStraightPath}
 \end{equation}
 
 
 \begin{equation}
-\label{zPlane}
+\label{eq:circStraightPat2}
 \overrightarrow{V}_{circ} = \begin{bmatrix}
 cos(\theta) \\
 sin(\theta) \\
 0
-\end{bmatrix} 
-\times
-\begin{bmatrix}
-0 \\
-0 \\
-1
 \end{bmatrix}
 \end{equation}
 
-
-
-
-
+Guidance for a path at angle $\theta = 0$ and equal parts circulation and convergence weights $G=H=1$ is shown in Figure \ref{fig:straightpath} below.
 
 \begin{figure}[H]
 	\centering
@@ -471,20 +469,41 @@ sin(\theta) \\
 	\label{fig:straightpath}
 \end{figure}
 
+
+
 \subsection{Avoidance}
 
-\begin{equation}\label{eq:alpha1}
+Constructing a repulsive vector field for avoidance using the GVF method starts with constructing a vector field that converges and circulates a circular path. A GVF that converges and circulates a circular path is constructed with the implicit functions of a cylinder of radius $r$ centered at $(x_c,y_c)$ and a level plane of constant height $Z$, shown in Equations \ref{eq:alphaCylinder} and \ref{eq:alphaPlane} below.
+
+\begin{equation}\label{eq:alphaCylinder}
 \alpha_1 = (x-x_c)^2 + (y-y_c)^2-r^2
 \end{equation}
 
-
-\begin{equation}\label{eq:alpha2}
+\begin{equation}\label{eq:alphaPlane}
 \alpha_2 = z
 \end{equation}
+
+Convergence is determined by the gradient of the potential function \ref{eq:potentialFunctionGrad}, which when simplified evaluates to
 
 \begin{equation}
 \overrightarrow{V}_{conv} = A\overrightarrow{B}
 \end{equation}
+
+where
+
+
+\begin{equation}
+A = \dfrac{-1}{\sqrt{\bar{x}^4+\bar{y}^4+2\bar{x}^2\bar{y}^2-2r^2\bar{x}^2-2r^2\bar{y}^2+r^2+z^2}}
+\end{equation}
+
+and
+
+\begin{equation}
+\overrightarrow{B} = \begin{bmatrix} 2\bar{x}^3+2\bar{x}\bar{y}^2-2r^2\bar{x} \\ 2\bar{y}^3+2\bar{x}^2\bar{y}-2r^2\bar{y} \\z \end{bmatrix}
+\end{equation}.
+
+
+
 
 \begin{equation}
 \bar{x} = x - x_c
@@ -493,20 +512,13 @@ sin(\theta) \\
 \bar{y} = y - y_c
 \end{equation}
 
-
-\begin{equation}
-A = \dfrac{-1}{\sqrt{\bar{x}^4+\bar{y}^4+2\bar{x}^2\bar{y}^2-2r^2\bar{x}^2-2r^2\bar{y}^2+r^2+z^2}}
-\end{equation}
-
-\begin{equation}
-\overrightarrow{B} = \begin{bmatrix} 2\bar{x}^3+2\bar{x}\bar{y}^2-2r^2\bar{x} \\ 2\bar{y}^3+2\bar{x}^2\bar{y}-2r^2\bar{y} \\z \end{bmatrix}
-\end{equation}
-
-
+Circulation is calculated from the cross product of each implicit surface functions gradient, which simplifies to
 
 \begin{equation}\label{eq:vcirc_circle}
 \overrightarrow{V}_{circ} =  \begin{bmatrix}  2(y-y_c) \\[6pt] -2(x-x_c) \\[6pt] 0\end{bmatrix}
 \end{equation}
+
+Guidance for avoiding a circular path with a large radius can be produced by setting the convergence weight $G=-1$ and circulation weight $H=0$, shown in Figure \ref{fig:largerepulsive}. 
 
 \begin{figure}[H]
 	\centering
@@ -514,6 +526,8 @@ A = \dfrac{-1}{\sqrt{\bar{x}^4+\bar{y}^4+2\bar{x}^2\bar{y}^2-2r^2\bar{x}^2-2r^2\
 	\caption{}
 	\label{fig:largerepulsive}
 \end{figure}
+
+Note that inside of the path, vectors point towards the center of the circle which may produce a trap situation if the UAV ends up inside the radius. To prevent a trap situation inside of the circular path, the radius of the path can be reduced, as shown in Figure \ref{fig:normalizedrepulsive} where $r=0.01$.
 
 
 \begin{figure}[H]
@@ -523,27 +537,28 @@ A = \dfrac{-1}{\sqrt{\bar{x}^4+\bar{y}^4+2\bar{x}^2\bar{y}^2-2r^2\bar{x}^2-2r^2\
 	\label{fig:normalizedrepulsive}
 \end{figure}
 
+Before summing obstacle avoidance with the path following guidance a decay function is applied to the repulsive field to limit the fields influence to within a radius $R$. The decay strength $P$ is determined in \ref{eq:decay}, where $d$ is the euclidean distance, or range, between the UAV and the center of the obstacle, shown in Equation \ref{eq:range}.
 
-
-
-%\chi^d(d) = \gamma-\frac{\pi}{2}-\tan^{-1} \bigg(k \frac{d-r}{r} \bigg)
 
 \begin{equation}
-d = \sqrt{ \bar{x}^2+\bar{y}^2}
-\end{equation}
-
-\begin{equation}
+\label{eq:decay}
 P = -\tanh \bigg( \frac{2\pi d}{R}-\pi\bigg)+1
 \end{equation}
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.7\linewidth]{Figures/methods/tanH}
-	\caption{}
-	\label{fig:tanh}
-\end{figure}
+\begin{equation}
+\label{eq:range}
+d = \sqrt{ \bar{x}^2+\bar{y}^2}
+\end{equation}
+
+Applying the decay function with a decay edge radius $R = 35$ to the GVF shown in figure \ref{fig:normalizedrepulsive}, results in the field shown in Figure \ref{fig:decayapplied}.
 
 
+%\begin{figure}[H]
+%	\centering
+%	\includegraphics[width=0.7\linewidth]{Figures/methods/tanH}
+%	\caption{}
+%	\label{fig:tanh}
+%\end{figure}
 
 
 
@@ -554,14 +569,14 @@ P = -\tanh \bigg( \frac{2\pi d}{R}-\pi\bigg)+1
 	\label{fig:decayapplied}
 \end{figure}
 
-\begin{figure}
-	\centering
-	\includegraphics[width=0.7\linewidth]{Figures/methods/decayAppliedCirculation}
-	\caption{}
-	\label{fig:decayappliedcirculation}
-\end{figure}
+%\begin{figure}[H]
+%	\centering
+%	\includegraphics[width=0.7\linewidth]{Figures/methods/decayAppliedCirculation}
+%	\caption{}
+%	\label{fig:decayappliedcirculation}
+%\end{figure}
 
-
+Summing together path following field with an obstacle centered on the path results in the guidance shown in Figure \ref{fig:summedquiver}.
 
 
 
@@ -571,6 +586,8 @@ P = -\tanh \bigg( \frac{2\pi d}{R}-\pi\bigg)+1
 	\caption{}
 	\label{fig:summedquiver}
 \end{figure}
+
+Summing GVFs together may lead to small regions where the vector magnitude is near or equal to zero
 
 
 \begin{figure}[H]
