@@ -1,11 +1,13 @@
 \BOOKMARK [1][-]{section.1}{Nomenclature}{}% 1
 \BOOKMARK [1][-]{section.2}{Introduction}{}% 2
-\BOOKMARK [2][-]{subsection.2.1}{Potential Field}{section.2}% 3
-\BOOKMARK [2][-]{subsection.2.2}{GVF}{section.2}% 4
-\BOOKMARK [2][-]{subsection.2.3}{Dubins Vehicle}{section.2}% 5
-\BOOKMARK [1][-]{section.3}{methods}{}% 6
-\BOOKMARK [2][-]{subsection.3.1}{Path Following with GVF}{section.3}% 7
-\BOOKMARK [2][-]{subsection.3.2}{Avoidance}{section.3}% 8
-\BOOKMARK [2][-]{subsection.3.3}{Singularity Detection}{section.3}% 9
-\BOOKMARK [2][-]{subsection.3.4}{Flight Envelope}{section.3}% 10
-\BOOKMARK [1][-]{section.4}{Conclusion}{}% 11
+\BOOKMARK [1][-]{section.3}{Optimal Path}{}% 3
+\BOOKMARK [2][-]{subsection.3.1}{Potential Field}{section.3}% 4
+\BOOKMARK [2][-]{subsection.3.2}{GVF}{section.3}% 5
+\BOOKMARK [2][-]{subsection.3.3}{Dubins Vehicle}{section.3}% 6
+\BOOKMARK [1][-]{section.4}{methods}{}% 7
+\BOOKMARK [2][-]{subsection.4.1}{Path Following with GVF}{section.4}% 8
+\BOOKMARK [2][-]{subsection.4.2}{Avoidance}{section.4}% 9
+\BOOKMARK [2][-]{subsection.4.3}{Singularity Detection}{section.4}% 10
+\BOOKMARK [2][-]{subsection.4.4}{Flight Envelope}{section.4}% 11
+\BOOKMARK [1][-]{section.5}{Simulations}{}% 12
+\BOOKMARK [1][-]{section.6}{Conclusion}{}% 13

@@ -52,18 +52,7 @@ $GVF$  & Goncalves Vector Field \\
 
 \section{Introduction}
 
-
-%Paths have already been deemed to meet mission requirements
-%Avoiding obstacles while minimizing deviation from the prescribed path would be benefitial
-%Planning missions (path connecting sequential tasks)
-%Following path with waypoints
-%
-%
-%There are many methods for planning obstacle free and flyable paths, however in general the methods can be simplified into two steps consisting of optimization and path refinement. Optimization determines the least cost straight line path which is further refined to ensure the path is flyable.
-%
-%INTRODUCTION TO UAVS
-
-Unmanned Aerial Vehicles are pilotless aircraft used by military, police, and civilian communities for tasks such as reconnaissance, damage assessment, surveying, and target tracking \cite{ariyur_autonomous_2008,teuliere_chasing_2011}. Tasks can be performed by a single UAV or cooperate with a team of other air, ground, or marine vehicles \cite{oh_coordinated_2013,hyondong_oh_coordinated_2015,ulun_coordinated_2013}. UAVs can be programmed to loiter around an area of interest or follow a prescribed path, such as a road or tree line, where data can be collected for extended periods of time. When collecting data it is important to stay as close to a prescribed path as possible to maximize sensor coverage of the area while avoiding collisions.Obstacle free and flyable paths are typically pre-planned and generated off-line at a dedicated ground station using a path planner. Many methods can be used for generating paths, however the process is generally executed in two steps consisting of optimization and refinement. Optimization builds shortest path taking in constraints such as obstacles and mission objectives. The optimized path is then refined to meet a vehicles dynamic constraints, such as turn rate and velocity. UAVs using a line-of-sight guidance are sent a series of waypoints that lie along the pre-planned path over radio. The autopilot's guidance system directs the UAV to turn the crafts heading towards the current active waypoint, traveling in circular arcs and straight paths.  Curved sections of the refined path may require a dense spacing of waypoints to ensure the UAV tracks the refined path accurately. An example of a UAV following a series of waypoints that lie along a prescribed path is shown in Figure (). 
+Unmanned Aerial Vehicles are pilotless aircraft used by military, police, and civilian communities for tasks such as reconnaissance, damage assessment, natural disaster surveying, and target tracking \cite{ariyur_autonomous_2008,teuliere_chasing_2011}. Tasks can be performed by a single UAV or with a team of other air, ground, or marine vehicles \cite{oh_coordinated_2013,hyondong_oh_coordinated_2015,ulun_coordinated_2013}. Autonomous vehicle missions are typically accomplished by navigating a series of waypoints \cite{ariyur_autonomous_2008} or path following \cite{oliveira_moving_2016}. Waypoints are conventionally generated off-line at a ground station and relayed over radio to the UAVs autopilot. Obstacles such as buildings, terrain, and other vehicles can be avoided by planning waypoints around obstacles. The on-board guidance directs the UAV towards the current active waypoint, once the UAV has reached a pre-defined distance from the waypoint the UAV is directed to the next waypoint. An example of a UAV following waypoint guidance while avoiding an obstacle is shown in Figure \ref{fig:simplewaypointsWithUAVPath}
 
 
 \begin{figure}[H]
@@ -73,62 +62,8 @@ Unmanned Aerial Vehicles are pilotless aircraft used by military, police, and ci
 	\label{fig:simplewaypointsWithUAVPath}
 \end{figure}
 
-\begin{figure}
-	\centering
-	\includegraphics[width=0.7\linewidth]{Figures/Simulations/pureWaypoint}
-	\caption{}
-	\label{fig:purewaypoint}
-\end{figure}
 
-
-During waypoint navigation the UAV may encounter obstacles or environmental changes that would require a new obstacle free series of waypoints to be generated. UAVs that rely on off-board path planning would relay the updated environment information to the ground where a new optimized, refined, and obstacle free path would be re-planned. Waypoints would be constructed along the updated path and relayed back to the UAV. For highly uncertain or dynamic environments, path planning may have to occur frequently which may be impossible if the UAV is flying beyond LOS or needs to maintain radio silence. In the event communication is possible, the latency of waypoint updates may not be frequent enough and the UAV may fail to avoid obstacles all together. 
-
-\section{Optimal Path}
-\begin{equation}\label{eq:optPath}
-y = \frac{u}{\dot{theta}} \newline
-\end{equation}
-
-\begin{equation}\label{eq:optPath}
-X = obstX - \sqrt{(turnR-obstR)^2-(y-obstY)^2}
-\end{equation}
-
-\begin{equation}\label{eq:optPath}
-\Theta = \sin^{-1}\Bigg(\frac{y-obstY}{obstR+turnR}\Bigg)
-\end{equation}
-
-\begin{equation}\label{eq:optPath}
-\beta = \Big[\frac{3\pi}{2},\pi-\Theta\Big]
-\end{equation}
-
-\begin{equation}\label{eq:optPath}
-\gamma = \Big[\pi-\Theta,\Theta\Big]
-\end{equation}
-
-\begin{equation}\label{eq:optPath}
-\zeta = \Big[\pi+\Theta,\frac{30pi}{2}\Big]
-\end{equation}
-
-\begin{equation}\label{eq:optPath}
-x = 
-\begin{cases} 
-0 & X+turnR*cos(beta) \\
-\frac{100-x}{100} & obstX + obstR*cos(gamma) \\
-0 & -X+turnR*cos(zeta) 
-\end{cases}
-\end{equation}
-
-
-
-% For highly uncertain or dynamic environments, path planning may have to occur frequently which increases communication overhead for the autopilot
-%
-%% The state of the environment would then need to be transmitted back to the ground station and a new optimized and refined path be generated along with a series of waypoints. 
-%%
-%%
-%%
-%%During waypoint navigation the UAV may encounter obstacles or environmental changes that would require a new set of obstacle free waypoints to be generated. 
-%
-%
-%For highly uncertain or dynamic environments, there may have to be frequent updates which increases the communication overhead of the autopilot since paths may be updated and communicated from the ground. Additionally, if communication is delayed or lost, waypoints may not be updated rapidly enough and the UAV may fail to avoid the obstacles if the autopilot is following outdated waypoints that violate an obstacle. Real time obstacle avoidance without the need to replan may be found in the use of potential and vector fields, which operate on the principle of artificial attractive and repulsive forces to guide a robotic system. 
+During waypoint navigation the UAV may encounter obstacles or environmental changes that would require a new set of obstacle free waypoints to be generated. For highly uncertain or dynamic environments, there may have to be frequent updates which increases the communication overhead of the autopilot since paths may be updated and communicated from the ground. Additionally, if communication is delayed or lost, waypoints may not be updated rapidly enough and the UAV may fail to avoid the obstacles if the autopilot is following outdated waypoints that violate an obstacle. Real time obstacle avoidance without the need to replan may be found in the use of potential and vector fields, which operate on the principle of artificial attractive and repulsive forces to guide a robotic system. 
 
 
 \subsection{Potential Field}
@@ -162,7 +97,7 @@ Summing together attractive and repulsive forces produce a vector that can be us
 
  Major drawbacks to potential field were identified in \cite{koren_potential_1991} consisting of local minimum and oscillations in corridors. The local minimum problem occurs when closely spaced obstacle's potential combine to produce a well on the descent gradient where a pre-mature stable point is found. Proposed solutions to local minimum include object clustering and virtual waypoint method \cite{liu_virtual-waypoint_2016}, virtual escaping route \cite{kim_escaping_2009}, and use of navigation functions \cite{goerzen_survey_2010}. Oscillations in potential field were studied in \cite{lei_tang_novel_2010} and \cite{li_efficient_2012}.
 
-In addition to local minimum and oscillations, potential field may converge to a singular point which is not possible for fixed wing aircraft since it must maintain a minimum forward velocity to remain airborne. Similar to conventional waypoint guidance, the active goal point would change as a function of proximity. Simulating a UAV using VFF as guidance for a Dubins vehicle was performed and is shown in Figure \ref{fig:vffsimulated}, where a single obstacle cell located at the origin. The UAV initially travels directly toward the goal located at $(50,0)$ until the obstacle is encountered, at which point a repulsive force is applied. The UAV avoids the obstacle, however significantly deviates and fails to get back on the path between waypoints. For certain applications it may be benefitial to follow explicit paths for tasks such as data collection on a roadway or searching a tree line.
+In addition to local minimum and oscillations, potential field converges to a singular point which is not possible for fixed wing aircraft since it must maintain a minimum forward velocity to remain airborne. Similar to conventional waypoint guidance, the active goal point would change as a function of proximity. Simulating a UAV using VFF as guidance for a Dubins vehicle was performed and is shown in Figure \ref{fig:vffsimulated}, where a single obstacle cell located at the origin. The UAV initially travels directly toward the goal located at $(50,0)$ until the obstacle is encountered, at which point a repulsive force is applied. The UAV avoids the obstacle, however significantly deviates and fails to get back on the path between waypoints. For certain applications it may be benefitial to follow explicit paths for tasks such as data collection on a roadway or searching a tree line.
 
 
 \begin{figure}[H]
@@ -203,7 +138,9 @@ In addition to local minimum and oscillations, potential field may converge to a
 %The potential field method converges to a singular point which is not possible for fixed wing aircraft. Similar to conventional waypoint guidance, the active goal point would change as a function of proximity, however for certain UAV applications such as following a curved ground track or surveying it may be beneficial to follow an explicit path. \\
 	
 
-Following an explicit path to collect data or follow a ground target can be accomplished with vector fields, which produce a heading guidance that asymptotically converges and circulates a path. A comparison between vector field and waypoint guidance techniques was presented in \cite{sujit_unmanned_2014} where each method was evaluated based on its complexity, robustness, and accuracy. The vector field model produced guidance that was both robust to external wind disturbances while maintaining a low cross track error. The two most prominent methods for generating vector fields in literature consist of the Lyapunov \cite{nelson_cooperative_2005,nelson_vector_2006,nelson_vector_2007,frew_cooperative_2007,miao_orthogonal_2016,griffiths_vector_2006} and Goncalves \cite{goncalves_artificial_2009,goncalves_circulation_2010,goncalves_vector_2010,gerlach_autonomous_2014} method. Lyapunov vector fields for converging and following straight and circular paths were described in \cite{nelson_cooperative_2005}. 
+Following an explicit path to collect data or follow a ground target can be accomplished with vector fields, which produce a heading guidance that asymptotically converges and circulates a path. A comparison between vector field and waypoint guidance techniques was presented in \cite{sujit_unmanned_2014} where each method was evaluated based on its complexity, robustness, and accuracy. The vector field model produced guidance that was both robust to external wind disturbances while maintaining a low cross track error. The two most prominent methods for generating vector fields in literature consist of the Lyapunov \cite{nelson_cooperative_2005,nelson_vector_2006,nelson_vector_2007,frew_cooperative_2007,miao_orthogonal_2016,griffiths_vector_2006} and Goncalves \cite{goncalves_artificial_2009,goncalves_circulation_2010,goncalves_vector_2010,gerlach_autonomous_2014} method. \\
+
+Lyapunov vector fields for converging and following straight and circular paths were described in \cite{nelson_cooperative_2005}. 
 
 
 %For converging and following a straight path, a guidance vector $\chi^{d}$ is determined in Equation \ref{eq:lyapunovStraight}, where $\chi^{\infty}$ is the course approach angle, $y$ is the lateral distance to the path, and $k$ is a positive constant that determines the rate of transition between convergence and following. An example of a Lyapunov vector field converging and following a straight line is shown in Figure \ref{fig:vfPrimitives}a.
@@ -308,7 +245,7 @@ The total vector field $\overrightarrow{V}$ is calculated by:
 or in component form:
 
 \begin{equation}\label{simpleGVF}
-\overrightarrow{V} = G\overrightarrow{V}_{conv} + H\overrightarrow{V}_{circ} + L\overrightarrow{V}_{tv} 
+\overrightarrow{V} = \overrightarrow{V}_{conv} + \overrightarrow{V}_{circ} + \overrightarrow{V}_{tv} 
 \end{equation}	
 
 where $\overrightarrow{V}_{conv}$ produces vectors perpendicular to the path, $\overrightarrow{V}_{circ}$ produces vectors parallel to the path, and $\overrightarrow{V}_{tv}$ is a feed-forward term that produces vectors accounting for a time varying path. 
@@ -317,24 +254,14 @@ Convergence is calculated by:
 
 \begin{equation}
 % Total field with Conv, Circ, and Time
-\vec{V}_{conv} = \nabla V  
+\vec{V}_{conv} = G \nabla V  
 \label{convOnly}
 \end{equation}
-
 
 where scalar $G$ is multiplied by the gradient of the definite potential function $V$:
 
 \begin{equation}
 V = -\sqrt{{\alpha_1}^2 + {\alpha_2}^2}
-\end{equation}
-
-\begin{equation}
-\label{eq:gradV}
-\nabla V =\begin{bmatrix}
-\frac{dV}{dx} \\
-\frac{dV}{dy} \\
-\frac{dV}{dz}
-\end{bmatrix}
 \end{equation}
 
 
@@ -451,6 +378,25 @@ Selection of vf parameters for optimized obstacle avoidance \\
 \subsection{Path Following with GVF}
 Path following guidance for a planar UAV at position $(x,y)$ for a time invariant line is achieved by summing together convergence $\overrightarrow{V}_{conv}$ and circulation $\overrightarrow{V}_{circ}$ terms shown in Equation \ref{eq:convAndCircOnly}.
 
+\begin{equation}
+\label{eq:convAndCircOnly}
+\overrightarrow{V} = \overrightarrow{V}_{conv} + \overrightarrow{V}_{circ} 
+\end{equation}
+
+where
+
+\begin{equation}
+\label{eq:timeInvariantPath}
+ \overrightarrow{V}_{conv} = G \nabla V
+\end{equation}
+
+and the potential function V is
+
+\begin{equation}
+\label{potentialFunction}
+V = -\sqrt{\alpha_1^2+\alpha_2^2}
+\end{equation}
+
 
 where the plane defined by implicit surface function $\alpha_1$ is at angle $\delta$ and plane $\alpha_2$ is at constant height of $Z = 1$ shown in Equations \ref{eq:pathFunction} and \ref{eq:pathFunctionZ} respectively.
 
@@ -479,12 +425,17 @@ The gradient $\nabla$ of the potential function $V$ is shown in Equation \ref{eq
 Circulation is calculated by the cross product of the surface function gradients, shown in Equation \ref{eq:circStraightPath} and \ref{eq:circStraightPat2}.
 
 
+\begin{equation}
+\overrightarrow{V}_{circ} =  \nabla \alpha_1 \times \nabla \alpha_2 
+\label{eq:circStraightPath}
+\end{equation}
+
 
 \begin{equation}
 \label{eq:circStraightPat2}
 \overrightarrow{V}_{circ} = \begin{bmatrix}
+cos(\theta) \\
 sin(\theta) \\
--cos(\theta) \\
 0
 \end{bmatrix}
 \end{equation}
@@ -665,78 +616,6 @@ Plotting the magnitude of the summed field near the obstacle shows a well that d
 \end{figure}
 
 
-%\begin{figure}
-%	\centering
-%	\includegraphics[width=0.7\linewidth]{Figures/semiFinalAlgorithm/Obsty0}
-%	\caption{}
-%	\label{fig:obsty0}
-%\end{figure}
-%\begin{figure}
-%	\centering
-%	\includegraphics[width=0.7\linewidth]{Figures/semiFinalAlgorithm/Obsty-100}
-%	\caption{}
-%	\label{fig:obsty0}
-%\end{figure}
-%
-%\begin{figure}
-%	\centering
-%	\includegraphics[width=0.7\linewidth]{Figures/semiFinalAlgorithm/Obsty-500}
-%	\caption{}
-%	\label{fig:obsty0}
-%\end{figure}
-%
-%
-%\begin{figure}
-%	\centering
-%	\includegraphics[width=0.7\linewidth]{Figures/semiFinalAlgorithm/ObstR142}
-%	\caption{}
-%	\label{fig:obsty0}
-%\end{figure}
-%
-%\begin{figure}
-%	\centering
-%	\includegraphics[width=0.7\linewidth]{Figures/semiFinalAlgorithm/ObstR242}
-%	\caption{}
-%	\label{fig:obsty0}
-%\end{figure}
-%
-%\begin{figure}
-%	\centering
-%	\includegraphics[width=0.7\linewidth]{Figures/semiFinalAlgorithm/ObstR1142}
-%	\caption{}
-%	\label{fig:obsty0}
-%\end{figure}
-%
-%\begin{figure}
-%	\centering
-%	\includegraphics[width=0.7\linewidth]{Figures/semiFinalAlgorithm/Vs25}
-%	\caption{}
-%	\label{fig:obsty0}
-%\end{figure}
-%
-%\begin{figure}
-%	\centering
-%	\includegraphics[width=0.7\linewidth]{Figures/semiFinalAlgorithm/Vs50}
-%	\caption{}
-%	\label{fig:obsty0}
-%\end{figure}
-%
-%\begin{figure}
-%	\centering
-%	\includegraphics[width=0.7\linewidth]{Figures/semiFinalAlgorithm/Vs100}
-%	\caption{}
-%	\label{fig:obsty0}
-%\end{figure}
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -831,32 +710,12 @@ x & y & 0
 Initial conditions placed on the flight envelope will follow the magnitude gradient of the GVF guidance and locate any singularities it may encounter. When a singularity is found to exist inside or near a flight envelope the field can be modified to counteract it. 
 
 
-\section{Simulations}
-\begin{figure}
-	\centering
-	\includegraphics[width=0.7\linewidth]{Figures/Simulations/compareMethods}
-	\caption{}
-	\label{fig:comparemethods}
-\end{figure}
-
-
-
 
 
 \section{Conclusion}
 
 
-\begin{tabular}{|c|c|c|}
-	\hline 
-	Method & Cost (-) & RMS Error (m) \\ 
-	\hline 
-	Waypoint & 16.34 & 16.75 \\ 
-	\hline 
-	VFF & 34.87 & 91.65 \\ 
-	\hline 
-	GVF & 13.79 & 1.65 \\ 
-	\hline 
-\end{tabular} 
+
 \section*{Appendix}
 
 
