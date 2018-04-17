@@ -25,14 +25,18 @@
 \citation{wilhelm_direct_2017}
 \@writefile{toc}{\contentsline {section}{\numberline {I}Nomenclature}{1}{section.1}}
 \@writefile{toc}{\contentsline {section}{\numberline {II}Introduction}{1}{section.2}}
-\citation{rimon_exact_1992}
+\citation{wilhelm_direct_2017}
 \citation{khatib_real-time_1986}
+\citation{rimon_exact_1992}
 \citation{borenstein_real-time_1990,borenstein_vector_1991,koren_potential_1991}
-\@writefile{toc}{\contentsline {subsection}{\numberline {II.A}Waypoint Navigation}{2}{subsection.2.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {II.A}Dubins Vehicle}{2}{subsection.2.1}}
+\newlabel{uavVelocity}{{1}{2}{Dubins Vehicle}{equation.2.1}{}}
+\newlabel{uavPosition}{{2}{2}{Dubins Vehicle}{equation.2.2}{}}
+\newlabel{turnRate}{{3}{2}{Dubins Vehicle}{equation.2.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {II.B}Waypoint Guidance}{2}{subsection.2.2}}
 \@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Simulated Fixed Wing UAV Traversing Waypoints Around Circular Obstacle\relax }}{2}{figure.1}}
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
 \newlabel{fig:purewaypoint}{{1}{2}{Simulated Fixed Wing UAV Traversing Waypoints Around Circular Obstacle\relax }{figure.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {II.B}Potential Field}{2}{subsection.2.2}}
 \citation{koren_potential_1991}
 \citation{liu_virtual-waypoint_2016}
 \citation{kim_escaping_2009}
@@ -43,78 +47,78 @@
 \citation{nelson_cooperative_2005,nelson_vector_2006,nelson_vector_2007,frew_cooperative_2007,miao_orthogonal_2016,griffiths_vector_2006}
 \citation{goncalves_artificial_2009,goncalves_circulation_2010,goncalves_vector_2010,gerlach_autonomous_2014}
 \citation{nelson_cooperative_2005}
-\newlabel{eq:vffRepulse}{{1}{3}{Potential Field}{equation.2.1}{}}
-\newlabel{eq:vffRepulseSum}{{2}{3}{Potential Field}{equation.2.2}{}}
-\newlabel{eq:vffGoal}{{3}{3}{Potential Field}{equation.2.3}{}}
-\newlabel{eq:vffHeading}{{4}{3}{Potential Field}{equation.2.4}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Dubins vehicle encountering an obstacle while navigating to a waypoint\relax }}{3}{figure.2}}
-\newlabel{fig:vffsimulated}{{2}{3}{Dubins vehicle encountering an obstacle while navigating to a waypoint\relax }{figure.2}{}}
 \citation{nelson_cooperative_2005,nelson_vector_2006,nelson_vector_2007,jung_unmanned_2016}
 \citation{griffiths_vector_2006}
-\@writefile{toc}{\contentsline {subsection}{\numberline {II.C}GVF}{4}{subsection.2.3}}
-\newlabel{eq:GVF}{{5}{4}{GVF}{equation.2.5}{}}
-\newlabel{simpleGVF}{{6}{4}{GVF}{equation.2.6}{}}
-\newlabel{convOnly}{{7}{4}{GVF}{equation.2.7}{}}
-\newlabel{eq:gradV}{{9}{4}{GVF}{equation.2.9}{}}
-\newlabel{circOnly}{{10}{4}{GVF}{equation.2.10}{}}
-\newlabel{circOnlySimp}{{11}{4}{GVF}{equation.2.11}{}}
-\newlabel{tv}{{12}{4}{GVF}{equation.2.12}{}}
-\newlabel{mMatrix}{{13}{4}{GVF}{equation.2.13}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {II.C}Potential Field}{3}{subsection.2.3}}
+\newlabel{eq:vffRepulse}{{4}{3}{Potential Field}{equation.2.4}{}}
+\newlabel{eq:vffRepulseSum}{{5}{3}{Potential Field}{equation.2.5}{}}
+\newlabel{eq:vffGoal}{{6}{3}{Potential Field}{equation.2.6}{}}
+\newlabel{eq:vffHeading}{{7}{3}{Potential Field}{equation.2.7}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {II.D}Vector Field Guidance}{3}{subsection.2.4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {II.E}GVF}{3}{subsection.2.5}}
+\newlabel{eq:GVF}{{8}{4}{GVF}{equation.2.8}{}}
+\newlabel{simpleGVF}{{9}{4}{GVF}{equation.2.9}{}}
+\newlabel{convOnly}{{10}{4}{GVF}{equation.2.10}{}}
+\newlabel{eq:gradV}{{12}{4}{GVF}{equation.2.12}{}}
+\newlabel{circOnly}{{13}{4}{GVF}{equation.2.13}{}}
+\newlabel{circOnlySimp}{{14}{4}{GVF}{equation.2.14}{}}
+\newlabel{tv}{{15}{4}{GVF}{equation.2.15}{}}
+\newlabel{mMatrix}{{16}{4}{GVF}{equation.2.16}{}}
+\newlabel{aVector}{{17}{4}{GVF}{equation.2.17}{}}
 \citation{frew_cooperative_2007}
 \citation{goncalves_artificial_2009,goncalves_circulation_2010,goncalves_vector_2010}
-\newlabel{aVector}{{14}{5}{GVF}{equation.2.14}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces GVF converging and circulating straight path\relax }}{5}{figure.3}}
-\newlabel{fig:GVFLine}{{3}{5}{GVF converging and circulating straight path\relax }{figure.3}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces GVF converging and circulating circular path\relax }}{5}{figure.4}}
-\newlabel{fig:GVFLine}{{4}{5}{GVF converging and circulating circular path\relax }{figure.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces GVF converging and circulating straight path\relax }}{5}{figure.2}}
+\newlabel{fig:GVFLine}{{2}{5}{GVF converging and circulating straight path\relax }{figure.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces GVF converging and circulating circular path\relax }}{5}{figure.3}}
+\newlabel{fig:GVFLine}{{3}{5}{GVF converging and circulating circular path\relax }{figure.3}{}}
 \citation{nelson_cooperative_2005}
 \citation{panagou_motion_2014}
-\@writefile{toc}{\contentsline {subsection}{\numberline {II.D}Dubins Vehicle}{6}{subsection.2.4}}
-\newlabel{uavVelocity}{{15}{6}{Dubins Vehicle}{equation.2.15}{}}
-\newlabel{uavPosition}{{16}{6}{Dubins Vehicle}{equation.2.16}{}}
-\newlabel{turnRate}{{17}{6}{Dubins Vehicle}{equation.2.17}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {II.F}Dubins Vehicle}{6}{subsection.2.6}}
+\newlabel{uavVelocity}{{18}{6}{Dubins Vehicle}{equation.2.18}{}}
+\newlabel{uavPosition}{{19}{6}{Dubins Vehicle}{equation.2.19}{}}
+\newlabel{turnRate}{{20}{6}{Dubins Vehicle}{equation.2.20}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {III}methods}{6}{section.3}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {III.A}Path Following with GVF}{6}{subsection.3.1}}
-\newlabel{eq:pathFunction}{{18}{6}{Path Following with GVF}{equation.3.18}{}}
-\newlabel{eq:pathFunctionZ}{{19}{6}{Path Following with GVF}{equation.3.19}{}}
-\newlabel{eq:potentialFunctionGrad}{{20}{6}{Path Following with GVF}{equation.3.20}{}}
-\newlabel{eq:circStraightPat2}{{21}{7}{Path Following with GVF}{equation.3.21}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces \relax }}{7}{figure.5}}
-\newlabel{fig:straightpath}{{5}{7}{\relax }{figure.5}{}}
+\newlabel{eq:pathFunction}{{21}{6}{Path Following with GVF}{equation.3.21}{}}
+\newlabel{eq:pathFunctionZ}{{22}{6}{Path Following with GVF}{equation.3.22}{}}
+\newlabel{eq:potentialFunctionGrad}{{23}{6}{Path Following with GVF}{equation.3.23}{}}
+\newlabel{eq:circStraightPat2}{{24}{6}{Path Following with GVF}{equation.3.24}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces \relax }}{7}{figure.4}}
+\newlabel{fig:straightpath}{{4}{7}{\relax }{figure.4}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {III.B}Avoidance}{7}{subsection.3.2}}
-\newlabel{eq:alphaCylinder}{{22}{7}{Avoidance}{equation.3.22}{}}
-\newlabel{eq:alphaPlane}{{23}{7}{Avoidance}{equation.3.23}{}}
-\newlabel{eq:vcirc_circle}{{29}{8}{Avoidance}{equation.3.29}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces \relax }}{8}{figure.6}}
-\newlabel{fig:largerepulsive}{{6}{8}{\relax }{figure.6}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces \relax }}{9}{figure.7}}
-\newlabel{fig:normalizedrepulsive}{{7}{9}{\relax }{figure.7}{}}
-\newlabel{eq:decay}{{30}{9}{Avoidance}{equation.3.30}{}}
-\newlabel{eq:range}{{31}{9}{Avoidance}{equation.3.31}{}}
+\newlabel{eq:alphaCylinder}{{25}{7}{Avoidance}{equation.3.25}{}}
+\newlabel{eq:alphaPlane}{{26}{7}{Avoidance}{equation.3.26}{}}
+\newlabel{eq:vcirc_circle}{{32}{8}{Avoidance}{equation.3.32}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces \relax }}{8}{figure.5}}
+\newlabel{fig:largerepulsive}{{5}{8}{\relax }{figure.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces \relax }}{9}{figure.6}}
+\newlabel{fig:normalizedrepulsive}{{6}{9}{\relax }{figure.6}{}}
+\newlabel{eq:decay}{{33}{9}{Avoidance}{equation.3.33}{}}
+\newlabel{eq:range}{{34}{9}{Avoidance}{equation.3.34}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces \relax }}{10}{figure.7}}
+\newlabel{fig:decayapplied}{{7}{10}{\relax }{figure.7}{}}
+\newlabel{eq:singularityCondition}{{35}{10}{Avoidance}{equation.3.35}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces \relax }}{10}{figure.8}}
-\newlabel{fig:decayapplied}{{8}{10}{\relax }{figure.8}{}}
-\newlabel{eq:singularityCondition}{{32}{10}{Avoidance}{equation.3.32}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces \relax }}{10}{figure.9}}
-\newlabel{fig:summedquiver}{{9}{10}{\relax }{figure.9}{}}
+\newlabel{fig:summedquiver}{{8}{10}{\relax }{figure.8}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {III.C}Singularity Detection}{11}{subsection.3.3}}
-\newlabel{eq:singularityCondition}{{33}{11}{Singularity Detection}{equation.3.33}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces \relax }}{11}{figure.10}}
-\newlabel{fig:summedmagnitudesurf}{{10}{11}{\relax }{figure.10}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces GVF converging and circulating circular path\relax }}{12}{figure.11}}
-\newlabel{fig:noCircSingularityDetection}{{11}{12}{GVF converging and circulating circular path\relax }{figure.11}{}}
+\newlabel{eq:singularityCondition}{{36}{11}{Singularity Detection}{equation.3.36}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces \relax }}{11}{figure.9}}
+\newlabel{fig:summedmagnitudesurf}{{9}{11}{\relax }{figure.9}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces GVF converging and circulating circular path\relax }}{12}{figure.10}}
+\newlabel{fig:noCircSingularityDetection}{{10}{12}{GVF converging and circulating circular path\relax }{figure.10}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {III.D}Flight Envelope}{12}{subsection.3.4}}
-\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces \relax }}{12}{figure.12}}
-\newlabel{fig:flightenvelope2}{{12}{12}{\relax }{figure.12}{}}
-\newlabel{eq:qx}{{34}{13}{Flight Envelope}{equation.3.34}{}}
-\newlabel{eq:qy}{{35}{13}{Flight Envelope}{equation.3.35}{}}
-\newlabel{eq:qphi}{{36}{13}{Flight Envelope}{equation.3.36}{}}
-\newlabel{eq:qMag}{{37}{13}{Flight Envelope}{equation.3.37}{}}
-\newlabel{eq:pos}{{38}{13}{Flight Envelope}{equation.3.38}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces \relax }}{13}{figure.13}}
-\newlabel{fig:flightenvelope}{{13}{13}{\relax }{figure.13}{}}
-\newlabel{eq:rotation}{{39}{13}{Flight Envelope}{equation.3.39}{}}
-\newlabel{eq:qGlobal}{{40}{13}{Flight Envelope}{equation.3.40}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces \relax }}{12}{figure.11}}
+\newlabel{fig:flightenvelope2}{{11}{12}{\relax }{figure.11}{}}
+\newlabel{eq:qx}{{37}{13}{Flight Envelope}{equation.3.37}{}}
+\newlabel{eq:qy}{{38}{13}{Flight Envelope}{equation.3.38}{}}
+\newlabel{eq:qphi}{{39}{13}{Flight Envelope}{equation.3.39}{}}
+\newlabel{eq:qMag}{{40}{13}{Flight Envelope}{equation.3.40}{}}
 \newlabel{eq:pos}{{41}{13}{Flight Envelope}{equation.3.41}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces \relax }}{13}{figure.12}}
+\newlabel{fig:flightenvelope}{{12}{13}{\relax }{figure.12}{}}
+\newlabel{eq:rotation}{{42}{13}{Flight Envelope}{equation.3.42}{}}
+\newlabel{eq:qGlobal}{{43}{13}{Flight Envelope}{equation.3.43}{}}
+\newlabel{eq:pos}{{44}{13}{Flight Envelope}{equation.3.44}{}}
 \bibdata{bib}
 \bibcite{ariyur_autonomous_2008}{{1}{2008}{{Ariyur and Fregene}}{{}}}
 \bibcite{teuliere_chasing_2011}{{2}{2011}{{Teuliere et~al.}}{{Teuliere, Eck, and Marchand}}}
@@ -123,15 +127,15 @@
 \bibcite{ulun_coordinated_2013}{{5}{2013}{{Ulun and Unel}}{{}}}
 \bibcite{wilhelm_direct_2017}{{6}{2017}{{Wilhelm et~al.}}{{Wilhelm, Clem, and Eberhart}}}
 \bibcite{khatib_real-time_1986}{{7}{1986}{{Khatib}}{{}}}
-\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces \relax }}{14}{figure.14}}
-\newlabel{fig:comparemethods}{{14}{14}{\relax }{figure.14}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces \relax }}{14}{figure.13}}
+\newlabel{fig:comparemethods}{{13}{14}{\relax }{figure.13}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {IV}Simulations}{14}{section.4}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{14}{figure.14}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{14}{figure.14}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{14}{figure.14}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{14}{figure.14}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{14}{figure.14}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{14}{figure.14}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{14}{figure.13}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{14}{figure.13}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{14}{figure.13}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{14}{figure.13}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{14}{figure.13}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{14}{figure.13}}
 \@writefile{toc}{\contentsline {section}{\numberline {V}Conclusion}{14}{section.5}}
 \bibcite{rimon_exact_1992}{{8}{1992}{{Rimon}}{{}}}
 \bibcite{borenstein_real-time_1990}{{9}{1990}{{Borenstein and Koren}}{{}}}
