@@ -63,59 +63,86 @@ $GVF$  & Goncalves Vector Field \\
 %
 %INTRODUCTION TO UAVS
 
-Unmanned Aerial Vehicles are pilotless aircraft used by military, police, and civilian communities for tasks such as reconnaissance, damage assessment, surveying, and target tracking \cite{ariyur_autonomous_2008,teuliere_chasing_2011}. Tasks can be performed by a single UAV or cooperate with a team of other air, ground, or marine vehicles \cite{oh_coordinated_2013,hyondong_oh_coordinated_2015,ulun_coordinated_2013}. UAVs can be programmed to loiter around an area of interest or follow a prescribed path, such as a road or tree line, where data can be collected for extended periods of time. When collecting data it is important to stay as close to a prescribed path as possible to maximize sensor coverage of the area while avoiding collisions.Obstacle free and flyable paths are typically pre-planned and generated off-line at a dedicated ground station using a path planner. Many methods can be used for generating paths, however the process is generally executed in two steps consisting of optimization and refinement. Optimization builds shortest path taking in constraints such as obstacles and mission objectives. The optimized path is then refined to meet a vehicles dynamic constraints, such as turn rate and velocity. UAVs using a line-of-sight guidance are sent a series of waypoints that lie along the pre-planned path over radio. The autopilot's guidance system directs the UAV to turn the crafts heading towards the current active waypoint, traveling in circular arcs and straight paths.  Curved sections of the refined path may require a dense spacing of waypoints to ensure the UAV tracks the refined path accurately. An example of a UAV following a series of waypoints that lie along a prescribed path is shown in Figure (). 
+Unmanned Aerial Vehicles (UAV)s are pilotless aircraft used by military, police, and civilian communities for tasks such as reconnaissance, damage assessment, surveying, and target tracking \cite{ariyur_autonomous_2008,teuliere_chasing_2011}. Tasks can be performed by a single UAV or cooperate with a team of other air, ground, or marine vehicles \cite{oh_coordinated_2013,hyondong_oh_coordinated_2015,ulun_coordinated_2013}. UAVs are ideal for remote data collection due to their low cost, endurance, and reduced risk to human life. Data can be collected by loitering the aircraft around an area of interest (AOI) or along a sensor path, such as a road or tree-line. Missions for collecting data are typically pre-planned on a remote ground station where an obstacle free and flyable path is generated. Constraints such as optimizing sensor converge may be considered when planning \cite{wilhelm_direct_2017}. Typically paths are deconstructed into a series of discrete waypoints that the UAV navigates to through the use of a line-of-sight guidance. While navigating the pre-planned path previously unknown obstacles may be discovered and a new obstacle free path may have to be generated, which may be difficult or impossible if the UAV is out of radio range. Additional methods for avoiding obstacles in real time include potential field and vector field which employ the use of artificial attractive and repulsive forces to pull a UAV towards a goal while pushing away from obstacles. Potential field is a popular solution to both path planning and guidance problems in obstacle rich environments, however suffers from several limitations including local minima, oscillations, and may cause excess deviation from the desired sensor line. Vector field guidance converges and circulates a pre-defined path and may be summed with additional repulsive vector fields to produce an obstacle avoidance. Further optimization of vector field produces a real-time guidance for avoiding obstacles and returning to a pre-planned sensor path with minimal deviation. Obstacle avoidance using waypoint guidance, potential field, and vector field will be discussed. Each method will be compared in simulation for both deviation from the sensor path and for cross track error with respect to the geometric optimal avoidance path. The optimized vector field will then be demonstrated on a crazyflie 2.0 multi-rotor simulating fixed wing constraints.
 
+
+\subsection{Waypoint Navigation}
+
+UAVs missions are traditionally accomplished by following a series of waypoints that lie on a off-line and pre-planned path. Many methods can be used for generating paths, however the process is generally executed in two steps consisting of optimization and refinement. Optimization builds shortest path taking in constraints such as obstacles and mission objectives. For surveying or mapping missions the objective is to maximize the time spent over a given sensor line or path to provide sensors with the opportunity to collect valuable data. If an obstacle lies along that sensor path, the UAV must avoid the obstacle but also return back to the sensor path such that a minimal length of the path is missed during data collection. A geometrically optimal path around a circular obstacle for a vehicle with fixed turn rate constraints can be generated in three steps. First, the UAV turns away from the obstacle such that it eventually becomes tangent to the obstacle radius. The vehicle then would proceed to follow the outside of the obstacle until nearly approaching the original sensor path. The UAV would then turn back towards the intended sensor path. An example of a series of waypoints that route a UAV with fixed wing constraints around an obstacle is shown in Figure \ref{fig:purewaypoint} below. 
+
+
+
+
+%Generating a path to avoid an obstacle that lies on top of a sensor line can be constructed by considering the UAV turning radius and the radius of the obstacle.
+%- Reconstruct path into discrete waypoints
+%- Relay waypoints to a UAVs autopilot where guidance directs UAV towards waypoints
+%- Planned at a ground station
+%- Collision free path
+%- Further optimized for vehicle constraints
+%- Waypoints not optimal
+%- Placed so radius is outside of obstacle
+%- Generation is typically performed off-board
+%- Communication with vehicle may not be possible
+%- Obstacle avoidance may be achieved in the guidance system instead of path planning
+% When collecting data it is important to stay as close to a prescribed path as possible to maximize sensor coverage of the area while avoiding collisions.
+% 
+% Obstacle free and flyable paths are typically pre-planned and generated off-line at a dedicated ground station using a path planner. 
+% 
+% Many methods can be used for generating paths, however the process is generally executed in two steps consisting of optimization and refinement. Optimization builds shortest path taking in constraints such as obstacles and mission objectives. 
+% 
+% The optimized path is then refined to meet a vehicles dynamic constraints, such as turn rate and velocity. UAVs using a line-of-sight guidance are sent a series of waypoints that lie along the pre-planned path over radio. The autopilot's guidance system directs the UAV to turn the crafts heading towards the current active waypoint, traveling in circular arcs and straight paths.  Curved sections of the refined path may require a dense spacing of waypoints to ensure the UAV tracks the refined path accurately. An example of a UAV following a series of waypoints that lie along a prescribed path is shown in Figure (). 
+
+%
+%\begin{figure}[H]
+%	\centering
+%	\includegraphics[width=1\linewidth]{Figures/simpleWaypointsWithUAVPath}
+%	\caption{UAV path from waypoint guidance}
+%	\label{fig:simplewaypointsWithUAVPath}
+%\end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\linewidth]{Figures/simpleWaypointsWithUAVPath}
-	\caption{UAV path from waypoint guidance}
-	\label{fig:simplewaypointsWithUAVPath}
-\end{figure}
-
-\begin{figure}
-	\centering
 	\includegraphics[width=0.7\linewidth]{Figures/Simulations/pureWaypoint}
-	\caption{}
+	\caption{Simulated Fixed Wing UAV Traversing Waypoints Around Circular Obstacle}
 	\label{fig:purewaypoint}
 \end{figure}
 
 
-During waypoint navigation the UAV may encounter obstacles or environmental changes that would require a new obstacle free series of waypoints to be generated. UAVs that rely on off-board path planning would relay the updated environment information to the ground where a new optimized, refined, and obstacle free path would be re-planned. Waypoints would be constructed along the updated path and relayed back to the UAV. For highly uncertain or dynamic environments, path planning may have to occur frequently which may be impossible if the UAV is flying beyond LOS or needs to maintain radio silence. In the event communication is possible, the latency of waypoint updates may not be frequent enough and the UAV may fail to avoid obstacles all together. 
+During waypoint navigation the UAV may encounter obstacles or environmental changes that would require a new obstacle free series of waypoints to be generated. UAVs that rely on off-board path planning would relay the updated environment information to the ground where a new optimized, refined, and obstacle free path would be re-planned. Waypoints would be constructed along the updated path and relayed back to the UAV. For highly uncertain or dynamic environments, path planning may have to occur frequently which may be impossible if the UAV is flying beyond LOS or needs to maintain radio silence. In the event communication is possible, the latency of waypoint updates may not be frequent enough and the UAV may fail to avoid obstacles all together. Obstacle avoidance without re-planning can be accomplished with on-board guidance systems that direct the UAV around the obstacle and return to the path.
 
-\section{Optimal Path}
-\begin{equation}\label{eq:optPath}
-y = \frac{u}{\dot{theta}} \newline
-\end{equation}
-
-\begin{equation}\label{eq:optPath}
-X = obstX - \sqrt{(turnR-obstR)^2-(y-obstY)^2}
-\end{equation}
-
-\begin{equation}\label{eq:optPath}
-\Theta = \sin^{-1}\Bigg(\frac{y-obstY}{obstR+turnR}\Bigg)
-\end{equation}
-
-\begin{equation}\label{eq:optPath}
-\beta = \Big[\frac{3\pi}{2},\pi-\Theta\Big]
-\end{equation}
-
-\begin{equation}\label{eq:optPath}
-\gamma = \Big[\pi-\Theta,\Theta\Big]
-\end{equation}
-
-\begin{equation}\label{eq:optPath}
-\zeta = \Big[\pi+\Theta,\frac{30pi}{2}\Big]
-\end{equation}
-
-\begin{equation}\label{eq:optPath}
-x = 
-\begin{cases} 
-0 & X+turnR*cos(beta) \\
-\frac{100-x}{100} & obstX + obstR*cos(gamma) \\
-0 & -X+turnR*cos(zeta) 
-\end{cases}
-\end{equation}
+%\section{Optimal Path}
+%\begin{equation}\label{eq:optPath}
+%y = \frac{u}{\dot{theta}} \newline
+%\end{equation}
+%
+%\begin{equation}\label{eq:optPath}
+%X = obstX - \sqrt{(turnR-obstR)^2-(y-obstY)^2}
+%\end{equation}
+%
+%\begin{equation}\label{eq:optPath}
+%\Theta = \sin^{-1}\Bigg(\frac{y-obstY}{obstR+turnR}\Bigg)
+%\end{equation}
+%
+%\begin{equation}\label{eq:optPath}
+%\beta = \Big[\frac{3\pi}{2},\pi-\Theta\Big]
+%\end{equation}
+%
+%\begin{equation}\label{eq:optPath}
+%\gamma = \Big[\pi-\Theta,\Theta\Big]
+%\end{equation}
+%
+%\begin{equation}\label{eq:optPath}
+%\zeta = \Big[\pi+\Theta,\frac{30pi}{2}\Big]
+%\end{equation}
+%
+%\begin{equation}\label{eq:optPath}
+%x = 
+%\begin{cases} 
+%0 & X+turnR*cos(beta) \\
+%\frac{100-x}{100} & obstX + obstR*cos(gamma) \\
+%0 & -X+turnR*cos(zeta) 
+%\end{cases}
+%\end{equation}
 
 
 
@@ -132,10 +159,11 @@ x =
 
 
 \subsection{Potential Field}
-Obstacle free paths in static and dynamic environments have been generated with the potential field method, which models a robot's workspace as a gradient of artificial attractive and repulsive forces \cite{khatib_real-time_1986}. Potential field combines path planning, trajectory planning, and control into a single system \cite{rimon_exact_1992}. Paths can be generated by placing a point mass at an initially high potential and allowing it to descend a gradient until the point reaches the goal, located at a global minimum potential. Obstacles provide a limited repulsive force, pushing the mass away from the obstacle. 
+Potential field has been used as a path planning, trajectory planning, and control method \cite{rimon_exact_1992} for robotic systems in static and dynamic environments by applying a field of artificial attractive and repulsive forces \cite{khatib_real-time_1986}. Goals are represented as an attractive force that pulls a point mass in the direction of minimal energy. Obstacles are represented as repulsive forces that act locally to push a point mass away. The gradient of the potential can be used as a guidance vector to transit towards a goal while avoiding obstacles. Riding the gradient from an initial position to the goal results in a goal seeking and obstacle avoidance path. 
 
+%Obstacle free paths in static and dynamic environments have been generated with the potential field method, which models a robot's workspace as a gradient of artificial attractive and repulsive forces \cite{khatib_real-time_1986}. Potential field combines path planning, trajectory planning, and control into a single system \cite{rimon_exact_1992}. Paths can be generated by placing a point mass at an initially high potential and allowing it to descend a gradient until the point reaches the goal, located at a global minimum potential. Obstacles provide a limited repulsive force, pushing the mass away from the obstacle.  \\
 
-A histogram based potential field method can be found in \cite{borenstein_real-time_1990,borenstein_vector_1991,koren_potential_1991} which allowed for real time goal seeking with obstacle avoidance. Sensors on-board a ground robot located at $(x_0,y_0)$ detect obstacles within a pre-defined window containing a fixed number of cells. Cells containing an obstacle provide a repulsive force $\overrightarrow{F_{i,j}}$ opposite in direction to the line-of-sight from vehicle to cell location $(x_i,y_j)$, where $(i,j$) represents the cell index, $F_{cr}$ is a constant repulsive force, $W$ the vehicle's width, $C_{i,j}$ a cell's certainty, and $d_{i,j}$ the distance to the center of the cell with respect to robots center.
+An example of potential field can be found in \cite{borenstein_real-time_1990,borenstein_vector_1991,koren_potential_1991} which allowed for real time goal seeking with obstacle avoidance on a mobile ground robot equipped with ultrasonic sensors. The robot located at $(x_0,y_0)$ is attracted towards a a goal with constant magnitude force $\overrightarrow{F_t}$ located at $(x_t,y_t)$ and a distance $d_t$ from the robot. Obstacles are detected within a pre-defined window containing a fixed number of cells. Cells containing an obstacle provide a repulsive force $\overrightarrow{F_{i,j}}$ opposite in direction to the line-of-sight from vehicle to cell location $(x_i,y_j)$, where $(i,j$) represents the cell index, $F_{cr}$ is a constant repulsive force, $W$ the vehicle's width, $C_{i,j}$ a cell's certainty, and $d_{i,j}$ the distance to the center of the cell with respect to robots center.
 
 \begin{equation}\label{eq:vffRepulse}
 \overrightarrow{F_{i,j}} = \frac{F_{cr}W^nC_{i,j}}{d^n_{i,j}} \bigg( \frac{x_i-x_0}{d_{i,j}}\hat{x} + \frac{y_i-y_0}{d_{i,j}}\hat{y}\bigg)
@@ -148,7 +176,6 @@ The total repulsive force exerted on the robot is determined by summing the acti
 \overrightarrow{F_r} = \sum_{i,j}\overrightarrow{F_{i,j}}
 \end{equation}
 
-The robot is attracted to the goal by force $\overrightarrow{F_t}$ with constant magnitude $F_{ct}$ and along the LOS from robot center to goal, located at $(x_t,y_t)$ and a distance $d_t$, shown in Equation \ref{eq:vffGoal}
 
 \begin{equation}\label{eq:vffGoal}
 \overrightarrow{F_t} = F_{ct} \bigg( \frac{x_t-x_0}{d_{t}}\hat{x} + \frac{y_t-y_0}{d_{t}}\hat{y}\bigg)
@@ -160,9 +187,9 @@ Summing together attractive and repulsive forces produce a vector that can be us
 \overrightarrow{R} = \overrightarrow{F_r} + \overrightarrow{F_t}
 \end{equation}
 
- Major drawbacks to potential field were identified in \cite{koren_potential_1991} consisting of local minimum and oscillations in corridors. The local minimum problem occurs when closely spaced obstacle's potential combine to produce a well on the descent gradient where a pre-mature stable point is found. Proposed solutions to local minimum include object clustering and virtual waypoint method \cite{liu_virtual-waypoint_2016}, virtual escaping route \cite{kim_escaping_2009}, and use of navigation functions \cite{goerzen_survey_2010}. Oscillations in potential field were studied in \cite{lei_tang_novel_2010} and \cite{li_efficient_2012}.
+ Major drawbacks to potential field were identified in \cite{koren_potential_1991} consisting of local minimum and oscillations in corridors. The local minimum problem occurs when closely spaced obstacle's potential combine to produce a well on the descent gradient where a pre-mature stable point is reached. Proposed solutions to local minimum include object clustering and virtual waypoint method \cite{liu_virtual-waypoint_2016}, virtual escaping route \cite{kim_escaping_2009}, and use of navigation functions \cite{goerzen_survey_2010}. Oscillations in potential field were studied in \cite{lei_tang_novel_2010} and \cite{li_efficient_2012}.
 
-In addition to local minimum and oscillations, potential field may converge to a singular point which is not possible for fixed wing aircraft since it must maintain a minimum forward velocity to remain airborne. Similar to conventional waypoint guidance, the active goal point would change as a function of proximity. Simulating a UAV using VFF as guidance for a Dubins vehicle was performed and is shown in Figure \ref{fig:vffsimulated}, where a single obstacle cell located at the origin. The UAV initially travels directly toward the goal located at $(50,0)$ until the obstacle is encountered, at which point a repulsive force is applied. The UAV avoids the obstacle, however significantly deviates and fails to get back on the path between waypoints. For certain applications it may be benefitial to follow explicit paths for tasks such as data collection on a roadway or searching a tree line.
+In addition to local minimum and oscillations, potential field may converge to a singular point which is not possible for fixed wing aircraft since it must maintain a minimum forward velocity to remain airborne. With a velocity constraint a vehicle would need to update the position of the goal point periodically as the UAV approaches the goal. Simulating a UAV using VFF for heading guidance for a Dubins vehicle was performed and is shown in Figure \ref{fig:vffsimulated}, where a single obstacle cell located at the origin. The UAV initially travels directly toward the goal located at $(50,0)$ until the obstacle is encountered, at which point a repulsive force is applied. The UAV avoids the obstacle, however significantly deviates and fails to get back on the path between waypoints. For certain applications it may be beneficial to follow explicit paths for tasks such as data collection on a roadway or searching a tree line.
 
 
 \begin{figure}[H]

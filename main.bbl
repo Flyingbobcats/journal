@@ -44,14 +44,13 @@ Ulun, S., and Unel, M., \enquote{Coordinated motion of {UGVs} and a {UAV},}
 \newblock
   \urlprefix\url{http://ieeexplore.ieee.org/abstract/document/6699789/}.
 
-\bibitem[{Oliveira et~al.(2016)Oliveira, Aguiar, and
-  Encarnacao}]{oliveira_moving_2016}
-Oliveira, T., Aguiar, A.~P., and Encarnacao, P., \enquote{Moving {Path}
-  {Following} for {Unmanned} {Aerial} {Vehicles} {With} {Applications} to
-  {Single} and {Multiple} {Target} {Tracking} {Problems},} \emph{IEEE
-  Transactions on Robotics}, Vol.~32, No.~5, 2016, pp. 1062--1078.
-\newblock \doi{10.1109/TRO.2016.2593044},
-  \urlprefix\url{http://ieeexplore.ieee.org/document/7553466/}.
+\bibitem[{Wilhelm et~al.(2017)Wilhelm, Clem, and
+  Eberhart}]{wilhelm_direct_2017}
+Wilhelm, J., Clem, G., and Eberhart, G., \enquote{Direct {Entry} {Minimal}
+  {Path} {UAV} {Loitering} {Path} {Planning},} \emph{Aerospace}, Vol.~4, No.~2,
+  2017, p.~23.
+\newblock \doi{10.3390/aerospace4020023},
+  \urlprefix\url{http://www.mdpi.com/2226-4310/4/2/23}.
 
 \bibitem[{Khatib(1986)}]{khatib_real-time_1986}
 Khatib, O., \enquote{Real-time obstacle avoidance for manipulators and mobile

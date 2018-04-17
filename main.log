@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6300 64-bit) (preloaded format=pdflatex 2017.9.26)  14 APR 2018 14:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6300 64-bit) (preloaded format=pdflatex 2017.9.26)  17 APR 2018 14:06
 entering extended mode
 **./main.tex
 (main.tex
@@ -1526,24 +1526,6 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 (Font)              scaled to size 10.0pt on input line 27.
  (main.aux
 
-LaTeX Warning: Label `eq:optPath' multiply defined.
-
-
-LaTeX Warning: Label `eq:optPath' multiply defined.
-
-
-LaTeX Warning: Label `eq:optPath' multiply defined.
-
-
-LaTeX Warning: Label `eq:optPath' multiply defined.
-
-
-LaTeX Warning: Label `eq:optPath' multiply defined.
-
-
-LaTeX Warning: Label `eq:optPath' multiply defined.
-
-
 LaTeX Warning: Label `fig:GVFLine' multiply defined.
 
 
@@ -1839,14 +1821,6 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/bx/n' in size <12> not available
 (Font)              Font shape `T1/ntxtlf/b/n' tried instead on input line 42.
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
 (Font)              scaled to size 12.0pt on input line 42.
-
-<Figures/simpleWaypointsWithUAVPath.png, id=59, 672.26157pt x 207.77625pt>
-File: Figures/simpleWaypointsWithUAVPath.png Graphic file (type png)
-
-<use Figures/simpleWaypointsWithUAVPath.png>
-Package pdftex.def Info: Figures/simpleWaypointsWithUAVPath.png used on input l
-ine 71.
-(pdftex.def)             Requested size: 469.75502pt x 145.18874pt.
  [1
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
@@ -1859,19 +1833,18 @@ rted-to.pdf>
 (epstopdf)                    size: 68550 bytes
 (epstopdf)             Command: <epstopdf --outfile=Figures/Simulations/pureWay
 point-eps-converted-to.pdf Figures/Simulations/pureWaypoint.eps>
-(epstopdf)             \includegraphics on input line 78.
+(epstopdf)             \includegraphics on input line 105.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/Simulations/pureWaypoint-eps-converted-to.pdf, id=75, 677.53125pt x 45
+<Figures/Simulations/pureWaypoint-eps-converted-to.pdf, id=76, 677.53125pt x 45
 1.6875pt>
 File: Figures/Simulations/pureWaypoint-eps-converted-to.pdf Graphic file (type 
 pdf)
  <use Figures/Simulations/pureWaypoint-eps-converted-to.pdf>
 Package pdftex.def Info: Figures/Simulations/pureWaypoint-eps-converted-to.pdf 
-used on input line 78.
+used on input line 105.
 (pdftex.def)             Requested size: 328.82707pt x 219.22668pt.
- [2 <./Figures/Simulations/pureWaypoint-eps-converted-to.pdf> <./Figures/simple
-WaypointsWithUAVPath.png>]
+ [2 <./Figures/Simulations/pureWaypoint-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <Figures/vffSimulated.eps>
 (epstopdf)                    date: 2018-03-29 10:28:07
 (epstopdf)                    size: 39132 bytes
@@ -1881,75 +1854,74 @@ Package epstopdf Info: Source file: <Figures/vffSimulated.eps>
 (epstopdf)                    size: 10797 bytes
 (epstopdf)             Command: <epstopdf --outfile=Figures/vffSimulated-eps-co
 nverted-to.pdf Figures/vffSimulated.eps>
-(epstopdf)             \includegraphics on input line 170.
+(epstopdf)             \includegraphics on input line 197.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/vffSimulated-eps-converted-to.pdf, id=109, 710.655pt x 411.5375pt>
+<Figures/vffSimulated-eps-converted-to.pdf, id=107, 710.655pt x 411.5375pt>
 File: Figures/vffSimulated-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/vffSimulated-eps-converted-to.pdf>
 Package pdftex.def Info: Figures/vffSimulated-eps-converted-to.pdf used on inpu
-t line 170.
+t line 197.
 (pdftex.def)             Requested size: 328.82707pt x 190.4273pt.
- [3]
-Underfull \hbox (badness 10000) in paragraph at lines 291--292
+ [3 <./Figures/vffSimulated-eps-converted-to.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 318--319
 
  []
 
-[4 <./Figures/vffSimulated-eps-converted-to.pdf>]
-<Figures/planeIntersection.png, id=164, 361.35pt x 361.35pt>
+[4] <Figures/planeIntersection.png, id=160, 361.35pt x 361.35pt>
 File: Figures/planeIntersection.png Graphic file (type png)
 
 <use Figures/planeIntersection.png>
-Package pdftex.def Info: Figures/planeIntersection.png used on input line 387.
+Package pdftex.def Info: Figures/planeIntersection.png used on input line 414.
 (pdftex.def)             Requested size: 199.16928pt x 199.16766pt.
 
-<Figures/lineConvCirc.pdf, id=165, 361.35pt x 361.35pt>
+<Figures/lineConvCirc.pdf, id=161, 361.35pt x 361.35pt>
 File: Figures/lineConvCirc.pdf Graphic file (type pdf)
 
 <use Figures/lineConvCirc.pdf>
-Package pdftex.def Info: Figures/lineConvCirc.pdf used on input line 388.
+Package pdftex.def Info: Figures/lineConvCirc.pdf used on input line 415.
 (pdftex.def)             Requested size: 199.16928pt x 199.16766pt.
 
-<Figures/cylinderIntersection.png, id=166, 361.35pt x 361.35pt>
+<Figures/cylinderIntersection.png, id=162, 361.35pt x 361.35pt>
 File: Figures/cylinderIntersection.png Graphic file (type png)
 
 <use Figures/cylinderIntersection.png>
-Package pdftex.def Info: Figures/cylinderIntersection.png used on input line 40
-1.
+Package pdftex.def Info: Figures/cylinderIntersection.png used on input line 42
+8.
 (pdftex.def)             Requested size: 199.16928pt x 199.16766pt.
 
-<Figures/circConvCirc.pdf, id=167, 361.35pt x 361.35pt>
+<Figures/circConvCirc.pdf, id=163, 361.35pt x 361.35pt>
 File: Figures/circConvCirc.pdf Graphic file (type pdf)
 
 <use Figures/circConvCirc.pdf>
-Package pdftex.def Info: Figures/circConvCirc.pdf used on input line 402.
+Package pdftex.def Info: Figures/circConvCirc.pdf used on input line 429.
 (pdftex.def)             Requested size: 199.16928pt x 199.16766pt.
- [5 <./Figures/planeIntersection.png (PNG copy)> <./Figures/lineConvCirc.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 412--413
+
+Underfull \hbox (badness 10000) in paragraph at lines 439--440
+
+ []
+
+[5 <./Figures/planeIntersection.png (PNG copy)> <./Figures/lineConvCirc.pdf> <.
+/Figures/cylinderIntersection.png (PNG copy)> <./Figures/circConvCirc.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 441--442
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 414--415
+Underfull \hbox (badness 10000) in paragraph at lines 471--477
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 444--450
-
- []
-
-[6 <./Figures/cylinderIntersection.png (PNG copy)> <./Figures/circConvCirc.pdf>
-]
-
-LaTeX Warning: Reference `eq:convAndCircOnly' on page 7 undefined on input line
- 452.
+LaTeX Warning: Reference `eq:convAndCircOnly' on page 6 undefined on input line
+ 479.
 
 
-LaTeX Warning: Reference `eq:circStraightPath' on page 7 undefined on input lin
-e 479.
+LaTeX Warning: Reference `eq:circStraightPath' on page 6 undefined on input lin
+e 506.
 
+[6]
 Package epstopdf Info: Source file: <Figures/methods/straightPath.eps>
 (epstopdf)                    date: 2018-03-29 10:28:07
 (epstopdf)                    size: 111537 bytes
@@ -1959,18 +1931,18 @@ Package epstopdf Info: Source file: <Figures/methods/straightPath.eps>
 (epstopdf)                    size: 11980 bytes
 (epstopdf)             Command: <epstopdf --outfile=Figures/methods/straightPat
 h-eps-converted-to.pdf Figures/methods/straightPath.eps>
-(epstopdf)             \includegraphics on input line 496.
+(epstopdf)             \includegraphics on input line 523.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/methods/straightPath-eps-converted-to.pdf, id=209, 421.575pt x 316.181
+<Figures/methods/straightPath-eps-converted-to.pdf, id=202, 421.575pt x 316.181
 24pt>
 File: Figures/methods/straightPath-eps-converted-to.pdf Graphic file (type pdf)
 
  <use Figures/methods/straightPath-eps-converted-to.pdf>
 Package pdftex.def Info: Figures/methods/straightPath-eps-converted-to.pdf used
- on input line 496.
+ on input line 523.
 (pdftex.def)             Requested size: 328.82707pt x 246.6252pt.
- [7] [8 <./Figures/methods/straightPath-eps-converted-to.pdf>]
+ [7 <./Figures/methods/straightPath-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <Figures/methods/largeRepulsive.eps>
 (epstopdf)                    date: 2018-03-29 10:28:07
 (epstopdf)                    size: 119883 bytes
@@ -1980,16 +1952,16 @@ ed-to.pdf>
 (epstopdf)                    size: 18166 bytes
 (epstopdf)             Command: <epstopdf --outfile=Figures/methods/largeRepuls
 ive-eps-converted-to.pdf Figures/methods/largeRepulsive.eps>
-(epstopdf)             \includegraphics on input line 554.
+(epstopdf)             \includegraphics on input line 581.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/methods/largeRepulsive-eps-converted-to.pdf, id=238, 421.575pt x 316.1
+<Figures/methods/largeRepulsive-eps-converted-to.pdf, id=221, 421.575pt x 316.1
 8124pt>
 File: Figures/methods/largeRepulsive-eps-converted-to.pdf Graphic file (type pd
 f)
  <use Figures/methods/largeRepulsive-eps-converted-to.pdf>
 Package pdftex.def Info: Figures/methods/largeRepulsive-eps-converted-to.pdf us
-ed on input line 554.
+ed on input line 581.
 (pdftex.def)             Requested size: 328.82707pt x 246.6252pt.
 Package epstopdf Info: Source file: <Figures/methods/normalizedRepulsive.eps>
 (epstopdf)                    date: 2018-03-29 10:28:07
@@ -2000,19 +1972,19 @@ nverted-to.pdf>
 (epstopdf)                    size: 15943 bytes
 (epstopdf)             Command: <epstopdf --outfile=Figures/methods/normalizedR
 epulsive-eps-converted-to.pdf Figures/methods/normalizedRepulsive.eps>
-(epstopdf)             \includegraphics on input line 564.
+(epstopdf)             \includegraphics on input line 591.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/methods/normalizedRepulsive-eps-converted-to.pdf, id=240, 421.575pt x 
+<Figures/methods/normalizedRepulsive-eps-converted-to.pdf, id=223, 421.575pt x 
 316.18124pt>
 File: Figures/methods/normalizedRepulsive-eps-converted-to.pdf Graphic file (ty
 pe pdf)
  <use Figures/methods/normalizedRepulsive-eps-converted-to.pdf>
 Package pdftex.def Info: Figures/methods/normalizedRepulsive-eps-converted-to.p
-df used on input line 564.
+df used on input line 591.
 (pdftex.def)             Requested size: 328.82707pt x 246.6252pt.
 
-[9 <./Figures/methods/largeRepulsive-eps-converted-to.pdf>]
+[8 <./Figures/methods/largeRepulsive-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <Figures/methods/decayApplied.eps>
 (epstopdf)                    date: 2018-03-29 10:28:07
 (epstopdf)                    size: 125547 bytes
@@ -2022,18 +1994,18 @@ Package epstopdf Info: Source file: <Figures/methods/decayApplied.eps>
 (epstopdf)                    size: 12948 bytes
 (epstopdf)             Command: <epstopdf --outfile=Figures/methods/decayApplie
 d-eps-converted-to.pdf Figures/methods/decayApplied.eps>
-(epstopdf)             \includegraphics on input line 596.
+(epstopdf)             \includegraphics on input line 623.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/methods/decayApplied-eps-converted-to.pdf, id=255, 421.575pt x 316.181
+<Figures/methods/decayApplied-eps-converted-to.pdf, id=241, 421.575pt x 316.181
 24pt>
 File: Figures/methods/decayApplied-eps-converted-to.pdf Graphic file (type pdf)
 
  <use Figures/methods/decayApplied-eps-converted-to.pdf>
 Package pdftex.def Info: Figures/methods/decayApplied-eps-converted-to.pdf used
- on input line 596.
+ on input line 623.
 (pdftex.def)             Requested size: 328.82707pt x 246.6252pt.
- [10 <./Figures/methods/normalizedRepulsive-eps-converted-to.pdf>]
+ [9 <./Figures/methods/normalizedRepulsive-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <Figures/methods/summedQuiver.eps>
 (epstopdf)                    date: 2018-03-29 10:28:07
 (epstopdf)                    size: 113442 bytes
@@ -2043,18 +2015,18 @@ Package epstopdf Info: Source file: <Figures/methods/summedQuiver.eps>
 (epstopdf)                    size: 14851 bytes
 (epstopdf)             Command: <epstopdf --outfile=Figures/methods/summedQuive
 r-eps-converted-to.pdf Figures/methods/summedQuiver.eps>
-(epstopdf)             \includegraphics on input line 620.
+(epstopdf)             \includegraphics on input line 647.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/methods/summedQuiver-eps-converted-to.pdf, id=267, 421.575pt x 316.181
+<Figures/methods/summedQuiver-eps-converted-to.pdf, id=253, 421.575pt x 316.181
 24pt>
 File: Figures/methods/summedQuiver-eps-converted-to.pdf Graphic file (type pdf)
 
  <use Figures/methods/summedQuiver-eps-converted-to.pdf>
 Package pdftex.def Info: Figures/methods/summedQuiver-eps-converted-to.pdf used
- on input line 620.
+ on input line 647.
 (pdftex.def)             Requested size: 328.82707pt x 246.6252pt.
- [11 <./Figures/methods/decayApplied-eps-converted-to.pdf> <./Figures/methods/s
+ [10 <./Figures/methods/decayApplied-eps-converted-to.pdf> <./Figures/methods/s
 ummedQuiver-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <Figures/methods/summedMagnitudeSurf.eps>
 (epstopdf)                    date: 2018-03-29 10:28:07
@@ -2065,16 +2037,16 @@ nverted-to.pdf>
 (epstopdf)                    size: 39495 bytes
 (epstopdf)             Command: <epstopdf --outfile=Figures/methods/summedMagni
 tudeSurf-eps-converted-to.pdf Figures/methods/summedMagnitudeSurf.eps>
-(epstopdf)             \includegraphics on input line 648.
+(epstopdf)             \includegraphics on input line 675.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/methods/summedMagnitudeSurf-eps-converted-to.pdf, id=281, 421.575pt x 
+<Figures/methods/summedMagnitudeSurf-eps-converted-to.pdf, id=267, 421.575pt x 
 316.18124pt>
 File: Figures/methods/summedMagnitudeSurf-eps-converted-to.pdf Graphic file (ty
 pe pdf)
  <use Figures/methods/summedMagnitudeSurf-eps-converted-to.pdf>
 Package pdftex.def Info: Figures/methods/summedMagnitudeSurf-eps-converted-to.p
-df used on input line 648.
+df used on input line 675.
 (pdftex.def)             Requested size: 328.82707pt x 246.6252pt.
 Package epstopdf Info: Source file: <Figures/methods/noCircSingularityR10.eps>
 (epstopdf)                    date: 2018-03-29 12:47:53
@@ -2085,16 +2057,16 @@ onverted-to.pdf>
 (epstopdf)                    size: 16690 bytes
 (epstopdf)             Command: <epstopdf --outfile=Figures/methods/noCircSingu
 larityR10-eps-converted-to.pdf Figures/methods/noCircSingularityR10.eps>
-(epstopdf)             \includegraphics on input line 659.
+(epstopdf)             \includegraphics on input line 686.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/methods/noCircSingularityR10-eps-converted-to.pdf, id=283, 489.83pt x 
+<Figures/methods/noCircSingularityR10-eps-converted-to.pdf, id=269, 489.83pt x 
 357.335pt>
 File: Figures/methods/noCircSingularityR10-eps-converted-to.pdf Graphic file (t
 ype pdf)
  <use Figures/methods/noCircSingularityR10-eps-converted-to.pdf>
 Package pdftex.def Info: Figures/methods/noCircSingularityR10-eps-converted-to.
-pdf used on input line 659.
+pdf used on input line 686.
 (pdftex.def)             Requested size: 227.62204pt x 232.85931pt.
 Package epstopdf Info: Source file: <Figures/methods/noCircSingularityR30.eps>
 (epstopdf)                    date: 2018-03-29 12:47:34
@@ -2105,35 +2077,35 @@ onverted-to.pdf>
 (epstopdf)                    size: 16721 bytes
 (epstopdf)             Command: <epstopdf --outfile=Figures/methods/noCircSingu
 larityR30-eps-converted-to.pdf Figures/methods/noCircSingularityR30.eps>
-(epstopdf)             \includegraphics on input line 660.
+(epstopdf)             \includegraphics on input line 687.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/methods/noCircSingularityR30-eps-converted-to.pdf, id=285, 487.8225pt 
+<Figures/methods/noCircSingularityR30-eps-converted-to.pdf, id=271, 487.8225pt 
 x 355.3275pt>
 File: Figures/methods/noCircSingularityR30-eps-converted-to.pdf Graphic file (t
 ype pdf)
  <use Figures/methods/noCircSingularityR30-eps-converted-to.pdf>
 Package pdftex.def Info: Figures/methods/noCircSingularityR30-eps-converted-to.
-pdf used on input line 660.
+pdf used on input line 687.
 (pdftex.def)             Requested size: 227.62204pt x 232.8903pt.
 
-[12 <./Figures/methods/summedMagnitudeSurf-eps-converted-to.pdf>]
-<Figures/methods/flightEnvelope2.png, id=297, 647.41875pt x 443.40656pt>
+[11 <./Figures/methods/summedMagnitudeSurf-eps-converted-to.pdf>]
+<Figures/methods/flightEnvelope2.png, id=283, 647.41875pt x 443.40656pt>
 File: Figures/methods/flightEnvelope2.png Graphic file (type png)
 
 <use Figures/methods/flightEnvelope2.png>
 Package pdftex.def Info: Figures/methods/flightEnvelope2.png used on input line
- 753.
+ 780.
 (pdftex.def)             Requested size: 328.82707pt x 225.20743pt.
- [13 <./Figures/methods/noCircSingularityR10-eps-converted-to.pdf> <./Figures/m
+ [12 <./Figures/methods/noCircSingularityR10-eps-converted-to.pdf> <./Figures/m
 ethods/noCircSingularityR30-eps-converted-to.pdf> <./Figures/methods/flightEnve
 lope2.png>]
-<Figures/methods/flightEnvelope.png, id=325, 688.07062pt x 402.00188pt>
+<Figures/methods/flightEnvelope.png, id=311, 688.07062pt x 402.00188pt>
 File: Figures/methods/flightEnvelope.png Graphic file (type png)
 
 <use Figures/methods/flightEnvelope.png>
 Package pdftex.def Info: Figures/methods/flightEnvelope.png used on input line 
-801.
+828.
 (pdftex.def)             Requested size: 328.82707pt x 192.1122pt.
 Package epstopdf Info: Source file: <Figures/Simulations/compareMethods.eps>
 (epstopdf)                    date: 2018-04-14 13:12:06
@@ -2144,19 +2116,19 @@ verted-to.pdf>
 (epstopdf)                    size: 13744 bytes
 (epstopdf)             Command: <epstopdf --outfile=Figures/Simulations/compare
 Methods-eps-converted-to.pdf Figures/Simulations/compareMethods.eps>
-(epstopdf)             \includegraphics on input line 837.
+(epstopdf)             \includegraphics on input line 864.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/Simulations/compareMethods-eps-converted-to.pdf, id=326, 677.53125pt x
+<Figures/Simulations/compareMethods-eps-converted-to.pdf, id=312, 677.53125pt x
  451.6875pt>
 File: Figures/Simulations/compareMethods-eps-converted-to.pdf Graphic file (typ
 e pdf)
  <use Figures/Simulations/compareMethods-eps-converted-to.pdf>
 Package pdftex.def Info: Figures/Simulations/compareMethods-eps-converted-to.pd
-f used on input line 837.
+f used on input line 864.
 (pdftex.def)             Requested size: 328.82707pt x 219.22668pt.
 
-[14 <./Figures/methods/flightEnvelope.png>] (main.bbl
+[13 <./Figures/methods/flightEnvelope.png>] (main.bbl
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 (Font)              scaled to size 9.0pt on input line 1.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
@@ -2167,15 +2139,15 @@ LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
 (Font)              scaled to size 9.0pt on input line 29.
 LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
 (Font)              scaled to size 8.09995pt on input line 29.
- [15 <./Figures/Simulations/compareMethods-eps-converted-to.pdf>] [16])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 868.
- [17]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 868.
+ [14 <./Figures/Simulations/compareMethods-eps-converted-to.pdf>] [15])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 895.
+ [16]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 895.
  (main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 868.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 868.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 895.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 895.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 5B03EBC0D6FC49F86DEE15DFADC6D0E4;734.
+(rerunfilecheck)             Checksum: 25262342351E33F54D46E3FB9F011007;755.
 
 
 LaTeX Warning: There were undefined references.
@@ -2185,13 +2157,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 24948 strings out of 493320
- 459981 string characters out of 3138948
- 548068 words of memory out of 3000000
- 27808 multiletter control sequences out of 15000+200000
- 627141 words of font info for 212 fonts, out of 3000000 for 9000
+ 24930 strings out of 493320
+ 459595 string characters out of 3138948
+ 548023 words of memory out of 3000000
+ 27802 multiletter control sequences out of 15000+200000
+ 627055 words of font info for 211 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,14n,94p,10368b,929s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 60i,14n,94p,10368b,931s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc}{C:/Progra
 m Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}{C:/Program Files/MiKTeX 2.9/fon
 ts/enc/dvips/newtx/ntx-ec-tlf.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/
@@ -2204,12 +2176,11 @@ c/txfonts/rtxmi.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/newtx/rtxmi
 7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/rtxr.pfb><C:/Prog
 ram Files/MiKTeX 2.9/fonts/type1/public/txfonts/t1xtt.pfb><C:/Program Files/MiK
 TeX 2.9/fonts/type1/public/newtx/txexs.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
-ype1/public/txfonts/txmia.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/t
-xfonts/txsyb.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/newtx/txsys.pf
-b><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (17 pages, 1162591 bytes).
+ype1/public/txfonts/txsyb.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/n
+ewtx/txsys.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
+Output written on main.pdf (16 pages, 631282 bytes).
 PDF statistics:
- 477 PDF objects out of 1000 (max. 8388607)
- 129 named destinations out of 1000 (max. 500000)
- 35023 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 458 PDF objects out of 1000 (max. 8388607)
+ 120 named destinations out of 1000 (max. 500000)
+ 35018 words of extra memory for PDF output out of 35830 (max. 10000000)
 
