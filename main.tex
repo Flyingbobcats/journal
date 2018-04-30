@@ -63,15 +63,26 @@ $GVF$  & Goncalves Vector Field \\
 %
 %INTRODUCTION TO UAVS
 
+<<<<<<< HEAD
+Unmanned Aerial Vehicles (UAV)s are pilotless aircraft used by military, police, and civilian communities for tasks such as reconnaissance, damage assessment, surveying, and target tracking \cite{ariyur_autonomous_2008,teuliere_chasing_2011}. Tasks can be performed by a single UAV or cooperate with a team of other air, ground, or marine vehicles \cite{oh_coordinated_2013,hyondong_oh_coordinated_2015,ulun_coordinated_2013}. UAVs are ideal for remote data collection due to their low cost, endurance, and reduced risk to human life. Data can be collected by loitering the aircraft around an area of interest (AOI) or along a sensor path, such as a road or tree-line. Missions for collecting data are typically pre-planned on a remote ground station where an obstacle free and flyable path is generated. Typically paths are deconstructed into a series of discrete waypoints that the UAV navigates to through the use of a line-of-sight guidance. While navigating the pre-planned path previously unknown obstacles may be discovered and a new obstacle free path may have to be generated, which may be difficult or impossible if the UAV is out of radio range. Additional methods for avoiding obstacles in real time include potential field and vector field which employ the use of artificial attractive and repulsive forces to pull a UAV towards a goal while pushing away from obstacles. Potential field is a popular solution to both path planning and guidance problems in obstacle rich environments, however suffers from several limitations including local minima, oscillations, and may cause excess deviation from the desired sensor line. Vector field guidance converges and circulates a pre-defined path and may be summed with additional repulsive vector fields to produce an obstacle avoidance. Previous methods only considered repulsive fields which do not aid in circumnavigating an obstacle and also introduce conditions which may lead to vector field singularities. \\
+
+ Further optimization of vector fields to include circulation may produce an efficient real-time guidance for avoiding obstacles while also removing singularities from the UAVs path. A method for determining obstacle decay radius, circulation, and repulsion such that a UAV avoids obstacles while minimizing path deviation is presented. The modified guidance will then be compared against waypoint, Potential Field, and un-modified path following guidance in simulation for cross track error and deviation from sensor path. Lastly, the optimized vector field will then be demonstrated on a crazyflie 2.0 multi-rotor simulating fixed wing constraints. 
+
+
+% Obstacle avoidance using waypoint guidance, potential field, and vector field will be discussed. Each method will be compared in simulation for both deviation from the sensor path and for cross track error with respect to the geometric optimal avoidance path. The optimized vector field will then be demonstrated on a crazyflie 2.0 multi-rotor simulating fixed wing constraints.
+=======
 Unmanned Aerial Vehicles (UAV)s are pilotless aircraft used by military, police, and civilian communities for tasks such as reconnaissance, damage assessment, surveying, and target tracking \cite{ariyur_autonomous_2008,teuliere_chasing_2011}. Tasks can be performed by a single UAV or cooperate with a team of other air, ground, or marine vehicles \cite{oh_coordinated_2013,hyondong_oh_coordinated_2015,ulun_coordinated_2013}. UAVs are ideal for remote data collection due to their low cost, endurance, and reduced risk to human life. Data can be collected by loitering the aircraft around an area of interest (AOI) or along a sensor path, such as a road or tree-line. Missions for collecting data are typically pre-planned on a remote ground station where an obstacle free and flyable path is generated. Constraints such as optimizing sensor converge may be considered when planning \cite{wilhelm_direct_2017}. Typically paths are deconstructed into a series of discrete waypoints that the UAV navigates to through the use of a line-of-sight guidance. While navigating the pre-planned path previously unknown obstacles may be discovered and a new obstacle free path may have to be generated, which may be difficult or impossible if the UAV is out of radio range. Directing the UAV to temporarily deviate from the planned path to avoid an obstacle may be accomplished with an on board guidance such as Potential Field or path following Vector Field. Potential field is a popular solution to both path planning and guidance problems in obstacle rich environments, however suffers from several limitations including local minima, oscillations, and may cause excess deviation from the desired sensor line. Vector field converges and circulates a pre-defined path and may be summed with additional repulsive vector fields to produce an obstacle avoidance guidance. Avoidance fields may be further optimized to reduce the deviation from a sensor path by modifying convergence and circulation scalar weights. Additionally, summing attractive and repulsive fields may result in singularities, small regions of null guidance that can produce trap situations. The contribution of this work is to provide an optimized vector field guidance for path following and obstacle avoidance as well as providing a method for identifying vector field singularities. First, the Dubin's UAV model will be presented followed by a description of waypoint guidance, potential field, and vector field. A method for singularity detection in summed vector field will be discussed, followed by a modified obstacle avoidance vector field. Simulations comparing the discussed guidance methods were conducted along with a multirotor demonstration of the improved vector field. 
 
+>>>>>>> 49c817b6a2206c01dc967315ac02a62d5eb530b3
 
 \subsection{Dubins Vehicle}
-UAVs traveling at constant altitude and velocity and with a limited turn rate can be simplified as a Dubin's vehicle that flies in straight line and circular arcs. It was assumed that an on-board controller accepts heading commands and produces vehicle roll to change the vehicles heading. The position $\overrightarrow{X}$ at time $t$ is calculated from the integral of the velocity vector $\overrightarrow{U}$. The vehicle has a constant velocity magnitude $u_{uav}$ at a heading $\theta$. Heading is an input from a guidance system, such as waypoint, potential field, or vector field.
+
+
+UAVs traveling at constant altitude and speed $u$ and with a limited turn rate $\dot{\theta}$ can be simplified as a Dubin's vehicle that flies in straight lines and circular arcs. The position of the UAV $\overrightarrow{X}$ at time $t$ is calculated from the integral of the velocity vector $\overrightarrow{U}$. Heading is an input from a guidance system, such as waypoint, potential field, or vector field.
 
 \begin{equation}
 \label{uavVelocity}
-\overrightarrow{U}(t) = u_{uav} \begin{bmatrix}
+\overrightarrow{U}(t) = u \begin{bmatrix}
 cos(\theta(t)) \\
 sin(\theta(t))
 \end{bmatrix}
@@ -90,9 +101,56 @@ sin(\theta(t))
 \end{equation}
 
 
+\subsection{Optimal Path}
+
+
+A path for avoiding a circular obstacle while maximizing the sensor path coverage can be accomplished with three circular arc turns. The circular obstacle is defined to have a radius $R$ and a lateral distance $Y_0$ from the sensor path in frame $I$. The first and third arc utilize the UAVs minimum turning radius, $\theta_r$, calculated in Equation \ref{eq:turnRadius}. The start of the first minimum radius turn begins when the UAV's horizontal position $x$ reaches  $\tilde{x}$ from the path frame. At a horizontal position $-\hat{x}$ the UAV turns with a radius of the obstacle $R$ and exits when the UAVs horizontal position reaches $\hat{x}$. 
+
+\begin{equation}
+\label{eq:turnRadius}
+\theta_r = \frac{u}{\dot{\theta}}
+\end{equation}
+
+The horizontal points $\tilde{x}$ and $\hat{x}$ are shown in Equations \ref{eq:optPathXtilde} and \ref{eq:optPathXhat} respectively. 
+
+\begin{equation}
+\label{eq:optPathXtilde}
+\widetilde{x} = -\sqrt{(\theta_r+R)^2 - (\theta_r-Y_o)^2}
+\end{equation}
+
+\begin{equation}
+\label{eq:optPathXhat}
+\hat{x} = \frac{R\sqrt{(r+R)^2-(\theta_r-Y_o)^2}}{R+\theta_r}
+\end{equation}
+
+The avoidance path for navigating around a circular obstacle with maximum coverage of a sensor line is defined in Equation \ref{eq:optPath} and shown in Figure \ref{fig:optimalpath}.
+
+
+\begin{equation}
+\label{eq:optPath}
+y(x) = \left\{
+\begin{array}{ll}
+ \widetilde{y} -\sqrt{\theta_r^2 - (x-\widetilde{x})^2} &  x < -\hat{x} \\
+Y_o +\sqrt{R^2 - x^2} & -\hat{x} \leq x \geq \hat{x}\\
+ \widetilde{y} -\sqrt{\theta_r^2 - (x+\widetilde{x})^2}&  x > -\hat{x}
+\end{array}
+\right.
+\end{equation}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth ,trim=0 265 0 20,clip,width=15cm]{Figures/optimalPath/optimalPath}
+	\caption{Optimal Kinematic Path Around Circular Obstacle}
+	\label{fig:optimalpath}
+\end{figure}
+
+The avoidance path represents the optimal path around a circular obstacle and would be used to generate waypoints for waypoint guidance. 
+
+
 
 \subsection{Waypoint Guidance}
-Waypoint guidance aligns the vehicle with the currently active waypoint that lies along a pre-planned path. Paths are typically generated off-line and can be optimized for shortest distance traveled and further refined to be flyable for a particular vehicle. Paths may also be optimized to produce flight patterns that increase sensor coverage of an area of interest \cite{wilhelm_direct_2017}. If an obstacle lies along that sensor path, the UAV must avoid the obstacle but also return back to the sensor path such that a minimal length of the path is missed during data collection. Waypoints placed on the outside the radius of the obstacle can direct a UAV around an obstacle and back onto the desired sensor path. Obstacles discovered during flight that lie along the pre-planned path may require a new path to be planned, requiring communication with the ground station. If a new path is not relayed to the UAV in time the vehicle may fail to avoid the obstacle. Additionally, if a new path is generated, it will most likely require that waypoints be placed some distance away from the obstacle's edge to accommodate the wayoints detection radius, increasing both deviation and time spent away from original path. An example of waypoints planned around an obstacle is shown in Figure \ref{fig:purewaypoint} below. 
+
+Waypoint guidance aligns the vehicle with the currently active waypoint that lies along a pre-planned path. Paths are typically generated off-line and can be optimized for shortest distance traveled and further refined to be flyable for a particular vehicle. Paths may also be optimized to produce flight patterns that increase sensor coverage of an area of interest \cite{wilhelm_direct_2017}. If an obstacle lies along that sensor path, the UAV must avoid the obstacle but also return back to the sensor path such that a minimal length of the path is missed during data collection. Waypoints placed on the outside the radius of the obstacle can direct a UAV around an obstacle and back onto the desired sensor path. Obstacles discovered during flight that lie along the pre-planned path may require a new path to be planned, requiring communication with the ground station. If a new path is not relayed to the UAV in time the vehicle may fail to avoid the obstacle. Waypoint navigation may not provide the most efficient path for avoiding an obstacle due to the waypoint radii, even if the path was determined from an optimal path planner. The waypoints would most likely be placed outside of the obstacle's edge to keep the waypoint's detection radius outside of the obstacle region. An example of waypoints planned around an obstacle is shown in Figure \ref{fig:purewaypoint} below. 
 
 
 
@@ -137,7 +195,7 @@ Waypoint guidance aligns the vehicle with the currently active waypoint that lie
 	\label{fig:purewaypoint}
 \end{figure}
 
-It would be beneficial to include obstacle avoidance into a UAVs guidance system to remove the need to communicate with the ground station and path re-planning. 
+It would be beneficial to include obstacle avoidance into a UAVs guidance system to remove the need to communicate with the ground station and path re-planning which may be accomplished with potential field or vector field. 
 
 %\section{Optimal Path}
 %\begin{equation}\label{eq:optPath}
@@ -189,7 +247,7 @@ It would be beneficial to include obstacle avoidance into a UAVs guidance system
 
 \subsection{Potential Field}
 
-Potential field is based on the principle of artificial attractive and repulsive forces acting on a point mass to guide a system to a desired goal while avoiding static and dynamic obstacles \cite{khatib_real-time_1986}. Goals states are represented as an attractive force that pulls a point mass in the direction of minimal energy while obstacles are represented as repulsive forces that act locally to push the point mass away. Potential field also is capable of acting as a path and trajectory planning algorithm \cite{rimon_exact_1992}, possibly eliminating the off-board path planner. An example of potential field can be found in \cite{borenstein_real-time_1990,borenstein_vector_1991,koren_potential_1991} which allowed for real time goal seeking with obstacle avoidance on a mobile ground robot equipped with ultrasonic sensors. The robot located at $(x_0,y_0)$ is attracted towards a a goal with constant magnitude force $\overrightarrow{F_t}$ located at $(x_t,y_t)$ and a distance $d_t$ from the robot. In the immediate area of the robot, an active window exists which records integer certainty values inside discrete cells. Cells containing an obstacle provide a repulsive force $\overrightarrow{F_{i,j}}$ opposite in direction to the line-of-sight from vehicle to cell location $(x_i,y_j)$, where $(i,j$) represents the cell index, $F_{cr}$ is a constant repulsive force, $W$ the vehicle's width, $C_{i,j}$ a cell's certainty, and $d_{i,j}$ the distance to the center of the cell with respect to robots center.
+Potential field is based on the principle of artificial attractive and repulsive forces acting on a point mass to guide a system to a desired goal while avoiding static and dynamic obstacles \cite{khatib_real-time_1986}. Goals states are represented as an attractive force that pulls a point mass in the direction of minimal energy while obstacles are represented as repulsive forces that act locally to push the point mass away. Potential field is also capable of acting as a path and trajectory planning algorithm \cite{rimon_exact_1992}, possibly eliminating the off-board path planner. An example of potential field can be found in \cite{borenstein_real-time_1990,borenstein_vector_1991,koren_potential_1991} which allowed for real time goal seeking with obstacle avoidance on a mobile ground robot equipped with ultrasonic sensors. The robot located at $(x_0,y_0)$ is attracted towards a a goal with constant magnitude force $\overrightarrow{F_t}$ located at $(x_t,y_t)$ and a distance $d_t$ from the robot. In the immediate area of the robot, an active window exists which records integer certainty values inside discrete cells. Cells containing an obstacle provide a repulsive force $\overrightarrow{F_{i,j}}$ opposite in direction to the line-of-sight from vehicle to cell location $(x_i,y_j)$, where $(i,j$) represents the cell index, $F_{cr}$ is a constant repulsive force, $W$ the vehicle's width, $C_{i,j}$ a cell's certainty, and $d_{i,j}$ the distance to the center of the cell with respect to robots center.
 
 \begin{equation}\label{eq:vffRepulse}
 \overrightarrow{F_{i,j}} = \frac{F_{cr}W^nC_{i,j}}{d^n_{i,j}} \bigg( \frac{x_i-x_0}{d_{i,j}}\hat{x} + \frac{y_i-y_0}{d_{i,j}}\hat{y}\bigg)
@@ -207,16 +265,16 @@ The total repulsive force exerted on the robot is determined by summing the acti
 \overrightarrow{F_t} = F_{ct} \bigg( \frac{x_t-x_0}{d_{t}}\hat{x} + \frac{y_t-y_0}{d_{t}}\hat{y}\bigg)
 \end{equation}
 
-Summing together attractive and repulsive forces produce a vector that can be used for heading guidance, shown in Equation \ref{eq:vffHeading}.
+Summing together attractive and repulsive forces produce a vector $\overrightarrow{R}$ that can be used for heading guidance, shown in Equation \ref{eq:vffHeading}.
 
 \begin{equation}\label{eq:vffHeading}
 \overrightarrow{R} = \overrightarrow{F_r} + \overrightarrow{F_t}
 \end{equation}
 
- Major drawbacks to potential field were identified in \cite{koren_potential_1991} consisting of local minimum and oscillations in corridors. The local minimum problem occurs when closely spaced obstacle's potential combine to produce a well on the descent gradient where a pre-mature stable point is reached. Proposed solutions to local minimum include object clustering and virtual waypoint method \cite{liu_virtual-waypoint_2016}, virtual escaping route \cite{kim_escaping_2009}, and use of navigation functions \cite{goerzen_survey_2010}. Oscillations in potential field were studied in \cite{lei_tang_novel_2010} and \cite{li_efficient_2012}.
+ Major drawbacks to potential field were identified in \cite{koren_potential_1991} consisting of local minimum and oscillations in corridors. The local minimum problem occurs when closely spaced obstacle's potential combine to produce a well on the descent gradient where a pre-mature stable point is reached. Proposed solutions to local minimum include object clustering and virtual waypoint method \cite{liu_virtual-waypoint_2016}, virtual escaping route \cite{kim_escaping_2009}, and use of navigation functions \cite{goerzen_survey_2010}. Oscillations in potential field were addressed in \cite{lei_tang_novel_2010} and \cite{li_efficient_2012}.
 
 
-In addition to local minimum and oscillations, potential field may not be ideal for providing guidance to return to a sensor path after avoiding an obstacle. Once the obstacle has been avoided, the attractive goal will direct the UAV in a straight path which may not lie along the sensor line. Guidance that follows an explicit path, deviates when necessary to avoid obstacles, and returns back to the explicit path quickly can be accomplished with path following vector fields. 
+In addition to local minimum and oscillations, potential field may not be ideal for providing guidance to return to a sensor path after avoiding an obstacle. Once the obstacle has been avoided, the attractive goal will direct the UAV in a straight path which may not lie along the sensor line. Guidance that follows an explicit path, deviates when necessary to avoid obstacles, and return back to the explicit path quickly can be accomplished with path following vector fields. 
 
 
 \subsection{Vector Field Guidance}
@@ -240,11 +298,11 @@ The total vector field $\overrightarrow{V}$ is calculated by:
 
 or in component form:
 
-\begin{equation}\label{simpleGVF}
+\begin{equation}\label{eq:simpleGVF}
 \overrightarrow{V} = G\overrightarrow{V}_{conv} + H\overrightarrow{V}_{circ} + L\overrightarrow{V}_{tv} 
 \end{equation}	
 
-where $\overrightarrow{V}_{conv}$ produces vectors perpendicular to the path, $\overrightarrow{V}_{circ}$ produces vectors parallel to the path, and $\overrightarrow{V}_{tv}$ is a feed-forward term that produces vectors accounting for a time varying path. 
+where $\overrightarrow{V}_{conv}$ produces vectors perpendicular to the path, $\overrightarrow{V}_{circ}$ produces vectors parallel to the path, and $\overrightarrow{V}_{tv}$ is a feed-forward term that produces vectors accounting for a time varying path. The multiplicative factors $G$, $H$, and $L$ are scalar weights to influence the strength of each field component.
 
 Convergence is calculated by:
 
@@ -254,8 +312,7 @@ Convergence is calculated by:
 \label{convOnly}
 \end{equation}
 
-
-where scalar $G$ is multiplied by the gradient of the definite potential function $V$:
+where the potential function $V$ is:
 
 \begin{equation}
 V = -\sqrt{{\alpha_1}^2 + {\alpha_2}^2}
@@ -342,50 +399,19 @@ A GVF for converging and circulating a circular path can be produced by intersec
 %The Goncalves method produces an \textit{n}-dimensional vector field that converges and circulates a static or time-varying path defined by \textit{(n-1)} implicit surfaces ($\alpha_i:\mathbb{R}^n\rightarrow\mathbb{R} | i=1,...,n-1$). The surface functions can represent any shape as long as they satisfy the two conditions that $1)$ they are positive definite and $2)$ have bounded derivatives. Consider the space with dimensions in set \textbf{q}:
 
 
-GVF was compared against LVP in a standoff tracking scenario in [Wilhelm] where a fixed wing UAV was tasked with with loitering around a moving ground target while avoiding static obstacles.  A circular time-varying attractive vector field was attached to a moving ground target. Static circular repulsive vector fields centered at the obstacles and weighted by hyperbolic tangent decay functions were summed with the attractive circular field to produce a target loitering and obstacle avoidance guidance. The performance of Lyapunov \cite{frew_cooperative_2007} and gradient vector field \cite{goncalves_artificial_2009,goncalves_circulation_2010,goncalves_vector_2010} were compared for their cross track error with respect to the loiter circle. Gradient vector field had favorable performance due to compensation for a time-varying vector field. The gradient vector field technique also has the benefit of decoupled weighting parameters for convergence, circulation, and time-varying terms, allowing for easy modification of field behavior. \\
+GVF was compared against LVF in a standoff tracking scenario in [Wilhelm] where a fixed wing UAV was tasked with with loitering around a moving ground target while avoiding static obstacles.  A circular time-varying attractive vector field was attached to a moving ground target. Static circular repulsive vector fields centered at the obstacles and weighted by hyperbolic tangent decay functions were summed with the attractive circular field to produce a target loitering and obstacle avoidance guidance. The performance of Lyapunov \cite{frew_cooperative_2007} and gradient vector field \cite{goncalves_artificial_2009,goncalves_circulation_2010,goncalves_vector_2010} were compared for their cross track error with respect to the loiter circle. Gradient vector field had favorable performance due to compensation for a time-varying vector field. The gradient vector field technique also has the benefit of decoupled weighting parameters for convergence, circulation, and time-varying terms, allowing for easy modification of field behavior. \\
 
-Decay functions for avoidance fields using GVF were investigated in [Zhu] for obstacles present on a straight path. When summing attractive and repulsive vector fields there is the possibility of guidance singularities, where magnitude and direction are equal and opposite. The presence of singularities were not addressed in [Wilhelm] and [Zhu], mentioned briefly in \cite{nelson_cooperative_2005} and observed in \cite{panagou_motion_2014}. For fixed wing UAVs the lack of guidance may prevent the UAV from avoiding an obstacle, while multi-rotor UAVs may end up in a trap situation. Singularities may be present at any location where a goal field and obstacle field are of equal strength. \\
-
-
-\subsection{Dubins Vehicle}
-Dubin's vehicle's position $\overrightarrow{X}$ at time $t$ is calculated from the integral of the velocity vector $\overrightarrow{U}$. The vehicle has a constant velocity magnitude $u_{uav}$ at a heading $\theta$. The rate at which $\theta$ changes with respect to time is based on limitations of the craft itself. 
-
-\begin{equation}
-\label{uavVelocity}
-\overrightarrow{U}(t) = u_{uav} \begin{bmatrix}
-cos(\theta(t)) \\
-sin(\theta(t))
-\end{bmatrix}
-\end{equation}
-
-
-\begin{equation}
-\label{uavPosition}
-\overrightarrow{X}(t) = \overrightarrow{U}dt + \overrightarrow{X}(t-1)
-\end{equation}
-
-
-\begin{equation}
-\label{turnRate}
-\dot{\theta} \leq 20 deg/s
-\end{equation}
+Decay functions for avoidance fields using GVF were also investigated in [Zhu] for obstacles present on a straight path. When summing attractive and repulsive vector fields there is the possibility of guidance singularities, where magnitude and direction are equal and opposite. The presence of singularities were not addressed in [Wilhelm] and [Zhu], mentioned briefly in \cite{nelson_cooperative_2005} and observed in \cite{panagou_motion_2014}. For fixed wing UAVs the lack of guidance may prevent the UAV from avoiding an obstacle, while multi-rotor UAVs may end up in a trap situation. Singularities may be present at any location where a goal field and obstacle field are of equal strength. Detecting singularities and modifying the GVF for an improved obstacle avoidance is now considered.
 
 
 
 
 \section{methods}
-Overview of methods \\
-Construction of guidance for desired path \\
-Construction of avoidance guidance \\
-Path following and obstacle avoidance guidance \\
-Singularity detection \\
-Selection of vf parameters for optimized obstacle avoidance \\
+
+The static weight vector field for straight lines and circular obstacles will be presented. A numerical method for detecting singularities in a summed vector field will be discussed. The modified vector field law with dynamic weights will be presented. Simulations comparing waypoint, potential field, and vector field guidance will be presented for worst case scenario with an obstacle centered on the sensor path. Lastly, a flight test with a multirotor UAV simulating Dubin's constraints of a fixed wing aircraft will be shown.
 
 \subsection{Path Following with GVF}
-Path following guidance for a planar UAV at position $(x,y)$ for a time invariant line is achieved by summing together convergence $\overrightarrow{V}_{conv}$ and circulation $\overrightarrow{V}_{circ}$ terms shown in Equation \ref{eq:convAndCircOnly}.
-
-
-where the plane defined by implicit surface function $\alpha_1$ is at angle $\delta$ and plane $\alpha_2$ is at constant height of $Z = 1$ shown in Equations \ref{eq:pathFunction} and \ref{eq:pathFunctionZ} respectively.
+Path following guidance for a planar UAV at position $(x,y)$ for a time invariant line is achieved by summing together convergence $\overrightarrow{V}_{conv}$ and circulation $\overrightarrow{V}_{circ}$ terms shown in Equation \ref{eq:simpleGVF}, where the plane defined by implicit surface function $\alpha_1$ is at angle $\delta$ and plane $\alpha_2$ is at constant height of $Z = 1$ shown in Equations \ref{eq:pathFunction} and \ref{eq:pathFunctionZ} respectively.
 
 
 \begin{equation}
@@ -398,7 +424,7 @@ where the plane defined by implicit surface function $\alpha_1$ is at angle $\de
 \alpha_2 = z
 \end{equation}
 
-The gradient $\nabla$ of the potential function $V$ is shown in Equation \ref{eq:potentialFunctionGrad}.
+The gradient potential, $\nabla V$ is shown in Equation \ref{eq:potentialFunctionGrad}.
 
 \begin{equation}
 \label{eq:potentialFunctionGrad}
@@ -409,12 +435,12 @@ The gradient $\nabla$ of the potential function $V$ is shown in Equation \ref{eq
 \end{bmatrix}
 \end{equation}
 
-Circulation is calculated by the cross product of the surface function gradients, shown in Equation \ref{eq:circStraightPath} and \ref{eq:circStraightPat2}.
+Circulation is calculated by the cross product of the surface function gradients, which evaluates to that shown in Equation \ref{eq:circStraightPart2}.
 
 
 
 \begin{equation}
-\label{eq:circStraightPat2}
+\label{eq:circStraightPart2}
 \overrightarrow{V}_{circ} = \begin{bmatrix}
 sin(\theta) \\
 -cos(\theta) \\
@@ -427,15 +453,14 @@ Guidance for a path at angle $\delta = 0$ and equal parts circulation and conver
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\linewidth]{Figures/methods/straightPath}
-	\caption{}
+	\caption{Straight Path Following Vector Field}
 	\label{fig:straightpath}
 \end{figure}
 
 
 
 \subsection{Avoidance}
-
-Constructing a repulsive vector field for avoidance using the GVF method starts with constructing a vector field that converges and circulates a circular path. A GVF that converges and circulates a circular path is constructed with the implicit functions of a cylinder of radius $r$ centered at $(x_c,y_c)$ and a level plane of constant height $Z$, shown in Equations \ref{eq:alphaCylinder} and \ref{eq:alphaPlane} below.
+A circular avoidance vector field centered at $(x_c,y_c)$ is constructed by intersecting a cylinder, Equation \ref{eq:alphaCylinder}, and a plane \ref{eq:alphaPlane}. 
 
 \begin{equation}\label{eq:alphaCylinder}
 \alpha_1 = (x-x_c)^2 + (y-y_c)^2-r^2
@@ -448,7 +473,7 @@ Constructing a repulsive vector field for avoidance using the GVF method starts 
 Convergence is determined by the gradient of the potential function \ref{eq:potentialFunctionGrad}, which when simplified evaluates to
 
 \begin{equation}
-\overrightarrow{V}_{conv} = A\overrightarrow{B}
+\nabla V = A\overrightarrow{B}
 \end{equation}
 
 where
@@ -458,13 +483,11 @@ where
 A = \dfrac{-1}{\sqrt{\bar{x}^4+\bar{y}^4+2\bar{x}^2\bar{y}^2-2r^2\bar{x}^2-2r^2\bar{y}^2+r^2+z^2}}
 \end{equation}
 
-and
-
 \begin{equation}
 \overrightarrow{B} = \begin{bmatrix} 2\bar{x}^3+2\bar{x}\bar{y}^2-2r^2\bar{x} \\ 2\bar{y}^3+2\bar{x}^2\bar{y}-2r^2\bar{y} \\z \end{bmatrix}
-\end{equation}.
+\end{equation}
 
-
+and
 
 
 \begin{equation}
@@ -474,33 +497,15 @@ and
 \bar{y} = y - y_c
 \end{equation}
 
-Circulation is calculated from the cross product of each implicit surface functions gradient, which simplifies to
+Circulation is calculated from the cross product of each implicit surface function's gradient, which simplifies to
 
 \begin{equation}\label{eq:vcirc_circle}
 \overrightarrow{V}_{circ} =  \begin{bmatrix}  2(y-y_c) \\[6pt] -2(x-x_c) \\[6pt] 0\end{bmatrix}
 \end{equation}
 
-Guidance for avoiding a circular path with a large radius can be produced by setting the convergence weight $G=-1$ and circulation weight $H=0$, shown in Figure \ref{fig:largerepulsive}. Note that the vectors are normalized prior to applying decay to ensure the vector field strength is bounded.
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.7\linewidth]{Figures/methods/largeRepulsive}
-	\caption{}
-	\label{fig:largerepulsive}
-\end{figure}
-
-Note that inside of the path, vectors point towards the center of the circle which may produce a trap situation if the UAV ends up inside the radius. To prevent a trap situation inside of the circular path, the radius of the path can be reduced, as shown in Figure \ref{fig:normalizedrepulsive} where $r=0.01$.
 
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.7\linewidth]{Figures/methods/normalizedRepulsive}
-	\caption{}
-	\label{fig:normalizedrepulsive}
-\end{figure}
-
-To limit the influence of the repulsive field to a radius $R$, a decay function is applied prior to summing with the path following guidance. The decay strength $P$ is determined in \ref{eq:decay}, where $d$ is the euclidean distance, or range, between the UAV and the center of the obstacle, shown in Equation \ref{eq:range}. At a distance $d>R$ the decay strength $P$ is effectively zero, having virtual no influence on the total guidance. At a distance $d\leq R$, the field strength is bounded between $[0,2]$.
-
+Strictly repulsion guidance is produced by assigning a negative weight to the convergence term $G$, no circulation $H=0$, and a small path radius $r$ to prevent trap situations. Limiting the distance at which the field has influence is achieved with a decay function shown in Equation \ref{eq:decay} where $d$ is the range to the center of the obstacle and $R$ is the radius where the field has near zero strength. 
 
 \begin{equation}
 \label{eq:decay}
@@ -512,8 +517,36 @@ P = -\tanh \bigg( \frac{2\pi d}{R}-\pi\bigg)+1
 d = \sqrt{ \bar{x}^2+\bar{y}^2}
 \end{equation}
 
-Applying the decay function with a decay edge radius $R = 35$ to the GVF shown in figure \ref{fig:normalizedrepulsive}, results in the field shown in Figure \ref{fig:decayapplied}.
+A strictly repulsive field $\overrightarrow{V}_{obst}$ with $G=-1$, $H=0$, $r=0.01$, and $R = 35$ is shown in Figure \ref{fig:decayapplied}.
 
+
+% ====== KEEP FOR THESIS =========
+%Guidance for avoiding a circular path with a large radius can be produced by setting the convergence weight $G=-1$ and circulation weight $H=0$, shown in Figure \ref{fig:largerepulsive}. 
+%
+%\begin{figure}[H]
+%	\centering
+%	\includegraphics[width=0.7\linewidth]{Figures/methods/largeRepulsive}
+%	\caption{Repulsive Circular Field with Large Radius}
+%	\label{fig:largerepulsive}
+%\end{figure}
+%
+%Note that inside of the path, vectors point towards the center of the circle which may produce a trap situation if the UAV ends up inside the radius. The radius of the path can be reduced, as shown in Figure \ref{fig:normalizedrepulsive} where $r=0.01$, to prevent trap situations.
+%
+%
+%\begin{figure}[H]
+%	\centering
+%	\includegraphics[width=0.7\linewidth]{Figures/methods/normalizedRepulsive}
+%	\caption{Repulsive Circular Field with Small Radius}
+%	\label{fig:normalizedrepulsive}
+%\end{figure}
+%
+%Obstacle fields should only act locally on a UAV guidance which is accomplished by applying a decay function for a field of radius $R$. The decay strength $P$ is determined in \ref{eq:decay}, where $d$ is the euclidean distance, or range, between the UAV and the center of the obstacle, shown in Equation \ref{eq:range}. At a distance $d>R$ the decay strength $P$ is effectively zero, having virtual no influence on the total guidance. At a distance $d\leq R$, the field strength is bounded between $[0,2]$.
+%
+%
+%
+%
+%Applying the decay function with a decay edge radius $R = 35$ to the GVF shown in figure \ref{fig:normalizedrepulsive}, results in the field shown in Figure \ref{fig:decayapplied}.
+%
 
 %\begin{figure}[H]
 %	\centering
@@ -527,7 +560,7 @@ Applying the decay function with a decay edge radius $R = 35$ to the GVF shown i
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\linewidth]{Figures/methods/decayApplied}
-	\caption{}
+	\caption{Repulsive Vector Field with Decay}
 	\label{fig:decayapplied}
 \end{figure}
 
@@ -550,52 +583,50 @@ Summing together the path following field with an obstacle centered on the path 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.7\linewidth]{Figures/methods/summedQuiver}
-	\caption{}
+	\includegraphics[width=0.7\linewidth ,trim=0 250 0 275,clip,width=14cm]{Figures/methods/summedQuiverSimple}
+	\caption{Summed Vector Field Guidance}
 	\label{fig:summedquiver}
 \end{figure}
 
-
-
-
-
-
-
-
-
+The total summed guidance shown in Figure \ref{fig:summedquiver} shows the normalized guidance vectors to be used for UAV guidance. Singularities are present in the above guidance due to the repulsive vectors of the obstacle canceling out the path following vectors. Identifying the location of these singularities will now be addressed.
 
 \subsection{Singularity Detection}
-\begin{equation}
+Singularities are expected to exist where the magnitude of the vector $\overrightarrow{V}_g$ has a magnitude equal to zero, shown in Equation \ref{eq:singularityCondition}. A heatmap of the vector magnitude shows that singularities are present where the fields have equal strength, shown in Figure \ref{fig:summedmagnitudesurf}. An analytical solution to Equation \ref{eq:singularityCondition} may be difficult to obtain, therefore a numerical approach with initial conditions placed at the radius of equal strength, $R/2$, can be used. 
+
+ \begin{equation}
 \label{eq:singularityCondition}
 ||\overrightarrow{V}_g || = 0
 \end{equation}
 
-Summing GVFs together may lead to small regions where the vector magnitude is near or equal to zero. Singularities are expected to exist where two summed fields have equal strength. The location of the singularities can be found by determining where the magnitude of the resulting guidance is equal to zero.
-
-
-Plotting the magnitude of the summed field near the obstacle shows a well that descends into several local minimums called singularities, shown in Figure \ref{fig:summedmagnitudesurf}.
-
-
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.7\linewidth]{Figures/methods/summedMagnitudeSurf}
-	\caption{}
+	\includegraphics[width=0.7\linewidth ,trim=0 80 0 100,clip,width=14cm]{Figures/methods/summedHeatMapSimple.png}
+	\caption{Summed Vector Field Magnitude Heat Map}
 	\label{fig:summedmagnitudesurf}
 \end{figure}
 
-%Before using vector field guidance it is beneficial to know if singularities exist, where they are, and if the UAV will encounter them during flight. Singularities are expected to exist where two summed fields have equal strength. The location of the singularities can be found by determining where the magnitude of the resulting guidance is equal to zero.
- Multiple singularities or near zero guidance regions may exist, so several initial conditions must be evaluated to increase the probability of detection. With the path and obstacle field shown in \ref{fig:summedquiver}, several initial conditions evenly spaced were evaluated both inside and outside of the equal strength circle. Note how only points left of the obstacle were evaluated since this region is where attractive and repulsive vectors oppose each other, therefore it is where singularities are expected. Both inside and outside initial conditions determine the location of the singularities. 
+
+
+
+
+
+ 
+%Multiple singularities or near zero guidance regions may exist, so several initial conditions must be evaluated to increase the probability of detection. With the path and obstacle field shown in \ref{fig:summedquiver}, several initial conditions evenly spaced were evaluated both inside and outside of the equal strength circle. Note how only points left of the obstacle were evaluated since this region is where attractive and repulsive vectors oppose each other, therefore it is where singularities are expected. Both inside and outside initial conditions determine the location of the singularities. 
 
 \begin{figure}[H]
 	\begin{subfigmatrix}{2}% number of columns
 		\centering	
-		\subfigure []{\includegraphics[trim=70 0 70 0,clip,width=8cm] {Figures/methods/noCircSingularityR10}}
-		\subfigure []{\includegraphics[trim=70 0 70 0,clip,width=8cm] {Figures/methods/noCircSingularityR30}}
+		\subfigure []{\includegraphics[trim=70 0 70 15,clip,width=8cm] {Figures/methods/quiverWithoutCirc}}
+		\subfigure []{\includegraphics[trim=70 0 70 15,clip,width=8cm] {Figures/methods/quiverWithCirc}}
 		\hspace*{0mm}
 	\end{subfigmatrix}
-	\caption{GVF converging and circulating circular path}
+	\caption{Singularities Detected in Summed Field}
 	\label{fig:noCircSingularityDetection}
 \end{figure}
+
+Solving for the location of singularities using a numerical solver with initial conditions placed at the radius of equal strength for the field in \ref{fig:summedquiver} is shown in Figure \ref{fig:noCircSingularityDetection}a. Modifying the repulsive field with a non-zero circulation weight can reduce the number of singularities as well as remove them for the UAVs path. Additionally, circulation directs the UAV around obstacle in a deterministic way. A circulation weight of $H=1$ produces the guidance with a singularity removed from the path shown in Figure \ref{fig:noCircSingularityDetection}b. Determining the exact values of $R$ and $H$ to produce an avoidance guidance that minimizes deviation from the path will now be discussed. 
+
+
 
 
 %\begin{figure}
@@ -663,109 +694,175 @@ Plotting the magnitude of the summed field near the obstacle shows a well that d
 
 
 
+%\subsection{Flight Envelope}
+%Evaluating a large number of initial conditions to improve the probability of finding singularities may be computationally expensive and may also find singularities the UAV may not encounter. Selecting a reduced set of initial conditions and to determine if the singularities exist where the UAV may fly, a flight envelope is determined for some time horizon $t_h$. Consider the UAV depicted in Figure \ref{fig:flightenvelope2} with a turn rate $\dot{\theta}$ and fixed speed $u$. 
+%
+%\begin{figure}[H]
+%	\centering
+%	\includegraphics[width=0.7\linewidth]{Figures/methods/flightEnvelope2}
+%	\caption{}
+%	\label{fig:flightenvelope2}
+%\end{figure}
+%
+%The flight envelope, or positions the UAV, at time $t_i$ with respect to the body frame is calculated in Equations \ref{eq:qx} and \ref{eq:qy}
+%
+%\begin{equation}
+%\label{eq:qx}
+%q_x =  \frac{u}{\dot{\theta}} \sin(t_h \dot{\theta})
+%\end{equation}
+%
+%\begin{equation}
+%\label{eq:qy}
+%q_y =  \frac{u}{\dot{\theta}} \big(1-\cos(t_h \dot{\theta})\big)
+%\end{equation}
+%
+%It is convenient to represent points on the flight envelope in the global inertial frame. The flight envelope points $(q_x,q_y)$ can be expressed in vector form by finding the angle $\phi$ with respect to the body frame $\hat{x}_b$ axis and the vector magnitude $q$ shown in equations \ref{eq:qphi} and \ref{eq:qMag} respectively.
+%
+%
+%
+%\begin{equation}
+%\label{eq:qphi}
+%\phi = \tan^{-1} \bigg( \frac{q_y}{q_x} \bigg)
+%\end{equation}
+%
+%\begin{equation}
+%\label{eq:qMag}
+%q = \sqrt{q_x^2 +q_y^2}
+%\end{equation}
+%
+%
+%
+%\begin{equation}
+%\label{eq:pos}
+%\overrightarrow{Q_b} = \begin{bmatrix}
+%	q\cos\phi \\
+%	q\sin\phi \\
+%	0
+%\end{bmatrix}
+%\end{equation}
+%
+%To express the flight envelope in the global inertial frame, the position vector of the UAV $\overrightarrow{P}_0$ and $\theta$ are applied with a rotation matrix $R$, shown in Equations \ref{eq:pos}, \ref{eq:rotation}, and \ref{eq:qGlobal} below. 
+%
+%
+%\begin{figure}[H]
+%	\centering
+%	\includegraphics[width=0.7\linewidth]{Figures/methods/flightEnvelope}
+%	\caption{}
+%	\label{fig:flightenvelope}
+%\end{figure}
+%
+%
+%\begin{equation}
+%\label{eq:rotation}
+%\overrightarrow{P}_0 = \begin{bmatrix}
+%x & y & 0
+%\end{bmatrix}^T
+%\end{equation}
+%
+%
+%\begin{equation}
+%\label{eq:qGlobal}
+%   R=\begin{bmatrix}
+%	\cos(\theta) & -\sin(\theta) & 0 \\
+%	\sin(\theta) & \cos(\theta) & 0 \\
+%	0 & 0 & 1 \\
+%\end{bmatrix}
+%\end{equation}
+%
+%
+%\begin{equation}
+%\label{eq:pos}
+%\overrightarrow{Q}_0 = \overrightarrow{P_0} + R  \overrightarrow{Q_b}
+%\end{equation}
+%
+%Initial conditions placed on the flight envelope will follow the magnitude gradient of the GVF guidance and locate any singularities it may encounter. When a singularity is found to exist inside or near a flight envelope the field can be modified to counteract it. 
 
 
 
+\subsection{Static Modified Weights}
+
+Determining the decay radius $R$ and circulation weight $H$ for a repulsive vector field depends on the UAVs speed $u$ and turnrate $\dot{\theta}$. An obstacle located at a lateral distance $Y_0$ from the pre-planned sensor path has a radius $r_O$ equal to a scalar multiple of the UAVs turn radius, shown in Equation \ref{eq:n}. The multiple $n$ is bounded on the interval $[1,\infty)$.
+
+\begin{equation}
+\label{eq:n}
+r_O = n \theta_r
+\end{equation}
+
+The repulsive field decay radius $R$, expressed in $k$ multiples of the obstacles radius is shown in Equation \ref{eq:k} and also bounded on the interval $[1,\infty)$.
+
+\begin{equation}
+\label{eq:k}
+R = k r_O
+\end{equation}
+
+The decay multiple $k$ and circulation $H$ are then determined by minimizing the cost function $\ref{eq:staticCost}$, where $y$ is the lateral deviation from the path in the $I$ frame and the function $j$ penalizes the UAV for entering the obstacle radius. The sign of $H$ can be determined from the LOS angle between the UAV and the obstacle such that the UAV travels around the obstacle in the correct, least distance, direction.
+
+\begin{equation}
+\label{eq:staticCost}
+\begin{aligned}
+& \underset{H,k}{\text{minimize}}
+& & \frac{1}{R}\int_{t_f}^{0}ydt + j(x,y) 
+\end{aligned}
+\end{equation}
 
 
+\begin{equation}
+j(x,y) = \left\{
+\begin{array}{ll}
+100dt & \quad \sqrt{(x-xc)^2+(y-yc)^2} \leq r_O \\
+0 & \quad \sqrt{ (x-xc)^2+(y-yc)^2 } > r_O
+\end{array}
+\right.
+\end{equation}
 
-
-
-
-
-
-
-
-
-
-\subsection{Flight Envelope}
-Evaluating a large number of initial conditions to improve the probability of finding singularities may be computationally expensive and may also find singularities the UAV may not encounter. Selecting a reduced set of initial conditions and to determine if the singularities exist where the UAV may fly, a flight envelope is determined for some time horizon $t_h$. Consider the UAV depicted in Figure \ref{fig:flightenvelope2} with a turn rate $\dot{\theta}$ and fixed speed $u$. 
+A UAV with a speed of $u=20 m/s$ and turning rate of $\dot{\theta} = 20 deg/s$ following a straight vector field path is shown avoiding an obstacle of radius $n=2$ in Figure \ref{fig:staticsolved} below. 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.7\linewidth]{Figures/methods/flightEnvelope2}
-	\caption{}
-	\label{fig:flightenvelope2}
+	\includegraphics[trim=0 15 0 40,clip,width=12cm]{Figures/methods/staticSolvedv10ns2}
+	\caption{UAV Avoiding Obstacle with Fixed Repulsive Vector Field}
+	\label{fig:staticsolved}
 \end{figure}
 
-The flight envelope, or positions the UAV, at time $t_i$ with respect to the body frame is calculated in Equations \ref{eq:qx} and \ref{eq:qy}
+The definition of obstacle and decay field radius in terms of vehicle turn radius $\theta_r$ allows for a single decay factor $k$ and circulation $H$ to be applicable for multiple velocities. This generalizes the avoidance field parameter selection problem and allows for a two dimensional lookup table to be generated for a number of obstacle radius factors $n$ and obstacle lateral positions $Y_0$ for real time obstacle avoidance. \\
 
-\begin{equation}
-\label{eq:qx}
-q_x =  \frac{u}{\dot{\theta}} \sin(t_h \dot{\theta})
-\end{equation}
+Simply summing together attractive and repulsive fields will always result in the UAV leaving the path pre-maturely, not utilizing its minimum tunrning radius, resulting in sensor path left unobserved. Modifying the vector field weights dynamically increases the path covered and will be discussed next. 
 
-\begin{equation}
-\label{eq:qy}
-q_y =  \frac{u}{\dot{\theta}} \big(1-\cos(t_h \dot{\theta})\big)
-\end{equation}
-
-It is convenient to represent points on the flight envelope in the global inertial frame. The flight envelope points $(q_x,q_y)$ can be expressed in vector form by finding the angle $\phi$ with respect to the body frame $\hat{x}_b$ axis and the vector magnitude $q$ shown in equations \ref{eq:qphi} and \ref{eq:qMag} respectively.
-
-
+\subsection{Modified Path Following Vector Field}
+The summed guidance results in the UAV leaving the path pre-maturely and slowly returns to the path. Gradually leaving and returning to the path is a result of the slow transition between attractive and repulsive field dominating the guidance. It is desired that the UAV follows the path up until the UAV must turn to avoid the obstacle and quickly return to the path. To accomplish this, a modification to attractive and repulsive fields must take place. Additionally, improved tracking of the outside of the obstacle can be achieved by modifying the convergence strength of the repulsive field. The modified vector field guidance with attractive weight $M$ and repulsive weight $N$ is considered without a decay function $P$, shown in Equation \ref{eq:modifiedGuidance}
 
 
 \begin{equation}
-\label{eq:qphi}
-\phi = \tan^{-1} \bigg( \frac{q_y}{q_x} \bigg)
+\label{eq:modifiedGuidance}
+\overrightarrow{V}_g = M \overrightarrow{V}_{path} + N \overrightarrow{V}_{obst}
 \end{equation}
+
+
+While the UAVs horizontal position $x$ in the $I$ frame is less than the turning distance $\tilde{x}$, the attractive weight $M=1$ and the repulsive weight is null at $N=0$. Once the UAVs horizontal position reaches the turning distance, $x=\tilde{x}$ the attractive field weight switches to null $M=0$ and repulsive weight dominates at $N=1$. The repulsive field has a constant circulation of unity with sign equal to that of the UAVs lateral position with respect to the $I$ frame. Convergence becomes a function of the UAVs relative heading with respect to the obstacle center $\beta$, defined in Equation \ref{eq:beta}.  
 
 \begin{equation}
-\label{eq:qMag}
-q = \sqrt{q_x^2 +q_y^2}
+\label{eq:beta}
+\beta = \pi - \tan^{-1} \Bigg(\frac{y-Y_0}{x}\Bigg) + \theta
 \end{equation}
 
-
-
+The convergence weight becomes:
 \begin{equation}
-\label{eq:pos}
-\overrightarrow{Q_b} = \begin{bmatrix}
-	q\cos\phi \\
-	q\sin\phi \\
-	0
-\end{bmatrix}
+\label{eq:gModified}
+g = -\cos(|\beta|)
 \end{equation}
 
-To express the flight envelope in the global inertial frame, the position vector of the UAV $\overrightarrow{P}_0$ and $\theta$ are applied with a rotation matrix $R$, shown in Equations \ref{eq:pos}, \ref{eq:rotation}, and \ref{eq:qGlobal} below. 
+When the UAV has a heading towards the obstacle center, the repulsion is maximized at $-1$. As the UAVs heading becomes perpendicular to the LOS to the obstacle center, the repulsion falls off to zero and circulation dominates. If the UAVs heading begins to drift back towards the obstacle, either by wind or another external disturbance, $g$ will decrease to counteract the deviation. When the UAVs horizontal position $x>\hat{x}$ the repulsive field weight nulls $N=0$ and the attractive field becomes unity $M=1$. \\
+
+The modified VF guidance eliminates the need for a minimizer or lookup table, eliminates singularities since the two fields will never be equal strength, and provides a guidance comparable to waypoint guidance without the need to re-plan a path. 
 
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.7\linewidth]{Figures/methods/flightEnvelope}
-	\caption{}
-	\label{fig:flightenvelope}
-\end{figure}
 
 
-\begin{equation}
-\label{eq:rotation}
-\overrightarrow{P}_0 = \begin{bmatrix}
-x & y & 0
-\end{bmatrix}^T
-\end{equation}
-
-
-\begin{equation}
-\label{eq:qGlobal}
-   R=\begin{bmatrix}
-	\cos(\theta) & -\sin(\theta) & 0 \\
-	\sin(\theta) & \cos(\theta) & 0 \\
-	0 & 0 & 1 \\
-\end{bmatrix}
-\end{equation}
-
-
-\begin{equation}
-\label{eq:pos}
-\overrightarrow{Q}_0 = \overrightarrow{P_0} + R  \overrightarrow{Q_b}
-\end{equation}
-
-
-Initial conditions placed on the flight envelope will follow the magnitude gradient of the GVF guidance and locate any singularities it may encounter. When a singularity is found to exist inside or near a flight envelope the field can be modified to counteract it. 
 
 
 \section{Simulations}
-\begin{figure}
+A comparision of waypoint, VFF, strictly repulsive GVF, and the modified weighted GVF were compared for both their deviation from the sensor path and how closely the avoidance followed an optimal path around the obstacle. For each guidance method, the UAV is tasked with following a straight sensor path. An obstacle located at $(0,0)$ must be avoided. Waypoints were generated around the obstacle using the optimal avoidance path with a waypoint radius of 20 meters. The VFF provided a attractive force for the goal of 0.8 while the obstacle provided a repulsive force of -2. With an obstacle width of 5 meters and field exponential of $n=2$, the VFF avoids the obstacle and gradually returns to the path. 
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\linewidth]{Figures/Simulations/compareMethods}
 	\caption{}
