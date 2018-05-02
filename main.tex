@@ -68,10 +68,7 @@ Unmanned Aerial Vehicles (UAV)s are pilotless aircraft used by military, police,
  Further optimization of vector fields to include circulation may produce an efficient real-time guidance for avoiding obstacles while also removing singularities from the UAVs path. A method for determining obstacle decay radius, circulation, and repulsion such that a UAV avoids obstacles while minimizing path deviation is presented. The modified guidance will then be compared against waypoint, Potential Field, and un-modified path following guidance in simulation for cross track error and deviation from sensor path. Lastly, the optimized vector field will then be demonstrated on a crazyflie 2.0 multi-rotor simulating fixed wing constraints. 
 
 
-% Obstacle avoidance using waypoint guidance, potential field, and vector field will be discussed. Each method will be compared in simulation for both deviation from the sensor path and for cross track error with respect to the geometric optimal avoidance path. The optimized vector field will then be demonstrated on a crazyflie 2.0 multi-rotor simulating fixed wing constraints.
-
 \subsection{Dubins Vehicle}
-
 
 UAVs traveling at constant altitude and speed $u$ and with a limited turn rate $\dot{\theta}$ can be simplified as a Dubin's vehicle that flies in straight lines and circular arcs. The position of the UAV $\overrightarrow{X}$ at time $t$ is calculated from the integral of the velocity vector $\overrightarrow{U}$. Heading is an input from a guidance system, such as waypoint, potential field, or vector field.
 
@@ -182,6 +179,28 @@ Waypoint guidance aligns the vehicle with the currently active waypoint that lie
 %	\caption{UAV path from waypoint guidance}
 %	\label{fig:simplewaypointsWithUAVPath}
 %\end{figure}
+
+
+
+\begin{figure}[H]
+	\begin{subfigmatrix}{2}% number of columns
+		\centering	
+		\subfigure []{\includegraphics[width=8cm,trim=40 0 60 0,clip] {Figures/Waypoints/1Wpts}}
+		\subfigure []{\includegraphics[width=8cm,trim=40 0 60 0,clip] {Figures/Waypoints/6Wpts}}
+		\hspace*{0mm}
+	\end{subfigmatrix}
+	\caption{Singularities Detected in Summed Field}
+	\label{fig:noCircSingularityDetection}
+\end{figure}
+
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=10cm]{Figures/Waypoints/costVnumWpts}
+	\caption{Cost impact versus number of waypoints}
+	\label{fig:numWaypoints}
+\end{figure}
 
 \begin{figure}[H]
 	\centering
@@ -380,16 +399,7 @@ Intersecting two flat planes $(\alpha_1 = z,\alpha_2 = x)$ produces a GVF that c
 
 
 A GVF for converging and circulating a circular path can be produced by intersecting a plane and a cylinder $(\alpha_1 = z,\alpha_2 = x^2+y^2-r^2)$.
-\begin{figure}[H]
-	\begin{subfigmatrix}{2}% number of columns
-		\centering	
-		\subfigure []{\includegraphics[width=7cm] {Figures/cylinderIntersection}}
-		\subfigure []{\includegraphics[width=7cm] {Figures/circConvCirc}}
-		\hspace*{0mm}
-	\end{subfigmatrix}
-	\caption{GVF converging and circulating circular path}
-	\label{fig:GVFLine}
-\end{figure}
+
 
 %The Goncalves method produces an \textit{n}-dimensional vector field that converges and circulates a static or time-varying path defined by \textit{(n-1)} implicit surfaces ($\alpha_i:\mathbb{R}^n\rightarrow\mathbb{R} | i=1,...,n-1$). The surface functions can represent any shape as long as they satisfy the two conditions that $1)$ they are positive definite and $2)$ have bounded derivatives. Consider the space with dimensions in set \textbf{q}:
 
@@ -401,7 +411,7 @@ Decay functions for avoidance fields using GVF were also investigated in [Zhu] f
 
 
 
-\section{methods}
+\section{Methods}
 
 The static weight vector field for straight lines and circular obstacles will be presented. A numerical method for detecting singularities in a summed vector field will be discussed. The modified vector field law with dynamic weights will be presented. Simulations comparing waypoint, potential field, and vector field guidance will be presented for worst case scenario with an obstacle centered on the sensor path. Lastly, a flight test with a multirotor UAV simulating Dubin's constraints of a fixed wing aircraft will be shown.
 
@@ -576,12 +586,7 @@ Summing together the path following field with an obstacle centered on the path 
 
 
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.7\linewidth ,trim=0 250 0 275,clip,width=14cm]{Figures/methods/summedQuiverSimple}
-	\caption{Summed Vector Field Guidance}
-	\label{fig:summedquiver}
-\end{figure}
+
 
 The total summed guidance shown in Figure \ref{fig:summedquiver} shows the normalized guidance vectors to be used for UAV guidance. Singularities are present in the above guidance due to the repulsive vectors of the obstacle canceling out the path following vectors. Identifying the location of these singularities will now be addressed.
 
@@ -593,12 +598,6 @@ Singularities are expected to exist where the magnitude of the vector $\overrigh
 ||\overrightarrow{V}_g || = 0
 \end{equation}
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.7\linewidth ,trim=0 80 0 100,clip,width=14cm]{Figures/methods/summedHeatMapSimple.png}
-	\caption{Summed Vector Field Magnitude Heat Map}
-	\label{fig:summedmagnitudesurf}
-\end{figure}
 
 
 
@@ -611,13 +610,17 @@ Singularities are expected to exist where the magnitude of the vector $\overrigh
 \begin{figure}[H]
 	\begin{subfigmatrix}{2}% number of columns
 		\centering	
-		\subfigure []{\includegraphics[trim=70 0 70 15,clip,width=8cm] {Figures/methods/quiverWithoutCirc}}
-		\subfigure []{\includegraphics[trim=70 0 70 15,clip,width=8cm] {Figures/methods/quiverWithCirc}}
+		\subfigure []{\includegraphics[trim=35 25 55 30,clip,width=8cm] {Figures/methods/quiverWithoutCirc}}
+		\subfigure []{\includegraphics[trim=35 25 55 30,clip,width=8cm] {Figures/methods/quiverWithCirc}}
 		\hspace*{0mm}
 	\end{subfigmatrix}
 	\caption{Singularities Detected in Summed Field}
 	\label{fig:noCircSingularityDetection}
 \end{figure}
+
+
+
+
 
 Solving for the location of singularities using a numerical solver with initial conditions placed at the radius of equal strength for the field in \ref{fig:summedquiver} is shown in Figure \ref{fig:noCircSingularityDetection}a. Modifying the repulsive field with a non-zero circulation weight can reduce the number of singularities as well as remove them for the UAVs path. Additionally, circulation directs the UAV around obstacle in a deterministic way. A circulation weight of $H=1$ produces the guidance with a singularity removed from the path shown in Figure \ref{fig:noCircSingularityDetection}b. Determining the exact values of $R$ and $H$ to produce an avoidance guidance that minimizes deviation from the path will now be discussed. 
 
@@ -859,9 +862,18 @@ The modified VF guidance eliminates the need for a minimizer or lookup table, el
 A comparision of waypoint, VFF, strictly repulsive GVF, and the modified weighted GVF were compared for both their deviation from the sensor path and how closely the avoidance followed an optimal path around the obstacle. For each guidance method, the UAV is tasked with following a straight sensor path. An obstacle located at $(0,0)$ must be avoided. Waypoints were generated around the obstacle using the optimal avoidance path with a waypoint radius of 20 meters. The VFF provided a attractive force for the goal of 0.8 while the obstacle provided a repulsive force of -2. With an obstacle width of 5 meters and field exponential of $n=2$, the VFF avoids the obstacle and gradually returns to the path. 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.7\linewidth]{Figures/Simulations/compareMethods}
-	\caption{}
+	\includegraphics[trim=0 40 0 50,clip,width=12cm]{Figures/Simulations/compareMethods}
+	\caption{Path of UAV guided by guidance methods}
 	\label{fig:comparemethods}
+\end{figure}
+
+
+\begin{figure}[H]
+	\centering
+	\label{fig:barPlotCost}
+	\includegraphics[width=10cm]{Figures/Simulations/barPlotPerformance}
+	\caption{Cost performance for various UAV guidance methods}
+	\label{fig:barplotperformance}
 \end{figure}
 
 
@@ -869,7 +881,10 @@ A comparision of waypoint, VFF, strictly repulsive GVF, and the modified weighte
 
 
 \section{Conclusion}
-
+\begin{itemize}
+	\item An method for calculating optimized VF weights provides an improved guidance compared to potential field and unmodified VF
+	\item Any additional points
+\end{itemize}
 
 \begin{tabular}{|c|c|c|}
 	\hline 
