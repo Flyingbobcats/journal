@@ -63,9 +63,20 @@ $GVF$  & Goncalves Vector Field \\
 %
 %INTRODUCTION TO UAVS
 
-Unmanned Aerial Vehicles (UAV)s are pilotless aircraft used by military, police, and civilian communities for tasks such as reconnaissance, damage assessment, surveying, and target tracking \cite{ariyur_autonomous_2008,teuliere_chasing_2011}. Tasks can be performed by a single UAV or cooperate with a team of other air, ground, or marine vehicles \cite{oh_coordinated_2013,hyondong_oh_coordinated_2015,ulun_coordinated_2013}. UAVs are ideal for remote data collection due to their low cost, endurance, and reduced risk to human life. Data can be collected by loitering the aircraft around an area of interest (AOI) or along a sensor path, such as a road or tree-line. Missions for collecting data are typically pre-planned on a remote ground station where an obstacle free and flyable path is generated. Typically paths are deconstructed into a series of discrete waypoints that the UAV navigates to through the use of a line-of-sight guidance. While navigating the pre-planned path previously unknown obstacles may be discovered and a new obstacle free path may have to be generated, which may be difficult or impossible if the UAV is out of radio range. Additional methods for avoiding obstacles in real time include potential field and vector field which employ the use of artificial attractive and repulsive forces to pull a UAV towards a goal while pushing away from obstacles. Potential field is a popular solution to both path planning and guidance problems in obstacle rich environments, however suffers from several limitations including local minima, oscillations, and may cause excess deviation from the desired sensor line. Vector field guidance converges and circulates a pre-defined path and may be summed with additional repulsive vector fields to produce an obstacle avoidance. Previous methods only considered repulsive fields which do not aid in circumnavigating an obstacle and also introduce conditions which may lead to vector field singularities. \\
 
- Further optimization of vector fields to include circulation may produce an efficient real-time guidance for avoiding obstacles while also removing singularities from the UAVs path. A method for determining obstacle decay radius, circulation, and repulsion such that a UAV avoids obstacles while minimizing path deviation is presented. The modified guidance will then be compared against waypoint, Potential Field, and un-modified path following guidance in simulation for cross track error and deviation from sensor path. Lastly, the optimized vector field will then be demonstrated on a crazyflie 2.0 multi-rotor simulating fixed wing constraints. 
+Unmanned Aerial Vehicles (UAV)s are pilotless aircraft used by military, police, and civilian communities for tasks such as reconnaissance, damage assessment, surveying, and target tracking \cite{ariyur_autonomous_2008,teuliere_chasing_2011}. Many of these tasks depend on the UAVs ability to autonomously follow a pre-planned path while avoiding obstacles. Pre-planned paths are typically generated on a remote ground station and relayed to the UAV’s autopilot. How accurately the UAV follows the path impacts mission performance, such as fuel, time, and sensor coverage.  On-board guidance systems attempt to minimize the error to the path by commanding a heading. Guidance methods for following a pre-planned path include geometric methods such as waypoint or carrot chasing and non-linear control methods. Due to traditional guidance methods dependence on a path planner to construct an obstacle free and flyable path, these methods often lack an avoidance mechanism to prevent a collision. Re-planning and relaying a new obstacle free path may be impossible under certain conditions, such as flying beyond line-of-sight. \\
+
+
+Additional methods for avoiding obstacles in real time include potential field and vector field which employ the use of artificial attractive and repulsive forces to pull a UAV towards a goal while pushing away from obstacles. Potential field is a popular solution to both path planning and guidance problems in obstacle rich environments, however suffers from several limitations including local minima, oscillations, and may cause excess deviation from the desired sensor line. Vector field guidance converges and circulates a pre-defined path and may be summed with additional repulsive vector fields to produce an obstacle avoidance. Previous investigations into vector field obstacle avoidance only considered repulsive fields which do not aid in circumnavigating an obstacle and can introduce conditions which lead to vector field singularities, small trap regions where the guidance has zero magnitude. \\
+
+Further optimization of vector fields to include circulation may produce an efficient real-time guidance for avoiding obstacles while also removing singularities from the UAVs path. A method for determining obstacle decay radius, circulation, and repulsion such that a UAV avoids obstacles while minimizing path deviation is presented. The modified guidance will then be compared against waypoint, Potential Field, and un-modified path following guidance in simulation for cross track error and deviation from sensor path.
+
+
+
+
+%Unmanned Aerial Vehicles (UAV)s are pilotless aircraft used by military, police, and civilian communities for tasks such as reconnaissance, damage assessment, surveying, and target tracking \cite{ariyur_autonomous_2008,teuliere_chasing_2011}. Tasks can be performed by a single UAV or cooperate with a team of other air, ground, or marine vehicles \cite{oh_coordinated_2013,hyondong_oh_coordinated_2015,ulun_coordinated_2013}. UAVs are ideal for remote data collection due to their low cost, endurance, and reduced risk to human life. Data can be collected by loitering the aircraft around an area of interest (AOI) or along a sensor path, such as a road or tree-line. Missions for collecting data are typically pre-planned on a remote ground station where an obstacle free and flyable path is generated. Typically paths are deconstructed into a series of discrete waypoints that the UAV navigates to through the use of a line-of-sight guidance. While navigating the pre-planned path previously unknown obstacles may be discovered and a new obstacle free path may have to be generated, which may be difficult or impossible if the UAV is out of radio range. Additional methods for avoiding obstacles in real time include potential field and vector field which employ the use of artificial attractive and repulsive forces to pull a UAV towards a goal while pushing away from obstacles. Potential field is a popular solution to both path planning and guidance problems in obstacle rich environments, however suffers from several limitations including local minima, oscillations, and may cause excess deviation from the desired sensor line. Vector field guidance converges and circulates a pre-defined path and may be summed with additional repulsive vector fields to produce an obstacle avoidance. Previous methods only considered repulsive fields which do not aid in circumnavigating an obstacle and also introduce conditions which may lead to vector field singularities. \\
+%
+% Further optimization of vector fields to include circulation may produce an efficient real-time guidance for avoiding obstacles while also removing singularities from the UAVs path. A method for determining obstacle decay radius, circulation, and repulsion such that a UAV avoids obstacles while minimizing path deviation is presented. The modified guidance will then be compared against waypoint, Potential Field, and un-modified path following guidance in simulation for cross track error and deviation from sensor path. Lastly, the optimized vector field will then be demonstrated on a crazyflie 2.0 multi-rotor simulating fixed wing constraints. 
 
 
 \subsection{Dubins Vehicle}
@@ -93,10 +104,10 @@ sin(\theta(t))
 \end{equation}
 
 
-\subsection{Optimal Path}
+\subsection{Optimal Avoidance Route for Straight Path}
 
 
-A path for avoiding a circular obstacle while maximizing the sensor path coverage can be accomplished with three circular arc turns. The circular obstacle is defined to have a radius $R$ and a lateral distance $Y_0$ from the sensor path in frame $I$. The first and third arc utilize the UAVs minimum turning radius, $\theta_r$, calculated in Equation \ref{eq:turnRadius}. The start of the first minimum radius turn begins when the UAV's horizontal position $x$ reaches  $\tilde{x}$ from the path frame. At a horizontal position $-\hat{x}$ the UAV turns with a radius of the obstacle $R$ and exits when the UAVs horizontal position reaches $\hat{x}$. 
+A path for avoiding a circular obstacle while maximizing the sensor path coverage can be accomplished with three circular arc turns. The circular obstacle is defined to have a radius $R$ and a lateral distance $Y_0$ from the sensor path in frame $I$. The first and third arc utilize the UAVs minimum turning radius, $\theta_r$, calculated in Equation \ref{eq:turnRadius}. The start of the first minimum radius turn begins when the UAV's horizontal position $x$ reaches  $\tilde{x}$ from the path frame origin. At a horizontal position $-\hat{x}$ the UAV turns with a radius of the obstacle $R$ and exits when the UAVs horizontal position reaches $\hat{x}$. 
 
 \begin{equation}
 \label{eq:turnRadius}
@@ -202,12 +213,12 @@ Waypoint guidance aligns the vehicle with the currently active waypoint that lie
 	\label{fig:numWaypoints}
 \end{figure}
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.7\linewidth]{Figures/Simulations/pureWaypoint}
-	\caption{Simulated Fixed Wing UAV Traversing Waypoints Around Circular Obstacle}
-	\label{fig:purewaypoint}
-\end{figure}
+%\begin{figure}[H]
+%	\centering
+%	\includegraphics[width=0.7\linewidth]{Figures/Simulations/pureWaypoint}
+%	\caption{Simulated Fixed Wing UAV Traversing Waypoints Around Circular Obstacle}
+%	\label{fig:purewaypoint}
+%\end{figure}
 
 It would be beneficial to include obstacle avoidance into a UAVs guidance system to remove the need to communicate with the ground station and path re-planning which may be accomplished with potential field or vector field. 
 
@@ -261,7 +272,11 @@ It would be beneficial to include obstacle avoidance into a UAVs guidance system
 
 \subsection{Potential Field}
 
-Potential field is based on the principle of artificial attractive and repulsive forces acting on a point mass to guide a system to a desired goal while avoiding static and dynamic obstacles \cite{khatib_real-time_1986}. Goals states are represented as an attractive force that pulls a point mass in the direction of minimal energy while obstacles are represented as repulsive forces that act locally to push the point mass away. Potential field is also capable of acting as a path and trajectory planning algorithm \cite{rimon_exact_1992}, possibly eliminating the off-board path planner. An example of potential field can be found in \cite{borenstein_real-time_1990,borenstein_vector_1991,koren_potential_1991} which allowed for real time goal seeking with obstacle avoidance on a mobile ground robot equipped with ultrasonic sensors. The robot located at $(x_0,y_0)$ is attracted towards a a goal with constant magnitude force $\overrightarrow{F_t}$ located at $(x_t,y_t)$ and a distance $d_t$ from the robot. In the immediate area of the robot, an active window exists which records integer certainty values inside discrete cells. Cells containing an obstacle provide a repulsive force $\overrightarrow{F_{i,j}}$ opposite in direction to the line-of-sight from vehicle to cell location $(x_i,y_j)$, where $(i,j$) represents the cell index, $F_{cr}$ is a constant repulsive force, $W$ the vehicle's width, $C_{i,j}$ a cell's certainty, and $d_{i,j}$ the distance to the center of the cell with respect to robots center.
+Potential field is based on the principle of artificial attractive and repulsive forces acting on a point mass to guide a system to a desired goal while avoiding static and dynamic obstacles \cite{khatib_real-time_1986}. Goals are represented as an attractive force that pull a point mass in the direction of minimal energy while obstacles are represented as repulsive forces that act locally to push the point mass away. Potential field is also capable of acting as a path and trajectory planning algorithm \cite{rimon_exact_1992}, possibly eliminating the off-board path planner. An example of potential field can be found in \cite{borenstein_real-time_1990,borenstein_vector_1991,koren_potential_1991} which allowed for real time goal seeking with obstacle avoidance on a mobile ground robot equipped with ultrasonic sensors. The robot located at $(x_0,y_0)$ is attracted towards a goal with constant magnitude force $\overrightarrow{F_t}$ located at $(x_t,y_t)$ and a distance $d_t$ from the robot, shown in Equation \ref{eq:vffGoal}. In the immediate area of the robot, an active window exists which records integer certainty values inside discrete cells. Cells containing an obstacle provide a repulsive force $\overrightarrow{F_{i,j}}$ opposite in direction to the line-of-sight from vehicle to cell location $(x_i,y_j)$, where $(i,j$) represents the cell index, $F_{cr}$ is a constant repulsive force, $W$ the vehicle's width, $C_{i,j}$ a cell's certainty, and $d_{i,j}$ the distance to the center of the cell with respect to robots center.
+
+\begin{equation}\label{eq:vffGoal}
+\overrightarrow{F_t} = F_{ct} \bigg( \frac{x_t-x_0}{d_{t}}\hat{x} + \frac{y_t-y_0}{d_{t}}\hat{y}\bigg)
+\end{equation}
 
 \begin{equation}\label{eq:vffRepulse}
 \overrightarrow{F_{i,j}} = \frac{F_{cr}W^nC_{i,j}}{d^n_{i,j}} \bigg( \frac{x_i-x_0}{d_{i,j}}\hat{x} + \frac{y_i-y_0}{d_{i,j}}\hat{y}\bigg)
@@ -275,9 +290,7 @@ The total repulsive force exerted on the robot is determined by summing the acti
 \end{equation}
 
 
-\begin{equation}\label{eq:vffGoal}
-\overrightarrow{F_t} = F_{ct} \bigg( \frac{x_t-x_0}{d_{t}}\hat{x} + \frac{y_t-y_0}{d_{t}}\hat{y}\bigg)
-\end{equation}
+
 
 Summing together attractive and repulsive forces produce a vector $\overrightarrow{R}$ that can be used for heading guidance, shown in Equation \ref{eq:vffHeading}.
 
@@ -395,6 +408,14 @@ Intersecting two flat planes $(\alpha_1 = z,\alpha_2 = x)$ produces a GVF that c
 	\caption{GVF converging and circulating straight path}
 	\label{fig:GVFLine}
 \end{figure} 
+
+\begin{figure}[H]
+	\centering
+	\label{fig:sinewavePath}
+	\includegraphics[width=12cm,trim=0 200 0 220,clip]{Figures/sineVectorField}
+	\caption{GVF converging and circulating a sine wave path}
+	\label{fig:sinevectorfield}
+\end{figure}
 
 
 
