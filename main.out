@@ -1,16 +1,11 @@
 \BOOKMARK [1][-]{section.1}{Nomenclature}{}% 1
 \BOOKMARK [1][-]{section.2}{Introduction}{}% 2
-\BOOKMARK [2][-]{subsection.2.1}{Dubins Vehicle}{section.2}% 3
-\BOOKMARK [2][-]{subsection.2.2}{Optimal Avoidance Route for Straight Path}{section.2}% 4
-\BOOKMARK [2][-]{subsection.2.3}{Waypoint Guidance}{section.2}% 5
-\BOOKMARK [2][-]{subsection.2.4}{Potential Field}{section.2}% 6
-\BOOKMARK [2][-]{subsection.2.5}{Vector Field Guidance}{section.2}% 7
-\BOOKMARK [2][-]{subsection.2.6}{GVF}{section.2}% 8
-\BOOKMARK [1][-]{section.3}{Methods}{}% 9
-\BOOKMARK [2][-]{subsection.3.1}{Path Following with GVF}{section.3}% 10
-\BOOKMARK [2][-]{subsection.3.2}{Avoidance}{section.3}% 11
-\BOOKMARK [2][-]{subsection.3.3}{Singularity Detection}{section.3}% 12
-\BOOKMARK [2][-]{subsection.3.4}{Static Modified Weights}{section.3}% 13
-\BOOKMARK [2][-]{subsection.3.5}{Modified Path Following Vector Field}{section.3}% 14
-\BOOKMARK [1][-]{section.4}{Simulations}{}% 15
-\BOOKMARK [1][-]{section.5}{Conclusion}{}% 16
+\BOOKMARK [1][-]{section.3}{Literature}{}% 3
+\BOOKMARK [1][-]{section.4}{Methods}{}% 4
+\BOOKMARK [2][-]{subsection.4.1}{Path Following with GVF}{section.4}% 5
+\BOOKMARK [2][-]{subsection.4.2}{Avoidance}{section.4}% 6
+\BOOKMARK [2][-]{subsection.4.3}{Singularity Detection}{section.4}% 7
+\BOOKMARK [2][-]{subsection.4.4}{Static Modified Weights}{section.4}% 8
+\BOOKMARK [2][-]{subsection.4.5}{Optimal Avoidance Route for Straight Path}{section.4}% 9
+\BOOKMARK [1][-]{section.5}{Simulations}{}% 10
+\BOOKMARK [1][-]{section.6}{Conclusion}{}% 11
