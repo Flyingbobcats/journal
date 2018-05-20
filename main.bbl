@@ -1,4 +1,4 @@
-\begin{thebibliography}{29}
+\begin{thebibliography}{25}
 \newcommand{\enquote}[1]{``#1''}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
@@ -19,49 +19,13 @@ Teuliere, C., Eck, L., and Marchand, E., \enquote{Chasing a moving target from
   a flying {UAV},} \emph{Intelligent {Robots} and {Systems} ({IROS}), 2011
   {IEEE}/{RSJ} {International} {Conference} on}, IEEE, 2011, pp. 4929--4934.
 
-\bibitem[{Oh et~al.(2013)Oh, Kim, Shin, Tsourdos, and
-  White}]{oh_coordinated_2013}
-Oh, H., Kim, S., Shin, H.-S., Tsourdos, A., and White, B., \enquote{Coordinated
-  standoff tracking of groups of moving targets using multiple {UAVs},}
-  \emph{Control \& {Automation} ({MED}), 2013 21st {Mediterranean} {Conference}
-  on}, IEEE, 2013, pp. 969--977.
-\newblock
-  \urlprefix\url{http://ieeexplore.ieee.org/abstract/document/6608839/}.
-
-\bibitem[{{Hyondong Oh} et~al.(2015){Hyondong Oh}, {Seungkeun Kim}, {Hyo-sang
-  Shin}, and Tsourdos}]{hyondong_oh_coordinated_2015}
-{Hyondong Oh}, {Seungkeun Kim}, {Hyo-sang Shin}, and Tsourdos, A.,
-  \enquote{Coordinated standoff tracking of moving target groups using multiple
-  {UAVs},} \emph{IEEE Transactions on Aerospace and Electronic Systems},
-  Vol.~51, No.~2, 2015, pp. 1501--1514.
-\newblock \doi{10.1109/TAES.2015.140044},
-  \urlprefix\url{http://ieeexplore.ieee.org/document/7126199/}.
-
-\bibitem[{Ulun and Unel(2013)}]{ulun_coordinated_2013}
-Ulun, S., and Unel, M., \enquote{Coordinated motion of {UGVs} and a {UAV},}
-  \emph{Industrial {Electronics} {Society}, {IECON} 2013-39th {Annual}
-  {Conference} of the {IEEE}}, IEEE, 2013, pp. 4079--4084.
-\newblock
-  \urlprefix\url{http://ieeexplore.ieee.org/abstract/document/6699789/}.
-
-\bibitem[{Wilhelm et~al.(2017)Wilhelm, Clem, and
-  Eberhart}]{wilhelm_direct_2017}
-Wilhelm, J., Clem, G., and Eberhart, G., \enquote{Direct {Entry} {Minimal}
-  {Path} {UAV} {Loitering} {Path} {Planning},} \emph{Aerospace}, Vol.~4, No.~2,
-  2017, p.~23.
-\newblock \doi{10.3390/aerospace4020023},
-  \urlprefix\url{http://www.mdpi.com/2226-4310/4/2/23}.
-
-\bibitem[{Khatib(1986)}]{khatib_real-time_1986}
-Khatib, O., \enquote{Real-time obstacle avoidance for manipulators and mobile
-  robots,} \emph{The international journal of robotics research}, Vol.~5,
-  No.~1, 1986, pp. 90--98.
-\newblock
-  \urlprefix\url{http://journals.sagepub.com/doi/abs/10.1177/027836498600500106}.
-
-\bibitem[{Rimon(1992)}]{rimon_exact_1992}
-Rimon, E., \enquote{Exact {Robot} {Navigation} {Using} {Artificial} {Potential}
-  {Functions}.pdf,} , 1992.
+\bibitem[{Sujit et~al.(2014)Sujit, Saripalli, and Sousa}]{sujit_unmanned_2014}
+Sujit, P., Saripalli, S., and Sousa, J.~B., \enquote{Unmanned {Aerial}
+  {Vehicle} {Path} {Following}: {A} {Survey} and {Analysis} of {Algorithms} for
+  {Fixed}-{Wing} {Unmanned} {Aerial} {Vehicless},} \emph{IEEE Control Systems},
+  Vol.~34, No.~1, 2014, pp. 42--59.
+\newblock \doi{10.1109/MCS.2013.2287568},
+  \urlprefix\url{http://ieeexplore.ieee.org/document/6712082/}.
 
 \bibitem[{Borenstein and Koren(1990)}]{borenstein_real-time_1990}
 Borenstein, J., and Koren, Y., \enquote{Real-time obstacle avoidance for fast
@@ -75,6 +39,56 @@ Borenstein, J., and Koren, Y., \enquote{The vector field histogram-fast
   obstacle avoidance for mobile robots,} \emph{IEEE transactions on robotics
   and automation}, Vol.~7, No.~3, 1991, pp. 278--288.
 \newblock \urlprefix\url{http://ieeexplore.ieee.org/abstract/document/88137/}.
+
+\bibitem[{Frew(2007)}]{frew_cooperative_2007}
+Frew, E.~W., \enquote{Cooperative standoff tracking of uncertain moving targets
+  using active robot networks,} \emph{Robotics and {Automation}, 2007 {IEEE}
+  {International} {Conference} on}, IEEE, 2007, pp. 3277--3282.
+\newblock
+  \urlprefix\url{http://ieeexplore.ieee.org/abstract/document/4209596/}.
+
+\bibitem[{Griffiths(2006)}]{griffiths_vector_2006}
+Griffiths, S., \enquote{Vector {Field} {Approach} for {Curved} {Path}
+  {Following} for {Miniature} {Aerial} {Vehicles},} American Institute of
+  Aeronautics and Astronautics, 2006.
+\newblock \doi{10.2514/6.2006-6467},
+  \urlprefix\url{http://arc.aiaa.org/doi/10.2514/6.2006-6467}.
+
+\bibitem[{Goncalves et~al.(2009)Goncalves, Pimenta, Maia, and
+  Pereira}]{goncalves_artificial_2009}
+Goncalves, V.~M., Pimenta, L. C.~A., Maia, C.~A., and Pereira, G. A.~S.,
+  \enquote{Artificial vector fields for robot convergence and circulation of
+  time-varying curves in n-dimensional spaces,} IEEE, 2009, pp. 2012--2017.
+\newblock \doi{10.1109/ACC.2009.5160350},
+  \urlprefix\url{http://ieeexplore.ieee.org/document/5160350/}.
+
+\bibitem[{Gonçalves et~al.(2010{\natexlab{a}})Gonçalves, Pimenta, Maia,
+  Pereira, Dutra, Michael, Fink, and Kumar}]{goncalves_circulation_2010}
+Gonçalves, V.~M., Pimenta, L.~C., Maia, C.~A., Pereira, G.~A., Dutra, B.~C.,
+  Michael, N., Fink, J., and Kumar, V., \enquote{Circulation of curves using
+  vector fields: actual robot experiments in 2D and 3D workspaces,}
+  \emph{Robotics and {Automation} ({ICRA}), 2010 {IEEE} {International}
+  {Conference} on}, IEEE, 2010{\natexlab{a}}, pp. 1136--1141.
+
+\bibitem[{Gonçalves et~al.(2010{\natexlab{b}})Gonçalves, Pimenta, Maia,
+  Dutra, and Pereira}]{goncalves_vector_2010}
+Gonçalves, V.~M., Pimenta, L.~C., Maia, C.~A., Dutra, B.~C., and Pereira,
+  G.~A., \enquote{Vector fields for robot navigation along time-varying curves
+  in \$ n \$-dimensions,} \emph{IEEE Transactions on Robotics}, Vol.~26, No.~4,
+  2010{\natexlab{b}}, pp. 647--659.
+\newblock
+  \urlprefix\url{http://ieeexplore.ieee.org/abstract/document/5504176/}.
+
+\bibitem[{Khatib(1986)}]{khatib_real-time_1986}
+Khatib, O., \enquote{Real-time obstacle avoidance for manipulators and mobile
+  robots,} \emph{The international journal of robotics research}, Vol.~5,
+  No.~1, 1986, pp. 90--98.
+\newblock
+  \urlprefix\url{http://journals.sagepub.com/doi/abs/10.1177/027836498600500106}.
+
+\bibitem[{Rimon(1992)}]{rimon_exact_1992}
+Rimon, E., \enquote{Exact {Robot} {Navigation} {Using} {Artificial} {Potential}
+  {Functions}.pdf,} , 1992.
 
 \bibitem[{Koren and Borenstein(1991)}]{koren_potential_1991}
 Koren, Y., and Borenstein, J., \enquote{Potential {Field} {Methods} and their
@@ -119,14 +133,6 @@ Li, G., Yamashita, A., Asama, H., and Tamura, Y., \enquote{An efficient
 \newblock \doi{10.1109/ICMA.2012.6283526},
   \urlprefix\url{http://ieeexplore.ieee.org/document/6283526/}.
 
-\bibitem[{Sujit et~al.(2014)Sujit, Saripalli, and Sousa}]{sujit_unmanned_2014}
-Sujit, P., Saripalli, S., and Sousa, J.~B., \enquote{Unmanned {Aerial}
-  {Vehicle} {Path} {Following}: {A} {Survey} and {Analysis} of {Algorithms} for
-  {Fixed}-{Wing} {Unmanned} {Aerial} {Vehicless},} \emph{IEEE Control Systems},
-  Vol.~34, No.~1, 2014, pp. 42--59.
-\newblock \doi{10.1109/MCS.2013.2287568},
-  \urlprefix\url{http://ieeexplore.ieee.org/document/6712082/}.
-
 \bibitem[{Nelson(2005)}]{nelson_cooperative_2005}
 Nelson, D.~R., \enquote{Cooperative control of miniature air vehicles,} 2005.
 \newblock \urlprefix\url{http://scholarsarchive.byu.edu/etd/1095/}.
@@ -147,13 +153,6 @@ Nelson, D., Barber, D., McLain, T., and Beard, R., \enquote{Vector {Field}
 \newblock \doi{10.1109/TRO.2007.898976},
   \urlprefix\url{http://ieeexplore.ieee.org/document/4252175/}.
 
-\bibitem[{Frew(2007)}]{frew_cooperative_2007}
-Frew, E.~W., \enquote{Cooperative standoff tracking of uncertain moving targets
-  using active robot networks,} \emph{Robotics and {Automation}, 2007 {IEEE}
-  {International} {Conference} on}, IEEE, 2007, pp. 3277--3282.
-\newblock
-  \urlprefix\url{http://ieeexplore.ieee.org/abstract/document/4209596/}.
-
 \bibitem[{Miao et~al.(2016)Miao, Thakur, Erwin, Pierre, Wang, and
   Fierro}]{miao_orthogonal_2016}
 Miao, Z., Thakur, D., Erwin, R.~S., Pierre, J., Wang, Y., and Fierro, R.,
@@ -162,38 +161,6 @@ Miao, Z., Thakur, D., Erwin, R.~S., Pierre, J., Wang, Y., and Fierro, R.,
   ({CDC}), 2016 {IEEE} 55th {Conference} on}, IEEE, 2016, pp. 6004--6009.
 \newblock
   \urlprefix\url{http://ieeexplore.ieee.org/abstract/document/7799191/}.
-
-\bibitem[{Griffiths(2006)}]{griffiths_vector_2006}
-Griffiths, S., \enquote{Vector {Field} {Approach} for {Curved} {Path}
-  {Following} for {Miniature} {Aerial} {Vehicles},} American Institute of
-  Aeronautics and Astronautics, 2006.
-\newblock \doi{10.2514/6.2006-6467},
-  \urlprefix\url{http://arc.aiaa.org/doi/10.2514/6.2006-6467}.
-
-\bibitem[{Goncalves et~al.(2009)Goncalves, Pimenta, Maia, and
-  Pereira}]{goncalves_artificial_2009}
-Goncalves, V.~M., Pimenta, L. C.~A., Maia, C.~A., and Pereira, G. A.~S.,
-  \enquote{Artificial vector fields for robot convergence and circulation of
-  time-varying curves in n-dimensional spaces,} IEEE, 2009, pp. 2012--2017.
-\newblock \doi{10.1109/ACC.2009.5160350},
-  \urlprefix\url{http://ieeexplore.ieee.org/document/5160350/}.
-
-\bibitem[{Gonçalves et~al.(2010{\natexlab{a}})Gonçalves, Pimenta, Maia,
-  Pereira, Dutra, Michael, Fink, and Kumar}]{goncalves_circulation_2010}
-Gonçalves, V.~M., Pimenta, L.~C., Maia, C.~A., Pereira, G.~A., Dutra, B.~C.,
-  Michael, N., Fink, J., and Kumar, V., \enquote{Circulation of curves using
-  vector fields: actual robot experiments in 2D and 3D workspaces,}
-  \emph{Robotics and {Automation} ({ICRA}), 2010 {IEEE} {International}
-  {Conference} on}, IEEE, 2010{\natexlab{a}}, pp. 1136--1141.
-
-\bibitem[{Gonçalves et~al.(2010{\natexlab{b}})Gonçalves, Pimenta, Maia,
-  Dutra, and Pereira}]{goncalves_vector_2010}
-Gonçalves, V.~M., Pimenta, L.~C., Maia, C.~A., Dutra, B.~C., and Pereira,
-  G.~A., \enquote{Vector fields for robot navigation along time-varying curves
-  in \$ n \$-dimensions,} \emph{IEEE Transactions on Robotics}, Vol.~26, No.~4,
-  2010{\natexlab{b}}, pp. 647--659.
-\newblock
-  \urlprefix\url{http://ieeexplore.ieee.org/abstract/document/5504176/}.
 
 \bibitem[{Gerlach(2014)}]{gerlach_autonomous_2014}
 Gerlach, A.~R., \emph{Autonomous {Path}-{Following} by {Approximate} {Inverse}
