@@ -2,6 +2,9 @@
 %\documentclass[journal]{new-aiaa} for journal papers
 \usepackage[utf8]{inputenc}
 
+\usepackage{bbding}
+
+
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage[version=4]{mhchem}
@@ -126,47 +129,40 @@ The standoff tracking scenario in [wwc] did not address the possibility of attra
 
 \section{Literature}
 
-UAVs are often used for tasks such as surveillance and data collection which require the UAV to fly closely to a pre-planned path. The pre-planned paths may represent a route where valuable data needs to be collected or an urban corridor that needs to be navigated carefully to avoid collision with known obstacles or no-fly zones. Remaining close the planned path is essential for safe and efficient operation of the vehicle. Obstacles or no-fly zones that are discovered after a path has been planned would traditionally require that a new obstacle free and flyable path be recalculated and relayed to the UAV. These paths are commonly represented as a series of finite waypoints in commercial UAV autopilots such as the Pixhawk (citation). The on-board autopilot aligns the vehicle with the current active waypoint and switches to the subsequent waypoint once the UAV has reached a defined distance from the waypoint’s center. Avoiding obstacles with waypoint guidance may be accomplished by creating diversion waypoints that temporarily guide the UAV away from the pre-planned path. \\
+UAVs are often used for tasks such as surveillance and data collection which require the UAV to fly closely to a pre-planned path. The pre-planned paths may represent a route where valuable data needs to be collected or an urban corridor that needs to be navigated carefully to avoid collision with known obstacles or no-fly zones. Remaining close to the planned path is essential for safe and efficient operation of the vehicle. Obstacles or no-fly zones that are discovered after a path has been planned would traditionally require that a new obstacle free and flyable path be recalculated and relayed to the UAV. These paths are commonly represented as a series of finite waypoints in commercial UAV autopilots such as the Pixhawk \cite{pix}. The on-board autopilot aligns the vehicle with the current active waypoint and switches to the subsequent waypoint once the UAV has reached a defined distance from the waypoint’s center, referred to as the waypoint radius. Avoiding obstacles with waypoint guidance may be accomplished by creating diversion waypoints that temporarily guide the UAV away from the pre-planned path. \\
 
-Avoiding obstacles with waypoint guidance may be accomplished by creating diversion waypoints off the planned path and outside of the obstacle. A single diversion waypoint may be enough to direct the UAV away from the obstacle, however may result in excess deviation from the planned path. Increasing the number of deviation waypoint may allow for the UAV to travel more of the planned path prior to deviating to avoid the obstacle. Examples of deviation waypoints for avoiding a circular obstacle is shown in Figure \ref{fig:numWaypointsPath}.
-
-
+Avoiding obstacles with waypoint guidance may be accomplished by creating diversion waypoints off the planned path and outside of the obstacle. A single diversion waypoint may be enough to direct the UAV away from the obstacle, however may result in excess deviation from the planned path. Increasing the number of deviation waypoint may allow for the UAV to travel more of the planned path prior to deviating to avoid the obstacle. When it is not possible to plan a new obstacle free path, such as when the UAV is not able to communicate with the ground station, it may be beneficial to use a guidance system that can avoid obstacles without the path re-planning. Methods for obstacle avoidance guidance can be found in potential field and vector field guidance. \\ 
 
 
+%\begin{figure}[H]
+%	\begin{subfigmatrix}{2}% number of columns
+%		\centering	
+%		\subfigure []{\includegraphics[width=8cm,trim=40 0 60 0,clip] {Figures/Waypoints/1Wpts}}
+%		\subfigure []{\includegraphics[width=8cm,trim=40 0 60 0,clip] {Figures/Waypoints/6Wpts}}
+%		\hspace*{0mm}
+%	\end{subfigmatrix}
+%	\caption{Obstacle Diversion Waypoints}
+%	\label{fig:numWaypointsPath}
+%\end{figure}
+%
+%Determining the number of diversion waypoints to avoid a circular obstacle to minimize the deviation from a planned path can be accomplished by observing the change in a function cost $\gamma$ with respect to the number of waypoints, Equation \ref{eq:diversionCost}. The cost function is scaled and non-dimensionalized by diving by the obstacles radius $r_o$. As the number of waypoints increase around the obstacle the decrease in cost begins to have diminishing returns and approaches an asymptote, shown in Figure \ref{fig:numWaypoints}. 
+%
+%
+%\begin{equation}
+%\label{eq:diversionCost}
+%\begin{aligned}
+%\gamma =  \frac{1}{r_O}\int_{0}^{tf}ydt
+%\end{aligned}
+%\end{equation}
+%
+%\begin{figure}[H]
+%	\centering
+%	\includegraphics[width=10cm]{Figures/Waypoints/costVnumWpts}
+%	\caption{Cost impact versus number of waypoints}
+%	\label{fig:numWaypoints}
+%\end{figure}
 
 
-
-
-
-\begin{figure}[H]
-	\begin{subfigmatrix}{2}% number of columns
-		\centering	
-		\subfigure []{\includegraphics[width=8cm,trim=40 0 60 0,clip] {Figures/Waypoints/1Wpts}}
-		\subfigure []{\includegraphics[width=8cm,trim=40 0 60 0,clip] {Figures/Waypoints/6Wpts}}
-		\hspace*{0mm}
-	\end{subfigmatrix}
-	\caption{Obstacle Diversion Waypoints}
-	\label{fig:numWaypointsPath}
-\end{figure}
-
-Determining the number of diversion waypoints to avoid a circular obstacle to minimize the deviation from a planned path can be accomplished by observing the change in a function cost $\gamma$ with respect to the number of waypoints, Equation \ref{eq:diversionCost}. The cost function is scaled and non-dimensionalized by diving by the obstacles radius $r_o$. As the number of waypoints increase around the obstacle the decrease in cost begins to have diminishing returns and approaches an asymptote, shown in Figure \ref{fig:numWaypoints}. 
-
-
-\begin{equation}
-\label{eq:diversionCost}
-\begin{aligned}
-\gamma =  \frac{1}{r_O}\int_{0}^{tf}ydt
-\end{aligned}
-\end{equation}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=10cm]{Figures/Waypoints/costVnumWpts}
-	\caption{Cost impact versus number of waypoints}
-	\label{fig:numWaypoints}
-\end{figure}
-
-When it is not possible to plan a new obstacle free path, such as when the UAV is not able to communicate with the ground station, it may be beneficial to use a guidance system that can avoid obstacles without the path re-planning. Methods for obstacle avoidance guidance can be found in potential field and vector field guidance. \\
 
 Potential field is based on the principle of artificial attractive and repulsive forces acting on a point mass to guide a system to a desired goal while avoiding static and dynamic obstacles \cite{khatib_real-time_1986}. Goals are represented as an attractive force that pull a point mass in the direction of minimal energy while obstacles are represented as repulsive forces that act locally to push the point mass away. Potential field is also capable of acting as a path and trajectory planning algorithm \cite{rimon_exact_1992}, possibly eliminating the off-board path planner. An example of potential field can be found in \cite{borenstein_real-time_1990,borenstein_vector_1991,koren_potential_1991} which allowed for real time goal seeking with obstacle avoidance on a mobile ground robot equipped with ultrasonic sensors. The robot was attracted towards a goal with constant magnitude force. In the immediate area of the robot, an active window exists which records integer certainty values inside discrete cells. Cells containing an obstacle provide a repulsive force opposite in direction to the line-of-sight from vehicle to cell location. The total repulsive force exerted on the robot is determined by summing the active cells. Summing together attractive and repulsive forces produce a vector that can be used for heading guidance. \\
 
@@ -901,7 +897,7 @@ sin(\theta(t))
 
 \section{Simulations}
 
-A simulation comparing waypoint, VFF, and GVF guidance for avoiding a static obstacle will be presented. A fixed wing UAV at an initial position $(-400,0)$ and heading $\theta=0^\circ$ follows the straight path connecting the points $(-400,0)$ and $(700,0)$ respectively. Traveling at a constant speed $u=25 m/s$ and with a fixed turn rate of $\dot{\theta}=20 deg/s$ the UAV must avoid an obstacle with radius $2\theta_r$ located at the origin $(0,0)$. The VFF guidance from \cite{borenstein_real-time_1990} is used with an obstacle window radius of $\theta_r+r_o$, a cell repulsion $Fr=-3$, attraction force $F_t=0.8$, range exponent $n=2$, and a goal located at $(700,0)$. For LOS waypoint guidance, waypoints were placed at $(-153,0) (0,215)(200,0)$ and $(700,0)$ with a waypoint detection radius of $\theta_r$. GVF guidance with a circular repulsive field was assigned a convergence weight $G=-1$ and circulation and decay radius coefficient $k$ were determined by evaluating the cost function in Equation \ref{eq:staticCost} with initial conditions $k_i = 2$ and $H=2$. The GVF solution was bounded such that $2\leq k\leq 4$ and $1\leq H\leq 6$. Minimizing the cost function resulted in a decay radius coefficient $k=2.78$ and a circulation value $H=1.88$. The Dubin's paths for the three guidance methods discussed is shown in Figure \ref{fig:comparemethods}. 
+A worst case avoidance scenario will be used to compare the optimized GVF with waypoint, VFF, and the optimal path with respect to the path deviation cost function. A circular obstacle centered on the path, $y_o = 0$, requires a deviation from the path of at least $50\% $ of the obstacles radius. A fixed wing UAV at an initial position $(-400,0)$ and heading $\theta=0^\circ$ follows the straight path connecting the points $(-400,0)$ and $(400,0)$ respectively. Traveling at a constant speed $u=25 m/s$ and with a fixed turn rate of $\dot{\theta}=20 deg/s$ the UAV must avoid an obstacle with radius $2\theta_r$ located at the origin $(0,0)$. The VFF guidance from \cite{borenstein_real-time_1990} is used with an obstacle window radius of $\theta_r+r_o$, a cell repulsion $Fr=-3$, attraction force $F_t=0.8$, range exponent $n=2$, and a goal located at $(700,0)$. For LOS waypoint guidance, $7$ waypoints with a small waypoint radius of $10m$ was chosen. Each diversion waypoint added drives the guidance closer to optimal, however has diminishing returns past $6-7$ waypoints. GVF guidance with a circular repulsive field was assigned a convergence weight $G=-1$ and circulation and decay radius coefficient $k$ were determined by evaluating the cost function in Equation \ref{eq:staticCost} with initial conditions $k_i = 2$ and $H=2$. The GVF solution was bounded such that $2\leq k\leq 4$ and $1\leq H\leq 6$. Minimizing the cost function resulted in a decay radius coefficient $k=2.78$ and a circulation value $H=1.88$. The Dubin's paths for the three guidance methods discussed is shown in Figure \ref{fig:comparemethods}. \\
 
 VFF results in a UAV route that has excess deviation from the planned path with excessive turns. Waypoint guidance returns to the path more quickly than VFF, however deviates from the planned path farther then necessary. GVF leaves the path before waypoint guidance and tracks the outside of the obstacle closely and then quickly converges back to the pre-planned path. The cost of each method is displayed in the bar plot shown in Figure \ref{fig:barplotperformance}.
 
@@ -927,8 +923,24 @@ VFF results in a UAV route that has excess deviation from the planned path with 
 
 
 \section{Conclusion}
+A gradient vector field for path following and circular obstacle avoidance was optimized and shown to have similar performance to waypoint avoidance without the need to re-plan the mission path. The obstacle avoidance GVF acts on the same principle as VFF, however guidance vectors are given circulation which aid in returning the UAV back to the planned path. A summary of the simulation costs for the scenario presented is shown in Table \ref{table}.
 
-A method for improving summed GVF guidance for path following and obstacle avoidance was presented and compared against other guidance methods in literature. Singularities in summed GVFs were identified by numerically finding locations where vector field magnitudes were null in a summed field. It was shown adding circulation to a repulsive GVF remove singularities from a UAVs path and reduce deviation from a planned path. Decay radius and circulation values were determined by minimizing a path deviation cost function. The improved GVF guidance was shown to have a reduced path deviation cost in comparison to potential field and traditional waypoint guidance. Increasing the number of deviation waypoinhts may provide guidance with lower cost than GVF, however when re-planning a path is not possible, such as instances where a ground station is not reachable, GVF provides a low cost method for avoiding obstacles without the need to re-plan the path. Future work to improve vector field for avoidance may include optimizing field parameters at each time step, potentially increasing time spent on the sensor line. 
+\begin{table}[H]
+	\centering
+	\caption{Obstacle Avoidance Method's Performance Summary }
+	\label{table}
+	\begin{tabular}{|l|c|c|c|}
+		\hline
+		\multicolumn{1}{|c|}{Method} & Cost {[}-{]} & Returns to path quickly & Avoids obstacle without replanning \\ \hline
+		VFF                          & 31.8         &                         & \Checkmark
+		\\ \hline
+		GVF                          & 13.2         & \Checkmark                       & \Checkmark                                  \\ \hline
+		WP                           & 12.7         & \Checkmark                       &                                    \\ \hline
+	\end{tabular}
+\end{table}
+
+In literature, singularities in summed fields and scalar convergence and circulation terms were not optimized for avoidance. Singularities in summed GVFs were identified by numerically finding locations where vector field magnitudes were null in a summed field. It was shown adding circulation to a repulsive GVF remove singularities from a UAVs path and reduce deviation from a planned path. Decay radius and circulation values were determined by minimizing a path deviation cost function. The improved GVF guidance was shown to have a reduced path deviation cost in comparison to potential field and traditional waypoint guidance. Increasing the number of deviation waypoinhts may provide guidance with lower cost than GVF, however when re-planning a path is not possible, such as instances where a ground station is not reachable, GVF provides a low cost method for avoiding obstacles without the need to re-plan the path. Future work to improve vector field for avoidance may include optimizing field parameters at each time step, potentially increasing time spent on the sensor line. 
+
 
 
 %The standoff tracking scenario in [wwc] did not address the possibility of attractive and repulsive vector fields canceling, leading to guidance singularities. Additionally, no method for determining the radius of the decay field was specified to minimize deviation from the planned path. A method for locating singularities in a summed vector field is presented, followed by an improved GVF for circular obstacle avoidance method. The improved GVF is compared in simulation to waypoint and potential field and it is shown to have favorable obstacle avoidance.
