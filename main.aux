@@ -20,11 +20,14 @@
 \gdef \LT@i {\LT@entry 
     {1}{51.97865pt}\LT@entry 
     {2}{145.87001pt}}
-\citation{ariyur_autonomous_2008,teuliere_chasing_2011}
+\citation{fernandez_galarreta_uav-based_2015}
+\citation{remondino_uav_2012}
+\citation{frew_cooperative_2007,oh_coordinated_2013,hyondong_oh_coordinated_2015,oliveira_moving_2016}
 \citation{borenstein_real-time_1990,borenstein_vector_1991}
 \citation{frew_cooperative_2007,griffiths_vector_2006,goncalves_artificial_2009,goncalves_circulation_2010,goncalves_vector_2010}
 \@writefile{toc}{\contentsline {section}{\numberline {I}Nomenclature}{1}{section.1}}
-\citation{koren_potential_1991}
+\citation{piccolo}
+\citation{kestrel}
 \citation{pix}
 \citation{khatib_real-time_1986}
 \citation{rimon_exact_1992}
@@ -51,82 +54,86 @@
 \citation{goncalves_artificial_2009,goncalves_circulation_2010,goncalves_vector_2010}
 \citation{nelson_cooperative_2005}
 \citation{panagou_motion_2014}
+\citation{frew_cooperative_2007,griffiths_vector_2006,nelson_cooperative_2005,nelson_vector_2006,nelson_vector_2007}
 \newlabel{circOnly}{{6}{4}{Literature}{equation.3.6}{}}
 \newlabel{circOnlySimp}{{7}{4}{Literature}{equation.3.7}{}}
 \newlabel{eq:totalGuidanceObstacleLit}{{8}{4}{Literature}{equation.3.8}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {III.A}Dubins Model}{4}{subsection.3.1}}
+\newlabel{eq:uavVelocity}{{9}{4}{Dubins Model}{equation.3.9}{}}
+\newlabel{eq:uavPosition}{{10}{4}{Dubins Model}{equation.3.10}{}}
+\newlabel{turnRate}{{11}{4}{Dubins Model}{equation.3.11}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {IV}Methods}{4}{section.4}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {IV.A}Path Following with GVF}{4}{subsection.4.1}}
-\newlabel{eq:pathFunction}{{9}{4}{Path Following with GVF}{equation.4.9}{}}
-\newlabel{eq:pathFunctionZ}{{10}{4}{Path Following with GVF}{equation.4.10}{}}
-\newlabel{eq:potentialFunctionGrad}{{11}{4}{Path Following with GVF}{equation.4.11}{}}
-\newlabel{eq:circStraightPart2}{{12}{5}{Path Following with GVF}{equation.4.12}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Plane intersection\relax }}{5}{figure.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {IV.A}Optimal Avoidance Route for Straight Path}{5}{subsection.4.1}}
+\newlabel{eq:turnRadius}{{12}{5}{Optimal Avoidance Route for Straight Path}{equation.4.12}{}}
+\newlabel{eq:optPathXtilde}{{13}{5}{Optimal Avoidance Route for Straight Path}{equation.4.13}{}}
+\newlabel{eq:optPathXhat}{{14}{5}{Optimal Avoidance Route for Straight Path}{equation.4.14}{}}
+\newlabel{eq:optPath}{{15}{5}{Optimal Avoidance Route for Straight Path}{equation.4.15}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Optimal Kinematic Path Around Circular Obstacle\relax }}{5}{figure.1}}
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
-\newlabel{fig:planeIntersection}{{1}{5}{Plane intersection\relax }{figure.1}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces GVF converging and a) H=1 b) H=5\relax }}{6}{figure.2}}
-\newlabel{fig:GVFLine}{{2}{6}{GVF converging and a) H=1 b) H=5\relax }{figure.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {IV.B}Avoidance}{6}{subsection.4.2}}
-\newlabel{eq:alphaCylinder}{{13}{6}{Avoidance}{equation.4.13}{}}
-\newlabel{eq:vcirc_circle}{{19}{6}{Avoidance}{equation.4.19}{}}
-\newlabel{eq:decay}{{20}{7}{Avoidance}{equation.4.20}{}}
-\newlabel{eq:range}{{21}{7}{Avoidance}{equation.4.21}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Repulsive GVF a) no circulation and b) with circulation\relax }}{7}{figure.3}}
-\newlabel{fig:decayApplied}{{3}{7}{Repulsive GVF a) no circulation and b) with circulation\relax }{figure.3}{}}
-\newlabel{eq:totalGuidanceObstacle}{{22}{7}{Avoidance}{equation.4.22}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {IV.C}Singularity Detection}{7}{subsection.4.3}}
-\newlabel{eq:singularityCondition}{{23}{7}{Singularity Detection}{equation.4.23}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {IV.D}Static Modified Weights}{8}{subsection.4.4}}
-\newlabel{eq:n}{{24}{8}{Static Modified Weights}{equation.4.24}{}}
-\newlabel{eq:k}{{25}{8}{Static Modified Weights}{equation.4.25}{}}
-\newlabel{eq:staticCost}{{26}{8}{Static Modified Weights}{equation.4.26}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Repulsive and Circulating VF Guidance UAV Route\relax }}{8}{figure.4}}
-\newlabel{fig:noCircVsCirc}{{4}{8}{Repulsive and Circulating VF Guidance UAV Route\relax }{figure.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {IV.E}Optimal Avoidance Route for Straight Path}{8}{subsection.4.5}}
-\citation{frew_cooperative_2007,griffiths_vector_2006,nelson_cooperative_2005,nelson_vector_2006,nelson_vector_2007}
+\newlabel{fig:optimalpath}{{1}{5}{Optimal Kinematic Path Around Circular Obstacle\relax }{figure.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {IV.B}Path Following with GVF}{5}{subsection.4.2}}
+\newlabel{eq:pathFunction}{{16}{6}{Path Following with GVF}{equation.4.16}{}}
+\newlabel{eq:pathFunctionZ}{{17}{6}{Path Following with GVF}{equation.4.17}{}}
+\newlabel{eq:potentialFunctionGrad}{{18}{6}{Path Following with GVF}{equation.4.18}{}}
+\newlabel{eq:circStraightPart2}{{19}{6}{Path Following with GVF}{equation.4.19}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Plane intersection\relax }}{6}{figure.2}}
+\newlabel{fig:planeIntersection}{{2}{6}{Plane intersection\relax }{figure.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces GVF converging and a) H=1 b) H=5\relax }}{7}{figure.3}}
+\newlabel{fig:GVFLine}{{3}{7}{GVF converging and a) H=1 b) H=5\relax }{figure.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {IV.C}Avoidance}{7}{subsection.4.3}}
+\newlabel{eq:alphaCylinder}{{20}{7}{Avoidance}{equation.4.20}{}}
+\newlabel{eq:vcirc_circle}{{26}{7}{Avoidance}{equation.4.26}{}}
+\newlabel{eq:decay}{{27}{8}{Avoidance}{equation.4.27}{}}
+\newlabel{eq:range}{{28}{8}{Avoidance}{equation.4.28}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Repulsive GVF a) no circulation and b) with circulation\relax }}{8}{figure.4}}
+\newlabel{fig:decayApplied}{{4}{8}{Repulsive GVF a) no circulation and b) with circulation\relax }{figure.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {IV.D}Singularity Detection}{8}{subsection.4.4}}
+\newlabel{eq:singularityCondition}{{29}{8}{Singularity Detection}{equation.4.29}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {IV.E}Static Modified Weights}{8}{subsection.4.5}}
 \citation{borenstein_real-time_1990}
-\newlabel{eq:turnRadius}{{28}{9}{Optimal Avoidance Route for Straight Path}{equation.4.28}{}}
-\newlabel{eq:optPathXtilde}{{29}{9}{Optimal Avoidance Route for Straight Path}{equation.4.29}{}}
-\newlabel{eq:optPathXhat}{{30}{9}{Optimal Avoidance Route for Straight Path}{equation.4.30}{}}
-\newlabel{eq:optPath}{{31}{9}{Optimal Avoidance Route for Straight Path}{equation.4.31}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Optimal Kinematic Path Around Circular Obstacle\relax }}{9}{figure.5}}
-\newlabel{fig:optimalpath}{{5}{9}{Optimal Kinematic Path Around Circular Obstacle\relax }{figure.5}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {IV.F}Dubins Model}{9}{subsection.4.6}}
-\newlabel{eq:uavVelocity}{{32}{9}{Dubins Model}{equation.4.32}{}}
-\newlabel{eq:uavPosition}{{33}{9}{Dubins Model}{equation.4.33}{}}
-\newlabel{turnRate}{{34}{9}{Dubins Model}{equation.4.34}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {V}Simulations}{10}{section.5}}
+\newlabel{eq:m}{{30}{9}{Static Modified Weights}{equation.4.30}{}}
+\newlabel{eq:k}{{31}{9}{Static Modified Weights}{equation.4.31}{}}
+\newlabel{eq:staticCost}{{32}{9}{Static Modified Weights}{equation.4.32}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Repulsive and Circulating VF Guidance UAV Route\relax }}{9}{figure.5}}
+\newlabel{fig:noCircVsCirc}{{5}{9}{Repulsive and Circulating VF Guidance UAV Route\relax }{figure.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {V}Simulations}{9}{section.5}}
 \@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Path of UAV guided by guidance methods\relax }}{10}{figure.6}}
 \newlabel{fig:comparemethods}{{6}{10}{Path of UAV guided by guidance methods\relax }{figure.6}{}}
-\newlabel{fig:barPlotCost}{{\caption@xref {fig:barPlotCost}{ on input line 915}}{10}{Simulations}{figure.6}{}}
+\newlabel{fig:barPlotCost}{{\caption@xref {fig:barPlotCost}{ on input line 911}}{10}{Simulations}{figure.6}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Cost performance for various UAV guidance methods\relax }}{10}{figure.7}}
 \newlabel{fig:barplotperformance}{{7}{10}{Cost performance for various UAV guidance methods\relax }{figure.7}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {VI}Conclusion}{10}{section.6}}
 \bibdata{bib}
-\bibcite{ariyur_autonomous_2008}{{1}{2008}{{Ariyur and Fregene}}{{}}}
-\bibcite{teuliere_chasing_2011}{{2}{2011}{{Teuliere et~al.}}{{Teuliere, Eck, and Marchand}}}
-\bibcite{borenstein_real-time_1990}{{3}{1990}{{Borenstein and Koren}}{{}}}
-\bibcite{borenstein_vector_1991}{{4}{1991}{{Borenstein and Koren}}{{}}}
-\bibcite{frew_cooperative_2007}{{5}{2007}{{Frew}}{{}}}
-\bibcite{griffiths_vector_2006}{{6}{2006}{{Griffiths}}{{}}}
-\bibcite{goncalves_artificial_2009}{{7}{2009}{{Goncalves et~al.}}{{Goncalves, Pimenta, Maia, and Pereira}}}
-\bibcite{goncalves_circulation_2010}{{8}{2010{}}{{Gon\IeC {\c c}alves et~al.}}{{Gon\IeC {\c c}alves, Pimenta, Maia, Pereira, Dutra, Michael, Fink, and Kumar}}}
-\bibcite{goncalves_vector_2010}{{9}{2010{}}{{Gon\IeC {\c c}alves et~al.}}{{Gon\IeC {\c c}alves, Pimenta, Maia, Dutra, and Pereira}}}
-\bibcite{koren_potential_1991}{{10}{1991}{{Koren and Borenstein}}{{}}}
-\@writefile{toc}{\contentsline {section}{\numberline {VI}Conclusion}{11}{section.6}}
+\bibcite{fernandez_galarreta_uav-based_2015}{{1}{2015}{{Fernandez~Galarreta et~al.}}{{Fernandez~Galarreta, Kerle, and Gerke}}}
+\bibcite{remondino_uav_2012}{{2}{2012}{{Remondino et~al.}}{{Remondino, Barazzetti, Nex, Scaioni, and Sarazzi}}}
+\bibcite{frew_cooperative_2007}{{3}{2007}{{Frew}}{{}}}
+\bibcite{oh_coordinated_2013}{{4}{2013}{{Oh et~al.}}{{Oh, Kim, Shin, Tsourdos, and White}}}
+\bibcite{hyondong_oh_coordinated_2015}{{5}{2015}{{{Hyondong Oh} et~al.}}{{{Hyondong Oh}, {Seungkeun Kim}, {Hyo-sang Shin}, and Tsourdos}}}
+\bibcite{oliveira_moving_2016}{{6}{2016}{{Oliveira et~al.}}{{Oliveira, Aguiar, and Encarnacao}}}
+\bibcite{borenstein_real-time_1990}{{7}{1990}{{Borenstein and Koren}}{{}}}
+\bibcite{borenstein_vector_1991}{{8}{1991}{{Borenstein and Koren}}{{}}}
+\bibcite{griffiths_vector_2006}{{9}{2006}{{Griffiths}}{{}}}
+\bibcite{goncalves_artificial_2009}{{10}{2009}{{Goncalves et~al.}}{{Goncalves, Pimenta, Maia, and Pereira}}}
 \@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Obstacle Avoidance Method's Performance Summary \relax }}{11}{table.caption.1}}
 \newlabel{table}{{1}{11}{Obstacle Avoidance Method's Performance Summary \relax }{table.caption.1}{}}
-\bibcite{pix}{{11}{2018}{{DroneCode}}{{}}}
-\bibcite{khatib_real-time_1986}{{12}{1986}{{Khatib}}{{}}}
-\bibcite{rimon_exact_1992}{{13}{1992}{{Rimon}}{{}}}
-\bibcite{liu_virtual-waypoint_2016}{{14}{2016}{{Liu and Zhao}}{{}}}
-\bibcite{kim_escaping_2009}{{15}{2009}{{Kim}}{{}}}
-\bibcite{goerzen_survey_2010}{{16}{2010}{{Goerzen et~al.}}{{Goerzen, Kong, and Mettler}}}
-\bibcite{lei_tang_novel_2010}{{17}{2010}{{{Lei Tang} et~al.}}{{{Lei Tang}, {Songyi Dian}, {Gangxu Gu}, {Kunli Zhou}, {Suihe Wang}, and {Xinghuan Feng}}}}
-\bibcite{li_efficient_2012}{{18}{2012}{{Li et~al.}}{{Li, Yamashita, Asama, and Tamura}}}
-\bibcite{sujit_unmanned_2014}{{19}{2014}{{Sujit et~al.}}{{Sujit, Saripalli, and Sousa}}}
-\bibcite{nelson_cooperative_2005}{{20}{2005}{{Nelson}}{{}}}
-\bibcite{nelson_vector_2006}{{21}{2006}{{Nelson et~al.}}{{Nelson, Barber, McLain, and Beard}}}
-\bibcite{nelson_vector_2007}{{22}{2007}{{Nelson et~al.}}{{Nelson, Barber, McLain, and Beard}}}
-\bibcite{miao_orthogonal_2016}{{23}{2016}{{Miao et~al.}}{{Miao, Thakur, Erwin, Pierre, Wang, and Fierro}}}
-\bibcite{gerlach_autonomous_2014}{{24}{2014}{{Gerlach}}{{}}}
-\bibcite{jung_unmanned_2016}{{25}{2016}{{Jung et~al.}}{{Jung, Lim, Lee, and Bang}}}
-\bibcite{panagou_motion_2014}{{26}{2014}{{Panagou}}{{}}}
+\bibcite{goncalves_circulation_2010}{{11}{2010{}}{{Gon\IeC {\c c}alves et~al.}}{{Gon\IeC {\c c}alves, Pimenta, Maia, Pereira, Dutra, Michael, Fink, and Kumar}}}
+\bibcite{goncalves_vector_2010}{{12}{2010{}}{{Gon\IeC {\c c}alves et~al.}}{{Gon\IeC {\c c}alves, Pimenta, Maia, Dutra, and Pereira}}}
+\bibcite{piccolo}{{13}{2018}{{Technology}}{{}}}
+\bibcite{kestrel}{{14}{2018}{{Martin}}{{}}}
+\bibcite{pix}{{15}{2018}{{DroneCode}}{{}}}
+\bibcite{khatib_real-time_1986}{{16}{1986}{{Khatib}}{{}}}
+\bibcite{rimon_exact_1992}{{17}{1992}{{Rimon}}{{}}}
+\bibcite{koren_potential_1991}{{18}{1991}{{Koren and Borenstein}}{{}}}
+\bibcite{liu_virtual-waypoint_2016}{{19}{2016}{{Liu and Zhao}}{{}}}
+\bibcite{kim_escaping_2009}{{20}{2009}{{Kim}}{{}}}
+\bibcite{goerzen_survey_2010}{{21}{2010}{{Goerzen et~al.}}{{Goerzen, Kong, and Mettler}}}
+\bibcite{lei_tang_novel_2010}{{22}{2010}{{{Lei Tang} et~al.}}{{{Lei Tang}, {Songyi Dian}, {Gangxu Gu}, {Kunli Zhou}, {Suihe Wang}, and {Xinghuan Feng}}}}
+\bibcite{li_efficient_2012}{{23}{2012}{{Li et~al.}}{{Li, Yamashita, Asama, and Tamura}}}
+\bibcite{sujit_unmanned_2014}{{24}{2014}{{Sujit et~al.}}{{Sujit, Saripalli, and Sousa}}}
+\bibcite{nelson_cooperative_2005}{{25}{2005}{{Nelson}}{{}}}
+\bibcite{nelson_vector_2006}{{26}{2006}{{Nelson et~al.}}{{Nelson, Barber, McLain, and Beard}}}
+\bibcite{nelson_vector_2007}{{27}{2007}{{Nelson et~al.}}{{Nelson, Barber, McLain, and Beard}}}
+\bibcite{miao_orthogonal_2016}{{28}{2016}{{Miao et~al.}}{{Miao, Thakur, Erwin, Pierre, Wang, and Fierro}}}
+\bibcite{gerlach_autonomous_2014}{{29}{2014}{{Gerlach}}{{}}}
+\bibcite{jung_unmanned_2016}{{30}{2016}{{Jung et~al.}}{{Jung, Lim, Lee, and Bang}}}
+\bibcite{panagou_motion_2014}{{31}{2014}{{Panagou}}{{}}}

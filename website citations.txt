@@ -5,3 +5,24 @@
   url = {https://docs.px4.io/en/flight_controller/pixhawk.html},
   urldate = {2018-05-22}
 }
+
+
+@online{kestrel,
+  author = {Lockheed Martin},
+  title = {{Kestral Flight Systems & Autopilot}},
+  year = 2018,
+  url = {https://www.lockheedmartin.com/en-us/products/procerus-technologies/kestrel.html},
+  urldate = {2018-05-25}
+}
+
+
+
+@online{piccolo,
+  author = {Cloud Cap Technology},
+  title = {{}},
+  year = 2018,
+  url = {http://www.cloudcaptech.com/},
+  urldate = {2018-05-28}
+}
+
+
