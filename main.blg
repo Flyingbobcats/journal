@@ -2,15 +2,17 @@ This is BibTeX, Version 0.99dThe top-level auxiliary file: main.aux
 The style file: new-aiaa.bst
 Database file #1: bib.bib
 Warning--entry type for "pix" isn't style-file defined
---line 532 of file bib.bib
+--line 571 of file bib.bib
 Warning--entry type for "piccolo" isn't style-file defined
---line 542 of file bib.bib
+--line 581 of file bib.bib
 Warning--entry type for "kestrel" isn't style-file defined
---line 551 of file bib.bib
+--line 590 of file bib.bib
+Warning--empty booktitle in osborne_waypoint_2005
+Warning--empty pages in osborne_waypoint_2005
 Warning--empty booktitle in griffiths_vector_2006
 Warning--empty pages in griffiths_vector_2006
 Warning--empty booktitle in goncalves_artificial_2009
 Warning--empty booktitle in lei_tang_novel_2010
 Warning--empty booktitle in li_efficient_2012
 Warning--empty journal in nelson_cooperative_2005
-(There were 9 warnings)
+(There were 11 warnings)

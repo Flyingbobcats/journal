@@ -1,4 +1,4 @@
-\begin{thebibliography}{31}
+\begin{thebibliography}{35}
 \newcommand{\enquote}[1]{``#1''}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
@@ -61,6 +61,29 @@ Oliveira, T., Aguiar, A.~P., and Encarnacao, P., \enquote{Moving {Path}
 \newblock \doi{10.1109/TRO.2016.2593044},
   \urlprefix\url{http://ieeexplore.ieee.org/document/7553466/}.
 
+\bibitem[{Osborne and Rysdyk(2005)}]{osborne_waypoint_2005}
+Osborne, J., and Rysdyk, R., \enquote{Waypoint {Guidance} for {Small} {UAVs} in
+  {Wind},} American Institute of Aeronautics and Astronautics, 2005.
+\newblock \doi{10.2514/6.2005-6951},
+  \urlprefix\url{http://arc.aiaa.org/doi/10.2514/6.2005-6951}.
+
+\bibitem[{Rhee et~al.(2010)Rhee, Park, and Ryoo}]{rhee2010tight}
+Rhee, I., Park, S., and Ryoo, C.-K., \enquote{A tight path following algorithm
+  of an UAS based on PID control,} \emph{SICE Annual Conference 2010,
+  Proceedings of}, IEEE, 2010, pp. 1270--1273.
+
+\bibitem[{Park et~al.(2007)Park, Deyst, and How}]{park2007performance}
+Park, S., Deyst, J., and How, J.~P., \enquote{Performance and lyapunov
+  stability of a nonlinear path following guidance method,} \emph{Journal of
+  Guidance, Control, and Dynamics}, Vol.~30, No.~6, 2007, pp. 1718--1728.
+
+\bibitem[{Ratnoo et~al.(2011)Ratnoo, Sujit, and Kothari}]{ratnoo_adaptive_2011}
+Ratnoo, A., Sujit, P., and Kothari, M., \enquote{Adaptive {Optimal} {Path}
+  {Following} for {High} {Wind} {Flights},} \emph{IFAC Proceedings Volumes},
+  Vol.~44, No.~1, 2011, pp. 12985--12990.
+\newblock \doi{10.3182/20110828-6-IT-1002.03720},
+  \urlprefix\url{http://linkinghub.elsevier.com/retrieve/pii/S147466701645706X}.
+
 \bibitem[{Borenstein and Koren(1990)}]{borenstein_real-time_1990}
 Borenstein, J., and Koren, Y., \enquote{Real-time obstacle avoidance for fast
   mobile robots in cluttered environments,} \emph{Robotics and {Automation},
@@ -106,6 +129,13 @@ Gonçalves, V.~M., Pimenta, L.~C., Maia, C.~A., Dutra, B.~C., and Pereira,
 \newblock
   \urlprefix\url{http://ieeexplore.ieee.org/abstract/document/5504176/}.
 
+\bibitem[{Khatib(1986)}]{khatib_real-time_1986}
+Khatib, O., \enquote{Real-time obstacle avoidance for manipulators and mobile
+  robots,} \emph{The international journal of robotics research}, Vol.~5,
+  No.~1, 1986, pp. 90--98.
+\newblock
+  \urlprefix\url{http://journals.sagepub.com/doi/abs/10.1177/027836498600500106}.
+
 \bibitem[{Technology(2018)}]{piccolo}
 Technology, C.~C., \enquote{{},} , 2018.
 \newblock \urlprefix\url{http://www.cloudcaptech.com/}.
@@ -119,13 +149,6 @@ Martin, L., \enquote{{Kestral Flight Systems And Autopilot},} , 2018.
 DroneCode, \enquote{{Pixhawk 1 Flight Controller} Guide,} , 2018.
 \newblock
   \urlprefix\url{https://docs.px4.io/en/flight_controller/pixhawk.html}.
-
-\bibitem[{Khatib(1986)}]{khatib_real-time_1986}
-Khatib, O., \enquote{Real-time obstacle avoidance for manipulators and mobile
-  robots,} \emph{The international journal of robotics research}, Vol.~5,
-  No.~1, 1986, pp. 90--98.
-\newblock
-  \urlprefix\url{http://journals.sagepub.com/doi/abs/10.1177/027836498600500106}.
 
 \bibitem[{Rimon(1992)}]{rimon_exact_1992}
 Rimon, E., \enquote{Exact {Robot} {Navigation} {Using} {Artificial} {Potential}

@@ -1,28 +1,47 @@
+
 @online{pix,
-  author = {DroneCode},
-  title = {{Pixhawk 1 Flight Controller} Guide},
-  year = 2018,
-  url = {https://docs.px4.io/en/flight_controller/pixhawk.html},
-  urldate = {2018-05-22}
-}
-
-
-@online{kestrel,
-  author = {Lockheed Martin},
-  title = {{Kestral Flight Systems & Autopilot}},
-  year = 2018,
-  url = {https://www.lockheedmartin.com/en-us/products/procerus-technologies/kestrel.html},
-  urldate = {2018-05-25}
+	author = {DroneCode},
+	title = {{Pixhawk 1 Flight Controller} Guide},
+	year = 2018,
+	url = {https://docs.px4.io/en/flight_controller/pixhawk.html},
+	urldate = {2018-05-22}
 }
 
 
 
 @online{piccolo,
-  author = {Cloud Cap Technology},
-  title = {{}},
-  year = 2018,
-  url = {http://www.cloudcaptech.com/},
-  urldate = {2018-05-28}
+	author = {Cloud Cap Technology},
+	title = {{}},
+	year = 2018,
+	url = {http://www.cloudcaptech.com/},
+	urldate = {2018-05-28}
 }
 
+
+@online{kestrel,
+	author = {Lockheed Martin},
+	title = {{Kestral Flight Systems And Autopilot}},
+	year = 2018,
+	url = {https://www.lockheedmartin.com/en-us/products/procerus-technologies/kestrel.html},
+	urldate = {2018-05-25}
+}
+
+@inproceedings{rhee2010tight,
+	title={A tight path following algorithm of an UAS based on PID control},
+	author={Rhee, Ihnseok and Park, Sanghyuk and Ryoo, Chang-Kyung},
+	booktitle={SICE Annual Conference 2010, Proceedings of},
+	pages={1270--1273},
+	year={2010},
+	organization={IEEE}
+}
+
+@article{park2007performance,
+	title={Performance and lyapunov stability of a nonlinear path following guidance method},
+	author={Park, Sanghyuk and Deyst, John and How, Jonathan P},
+	journal={Journal of Guidance, Control, and Dynamics},
+	volume={30},
+	number={6},
+	pages={1718--1728},
+	year={2007}
+}
 

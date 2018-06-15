@@ -109,45 +109,6 @@
 	year = {1986},
 	keywords = {Potential Field, Holonomic, Decay Function, Local Minima},
 	pages = {90--98},
-	annote = {
-Traditionally obstacle avoidance has been a high level controls problem (Esentially, don't even go in that area)
-PF lets you distribute avoidance into multiple layers of control
-PF implemented into a robotic manipulator
-Time varying Potential field for moving obstacles
-
- 
-
-Operational Space Formulation is the basis for the application of the potential field approach to robot manipulators
- 
-
-
-Paper focuses strongly on the fundamentals of the operational space formulation and the artificial potential field concept
-Lagrangian equation (minimal energy, principle of least action)
-
- 
-Artificial Potential Field Approach
-
-Presented in the context of manipulator collision avoidance
-
-
-The manipulator moves in a field of forces. The position to be reached is an attractive pole for the end effector and obstacles are repulsive surfaces for the manipulator parts
-
- 
-
-Artificial forces are applied to the manipulator from the PF, which are determined by the negative gradient
-The field, if interpreted straight up, will give both direction and magnitude. In this instance, the magnitude is limited to some v\_max, but the direction is maintained
-Obstacle field should be nonnegative, continuous, and differentiable, tend to infinity
-
- 
-
-Used a peicewise decay function (my words, not Khatib's) to limit the influence of the obstacle
-
- 
-
-Local minima can occur in the resultant potential field...this can lead to a stable positioning of the robot before reaching its goal
-
- 
- },
 	file = {Real-Time Obstacle Avoidance for Manipulators and Mobile Robots.pdf:C\:\\Users\\gc117711\\Zotero\\storage\\XMIRS9GM\\Real-Time Obstacle Avoidance for Manipulators and Mobile Robots.pdf:application/pdf}
 }
 
@@ -157,19 +118,6 @@ Local minima can occur in the resultant potential field...this can lead to a sta
 	author = {Rimon, Elon},
 	year = {1992},
 	keywords = {Potential Field, Navigation Functions, Lagrangian},
-	annote = {
-Traditional robot navigation through an environment is done in 3 distinct and separate stages
-
-    Path planning - Given geometric data and goal, find a collision-free curve connecting the initial state and desired state. Vehicle dynamics are not considered
-Given the collision free curve, find the time parameterization for the curve under certain constraints
-A controller is designed to follow the reference trajectory as closely as possible
-
-
-
- 
-
-Potential field approach combines all of the three methods into a single step
-},
 	file = {Exact Robot Navigation Using Artificial Potential Functions.pdf:C\:\\Users\\gc117711\\Zotero\\storage\\HJPP45MC\\Exact Robot Navigation Using Artificial Potential Functions.pdf:application/pdf}
 }
 
@@ -193,10 +141,6 @@ Potential field approach combines all of the three methods into a single step
 	year = {2016},
 	keywords = {Potential Field, Local Minima, Path Planning},
 	pages = {949--953},
-	annote = {
-Attractive and repulsive fields generated seperately and added together via superposition
-
-},
 	file = {A Virtual-Waypoint Based Artificial Potential Field Method for UAV Path Planning.pdf:C\:\\Users\\gc117711\\Zotero\\storage\\VC4HYAPN\\A Virtual-Waypoint Based Artificial Potential Field Method for UAV Path Planning.pdf:application/pdf}
 }
 
@@ -294,10 +238,6 @@ Attractive and repulsive fields generated seperately and added together via supe
 	month = aug,
 	year = {2006},
 	keywords = {Dubins, Vector Field, Wind, Experiment, MAV},
-	annote = {
-Objective of this paper is to present a new method for MAVs to accurately follow curved paths in the presence of wind
-
- },
 	file = {Vector Field Approach for Curved Path Following for Miniature Aerial Vehicles.pdf:C\:\\Users\\gc117711\\Zotero\\storage\\ZDRVY5NP\\Vector Field Approach for Curved Path Following for Miniature Aerial Vehicles.pdf:application/pdf}
 }
 
@@ -311,10 +251,6 @@ Objective of this paper is to present a new method for MAVs to accurately follow
 	year = {2007},
 	keywords = {Lyapunov, Dubins, Vector Field, Wind, Constant Velocity, Uncertain Target, Standoff Tracking},
 	pages = {3277--3282},
-	annote = {
-Lyapunov based vector field
-elliptical field is constructed by applying a linear transformation with a non singular matrix whose values are determined from uncertainty in target position estimate
-},
 	file = {Cooperative Standoff Tracking of Uncertain Moving Targets using active robot networks.pdf:C\:\\Users\\gc117711\\Zotero\\storage\\BIPFFV9C\\Cooperative Standoff Tracking of Uncertain Moving Targets using active robot networks.pdf:application/pdf}
 }
 
@@ -480,16 +416,6 @@ elliptical field is constructed by applying a linear transformation with a non s
 	title = {Lyapunov {Guidance} {Vector} {Fields} for {Unmanned} {Aircraft} {Applications}.pdf},
 	author = {Frew, Eric},
 	keywords = {Lyapunov, Loiter, Moving Targets, Dubins, Coordinate Transformation},
-	annote = {
-Vector field produces a globally attractive limit cycle
-(assuming they mean that the VF produces a region or line that the guidance points to)
-To account for wind, the scaling factor alpha must be modified
-Experimental flight data (notice how the path goes through the loiter circle, the guidance is just that guidance)
-
-
-
-Vector field stretched / Transformed into an elliptical or pill shape
-},
 	file = {Lyapunov Guidance Vector Fields for Unmanned Aircraft Applications.pdf:C\:\\Users\\gc117711\\Zotero\\storage\\F3NVLGGX\\Lyapunov Guidance Vector Fields for Unmanned Aircraft Applications.pdf:application/pdf}
 }
 
@@ -528,6 +454,119 @@ Vector field stretched / Transformed into an elliptical or pill shape
 	file = {Remondino et al. - 2012 - UAV PHOTOGRAMMETRY FOR MAPPING AND 3D MODELING – C.pdf:C\:\\Users\\gc117711\\Zotero\\storage\\2H4HXIHX\\Remondino et al. - 2012 - UAV PHOTOGRAMMETRY FOR MAPPING AND 3D MODELING – C.pdf:application/pdf}
 }
 
+@inproceedings{jia_parallel_2004,
+	title = {Parallel {Evolutionary} {Algorithms} for {UAV} {Path} {Planning}},
+	isbn = {978-1-62410-080-2},
+	url = {http://arc.aiaa.org/doi/10.2514/6.2004-6230},
+	doi = {10.2514/6.2004-6230},
+	abstract = {Evolutionary computation (EC) techniques have been successfully applied to compute near-optimal paths for unmanned aerial vehicles (UAVs). Premature convergence prevents evolutionary-based algorithms from reaching global optimal solutions. This often leads to unsatisfactory routes that are suboptimal to optimal path planning problems. To overcome this problem, this paper presents a framework of parallel evolutionary algorithms for UAV path planning, in which several populations evolve simultaneously and compete with each other. The parallel evolution technique provides more exploration capability to planners and significantly reduces the probability that planners are trapped in local optimal solutions.},
+	language = {en},
+	urldate = {2018-05-30},
+	publisher = {American Institute of Aeronautics and Astronautics},
+	author = {Jia, Dong and Vagners, Juris},
+	month = sep,
+	year = {2004},
+	file = {Jia and Vagners - 2004 - Parallel Evolutionary Algorithms for UAV Path Plan.pdf:C\:\\Users\\gc117711\\Zotero\\storage\\V3ZQGP76\\Jia and Vagners - 2004 - Parallel Evolutionary Algorithms for UAV Path Plan.pdf:application/pdf}
+}
+
+@inproceedings{park_new_2004,
+	title = {A {New} {Nonlinear} {Guidance} {Logic} for {Trajectory} {Tracking}},
+	isbn = {978-1-62410-073-4},
+	url = {http://arc.aiaa.org/doi/10.2514/6.2004-4900},
+	doi = {10.2514/6.2004-4900},
+	language = {en},
+	urldate = {2018-05-30},
+	publisher = {American Institute of Aeronautics and Astronautics},
+	author = {Park, Sanghyuk and Deyst, John and How, Jonathan},
+	month = aug,
+	year = {2004},
+	file = {Park et al. - 2004 - A New Nonlinear Guidance Logic for Trajectory Trac.pdf:C\:\\Users\\gc117711\\Zotero\\storage\\TH6GNGIZ\\Park et al. - 2004 - A New Nonlinear Guidance Logic for Trajectory Trac.pdf:application/pdf}
+}
+
+@article{md_simplex_2017,
+	title = {Simplex {Solutions} for {Optimal} {Control} {Flight} {Paths} in {Urban} {Environments}},
+	volume = {06},
+	issn = {21689792},
+	url = {https://www.omicsonline.org/open-access/simplex-solutions-for-optimal-control-flight-paths-in-urban-environments-2168-9792-1000197.php?aid=93708},
+	doi = {10.4172/2168-9792.1000197},
+	abstract = {This paper identifies feasible fight paths for Small Unmanned Aircraft Systems in a highly constrained environment. Optimal control software has long been used for vehicle path planning and has proven most successful when an adequate initial guess is presented flight to an optimal control solver. Leveragingfast geometric planning techniques, a large search space is discretized into a set of simplexes where a Dubins path solution is generated and contained in a polygonal search corridor free of path constraints. Direct optimal control methods are then used to determine the optimal flight path through the newly defined search corridor. Two scenarios are evaluated. The first is limited to heading rate control only, requiring the air vehicle to maintain constant speed. The second allows for velocity control which permits slower speeds, reducing the vehicles minimum turn radius and increasing the search domain. Results illustrate the benefits gained when including speed control to path planning algorithms by comparing trajectory and convergence times, resulting in a reliable, hybrid solution method to the SUAS constrained optimal control problem.},
+	language = {en},
+	number = {03},
+	urldate = {2018-05-30},
+	journal = {Journal of Aeronautics \& Aerospace Engineering},
+	author = {Md, Zollars and Rg, Cobb and Dj, Grymin},
+	year = {2017},
+	file = {Md et al. - 2017 - Simplex Solutions for Optimal Control Flight Paths.pdf:C\:\\Users\\gc117711\\Zotero\\storage\\YIM42TXF\\Md et al. - 2017 - Simplex Solutions for Optimal Control Flight Paths.pdf:application/pdf}
+}
+
+@article{wilhelm_heterogeneous_2017,
+	title = {Heterogeneous {Aerial} {Platform} {Adaptive} {Mission} {Planning} {Using} {Genetic} {Algorithms}},
+	volume = {05},
+	issn = {2301-3850, 2301-3869},
+	url = {http://www.worldscientific.com/doi/abs/10.1142/S2301385017500029},
+	doi = {10.1142/S2301385017500029},
+	language = {en},
+	number = {01},
+	urldate = {2018-05-30},
+	journal = {Unmanned Systems},
+	author = {Wilhelm, Jay and Rojas, Jonathan and Eberhart, Gina and Perhinschi, Mario},
+	month = jan,
+	year = {2017},
+	pages = {19--30},
+	file = {Wilhelm et al. - 2017 - Heterogeneous Aerial Platform Adaptive Mission Pla.pdf:C\:\\Users\\gc117711\\Zotero\\storage\\UNALTR7M\\Wilhelm et al. - 2017 - Heterogeneous Aerial Platform Adaptive Mission Pla.pdf:application/pdf}
+}
+
+@inproceedings{osborne_waypoint_2005,
+	title = {Waypoint {Guidance} for {Small} {UAVs} in {Wind}},
+	isbn = {978-1-62410-069-7},
+	url = {http://arc.aiaa.org/doi/10.2514/6.2005-6951},
+	doi = {10.2514/6.2005-6951},
+	language = {en},
+	urldate = {2018-06-15},
+	publisher = {American Institute of Aeronautics and Astronautics},
+	author = {Osborne, John and Rysdyk, Rolf},
+	month = sep,
+	year = {2005},
+	file = {Osborne and Rysdyk - 2005 - Waypoint Guidance for Small UAVs in Wind.pdf:C\:\\Users\\gc117711\\Zotero\\storage\\XZEESCTY\\Osborne and Rysdyk - 2005 - Waypoint Guidance for Small UAVs in Wind.pdf:application/pdf}
+}
+
+@article{ratnoo_adaptive_2011,
+	title = {Adaptive {Optimal} {Path} {Following} for {High} {Wind} {Flights}},
+	volume = {44},
+	issn = {14746670},
+	url = {http://linkinghub.elsevier.com/retrieve/pii/S147466701645706X},
+	doi = {10.3182/20110828-6-IT-1002.03720},
+	abstract = {Unmanned aerial vehicle path following is addressed as an inﬁnite horizon regulator problem. Using the linear quadratic regulator technique an optimal guidance law is derived. The state weighting matrix is chosen as a function of the position error and this adaptive nature of the cost function controls the UAV errors tightly. Numerical simulations are carried out for straight line and circular paths under various wind conditions. Results show considerably lower position errors as compared to an existing guidance law. Path following with winds up to half the vehicle airspeed is achieved.},
+	language = {en},
+	number = {1},
+	urldate = {2018-06-15},
+	journal = {IFAC Proceedings Volumes},
+	author = {Ratnoo, Ashwini and Sujit, P.B. and Kothari, Mangal},
+	month = jan,
+	year = {2011},
+	pages = {12985--12990},
+	file = {Ratnoo et al. - 2011 - Adaptive Optimal Path Following for High Wind Flig.pdf:C\:\\Users\\gc117711\\Zotero\\storage\\PWRNNZBS\\Ratnoo et al. - 2011 - Adaptive Optimal Path Following for High Wind Flig.pdf:application/pdf}
+}
+
+@article{goerzen_survey_2010-1,
+	title = {A {Survey} of {Motion} {Planning} {Algorithms} from the {Perspective} of {Autonomous} {UAV} {Guidance}},
+	volume = {57},
+	issn = {0921-0296, 1573-0409},
+	url = {http://link.springer.com/10.1007/s10846-009-9383-1},
+	doi = {10.1007/s10846-009-9383-1},
+	abstract = {A fundamental aspect of autonomous vehicle guidance is planning trajectories. Historically, two ﬁelds have contributed to trajectory or motion planning methods: robotics and dynamics and control. The former typically have a stronger focus on computational issues and real-time robot control, while the latter emphasize the dynamic behavior and more speciﬁc aspects of trajectory performance. Guidance for Unmanned Aerial Vehicles (UAVs), including ﬁxed- and rotary-wing aircraft, involves signiﬁcant differences from most traditionally deﬁned mobile and manipulator robots. Qualities characteristic to UAVs include non-trivial dynamics, three-dimensional environments, disturbed operating conditions, and high levels of uncertainty in state knowledge. Otherwise, UAV guidance shares qualities with typical robotic motion planning problems, including partial knowledge of the environment and tasks that can range from basic goal interception, which can be precisely speciﬁed, to more general tasks like surveillance and reconnaissance, which are harder to specify. These basic planning problems involve continual interaction with the environment. The purpose of this paper is to provide an overview of existing motion planning algorithms while adding perspectives and practical examples from UAV guidance approaches.},
+	language = {en},
+	number = {1-4},
+	urldate = {2018-06-15},
+	journal = {Journal of Intelligent and Robotic Systems},
+	author = {Goerzen, C. and Kong, Z. and Mettler, B.},
+	month = jan,
+	year = {2010},
+	pages = {65--100},
+	file = {Goerzen et al. - 2010 - A Survey of Motion Planning Algorithms from the Pe.pdf:C\:\\Users\\gc117711\\Zotero\\storage\\8ARRSN43\\Goerzen et al. - 2010 - A Survey of Motion Planning Algorithms from the Pe.pdf:application/pdf}
+}
+
+
 
 @online{pix,
 	author = {DroneCode},
@@ -555,3 +594,23 @@ Vector field stretched / Transformed into an elliptical or pill shape
 	url = {https://www.lockheedmartin.com/en-us/products/procerus-technologies/kestrel.html},
 	urldate = {2018-05-25}
 }
+
+@inproceedings{rhee2010tight,
+	title={A tight path following algorithm of an UAS based on PID control},
+	author={Rhee, Ihnseok and Park, Sanghyuk and Ryoo, Chang-Kyung},
+	booktitle={SICE Annual Conference 2010, Proceedings of},
+	pages={1270--1273},
+	year={2010},
+	organization={IEEE}
+}
+
+@article{park2007performance,
+	title={Performance and lyapunov stability of a nonlinear path following guidance method},
+	author={Park, Sanghyuk and Deyst, John and How, Jonathan P},
+	journal={Journal of Guidance, Control, and Dynamics},
+	volume={30},
+	number={6},
+	pages={1718--1728},
+	year={2007}
+}
+
