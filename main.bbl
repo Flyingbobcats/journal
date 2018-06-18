@@ -150,6 +150,34 @@ DroneCode, \enquote{{Pixhawk 1 Flight Controller} Guide,} , 2018.
 \newblock
   \urlprefix\url{https://docs.px4.io/en/flight_controller/pixhawk.html}.
 
+\bibitem[{Goerzen et~al.(2010)Goerzen, Kong, and Mettler}]{goerzen_survey_2010}
+Goerzen, C., Kong, Z., and Mettler, B., \enquote{A {Survey} of {Motion}
+  {Planning} {Algorithms} from the {Perspective} of {Autonomous} {UAV}
+  {Guidance},} \emph{Journal of Intelligent and Robotic Systems}, Vol.~57, No.
+  1-4, 2010, pp. 65--100.
+\newblock \doi{10.1007/s10846-009-9383-1},
+  \urlprefix\url{http://link.springer.com/10.1007/s10846-009-9383-1}.
+
+\bibitem[{Nelson(2005)}]{nelson_cooperative_2005}
+Nelson, D.~R., \enquote{Cooperative control of miniature air vehicles,} 2005.
+\newblock \urlprefix\url{http://scholarsarchive.byu.edu/etd/1095/}.
+
+\bibitem[{Nelson et~al.(2006)Nelson, Barber, McLain, and
+  Beard}]{nelson_vector_2006}
+Nelson, D.~R., Barber, D.~B., McLain, T.~W., and Beard, R.~W., \enquote{Vector
+  field path following for small unmanned air vehicles,} \emph{American
+  {Control} {Conference}, 2006}, IEEE, 2006, pp. 7--pp.
+\newblock
+  \urlprefix\url{http://ieeexplore.ieee.org/abstract/document/1657648/}.
+
+\bibitem[{Nelson et~al.(2007)Nelson, Barber, McLain, and
+  Beard}]{nelson_vector_2007}
+Nelson, D., Barber, D., McLain, T., and Beard, R., \enquote{Vector {Field}
+  {Path} {Following} for {Miniature} {Air} {Vehicles},} \emph{IEEE Transactions
+  on Robotics}, Vol.~23, No.~3, 2007, pp. 519--529.
+\newblock \doi{10.1109/TRO.2007.898976},
+  \urlprefix\url{http://ieeexplore.ieee.org/document/4252175/}.
+
 \bibitem[{Rimon(1992)}]{rimon_exact_1992}
 Rimon, E., \enquote{Exact {Robot} {Navigation} {Using} {Artificial} {Potential}
   {Functions}.pdf,} , 1992.
@@ -174,14 +202,6 @@ Kim, D.~H., \enquote{Escaping route method for a trap situation in local path
 \newblock \doi{10.1007/s12555-009-0320-7},
   \urlprefix\url{http://link.springer.com/10.1007/s12555-009-0320-7}.
 
-\bibitem[{Goerzen et~al.(2010)Goerzen, Kong, and Mettler}]{goerzen_survey_2010}
-Goerzen, C., Kong, Z., and Mettler, B., \enquote{A {Survey} of {Motion}
-  {Planning} {Algorithms} from the {Perspective} of {Autonomous} {UAV}
-  {Guidance},} \emph{Journal of Intelligent and Robotic Systems}, Vol.~57, No.
-  1-4, 2010, pp. 65--100.
-\newblock \doi{10.1007/s10846-009-9383-1},
-  \urlprefix\url{http://link.springer.com/10.1007/s10846-009-9383-1}.
-
 \bibitem[{{Lei Tang} et~al.(2010){Lei Tang}, {Songyi Dian}, {Gangxu Gu}, {Kunli
   Zhou}, {Suihe Wang}, and {Xinghuan Feng}}]{lei_tang_novel_2010}
 {Lei Tang}, {Songyi Dian}, {Gangxu Gu}, {Kunli Zhou}, {Suihe Wang}, and
@@ -204,26 +224,6 @@ Sujit, P., Saripalli, S., and Sousa, J.~B., \enquote{Unmanned {Aerial}
   Vol.~34, No.~1, 2014, pp. 42--59.
 \newblock \doi{10.1109/MCS.2013.2287568},
   \urlprefix\url{http://ieeexplore.ieee.org/document/6712082/}.
-
-\bibitem[{Nelson(2005)}]{nelson_cooperative_2005}
-Nelson, D.~R., \enquote{Cooperative control of miniature air vehicles,} 2005.
-\newblock \urlprefix\url{http://scholarsarchive.byu.edu/etd/1095/}.
-
-\bibitem[{Nelson et~al.(2006)Nelson, Barber, McLain, and
-  Beard}]{nelson_vector_2006}
-Nelson, D.~R., Barber, D.~B., McLain, T.~W., and Beard, R.~W., \enquote{Vector
-  field path following for small unmanned air vehicles,} \emph{American
-  {Control} {Conference}, 2006}, IEEE, 2006, pp. 7--pp.
-\newblock
-  \urlprefix\url{http://ieeexplore.ieee.org/abstract/document/1657648/}.
-
-\bibitem[{Nelson et~al.(2007)Nelson, Barber, McLain, and
-  Beard}]{nelson_vector_2007}
-Nelson, D., Barber, D., McLain, T., and Beard, R., \enquote{Vector {Field}
-  {Path} {Following} for {Miniature} {Air} {Vehicles},} \emph{IEEE Transactions
-  on Robotics}, Vol.~23, No.~3, 2007, pp. 519--529.
-\newblock \doi{10.1109/TRO.2007.898976},
-  \urlprefix\url{http://ieeexplore.ieee.org/document/4252175/}.
 
 \bibitem[{Miao et~al.(2016)Miao, Thakur, Erwin, Pierre, Wang, and
   Fierro}]{miao_orthogonal_2016}
